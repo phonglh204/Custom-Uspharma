@@ -100,6 +100,7 @@ Module DirMain
         End If
     End Sub
 
+
     Private Sub Delete()
         Dim str As String = Nothing
         If (Not oDirFormLib.oDir.ob.CurDataRow Is Nothing) Then
