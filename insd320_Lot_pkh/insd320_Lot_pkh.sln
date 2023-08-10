@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "insd320_Lot_pkh", "insd320_Lot_pkh.vbproj", "{62DEDFE2-FAB9-4BC6-8625-1C5C5D498DA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62DEDFE2-FAB9-4BC6-8625-1C5C5D498DA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62DEDFE2-FAB9-4BC6-8625-1C5C5D498DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62DEDFE2-FAB9-4BC6-8625-1C5C5D498DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62DEDFE2-FAB9-4BC6-8625-1C5C5D498DA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5DFD17E-61CC-4C9C-AB13-DD71C5CF9408}
+	EndGlobalSection
+EndGlobal

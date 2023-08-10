@@ -1,0 +1,32 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "inbk3_dk", "inbk3_dk.vbproj", "{1B7E293D-F059-4BE2-8092-400473F6C347}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B7E293D-F059-4BE2-8092-400473F6C347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B7E293D-F059-4BE2-8092-400473F6C347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B7E293D-F059-4BE2-8092-400473F6C347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B7E293D-F059-4BE2-8092-400473F6C347}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10173A21-6382-44F1-8D1A-C9618D87ACC0}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://phonglh.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = inbk3_dk.vbproj
+		SccLocalPath1 = .
+	EndGlobalSection
+EndGlobal
