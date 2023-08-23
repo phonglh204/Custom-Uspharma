@@ -572,6 +572,8 @@ Namespace inctpxa
             menu.MenuItems.Add(item3)
             menu.MenuItems.Add(New MenuItem("-"))
             menu.MenuItems.Add(item5)
+            menu.MenuItems.Add(New MenuItem("-"))
+            menu.MenuItems.Add(dtItem6)
             Me.txtKeyPress.Left = (-100 - Me.txtKeyPress.Width)
             Me.grdDetail.ContextMenu = menu
             Me.tpgOther.Visible = False
