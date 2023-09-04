@@ -162,6 +162,8 @@ Namespace inctpxa
                 Loop
                 If oVoucherCode = "PXE" Then
                     str4 = "ct70dk"
+                ElseIf oVoucherCode = "PXK" Then
+                    str4 = "ct70plan"
                 Else
                     str4 = "ct00,ct70"
                 End If
@@ -566,7 +568,7 @@ Namespace inctpxa
             Dim item As New MenuItem(StringType.FromObject(modVoucher.oLan.Item("201")), New EventHandler(AddressOf Me.NewItem), Shortcut.F4)
             Dim item3 As New MenuItem(StringType.FromObject(modVoucher.oLan.Item("202")), New EventHandler(AddressOf Me.DeleteItem), Shortcut.F8)
             Dim item5 As New MenuItem(StringType.FromObject(modVoucher.oLan.Item("203")), New EventHandler(AddressOf Me.ViewItem), Shortcut.F5)
-            Dim dtItem6 As New MenuItem("Clear", New EventHandler(AddressOf Me.ClearItem), Shortcut.None)
+            Dim dtItem6 As New MenuItem("Xóa các dòng đã chọn", New EventHandler(AddressOf Me.ClearItem), Shortcut.None)
             menu.MenuItems.Add(item7)
             menu.MenuItems.Add(item)
             menu.MenuItems.Add(item3)
@@ -3845,7 +3847,14 @@ Namespace inctpxa
         End Sub
 
         Private Sub WhenAddNewItem()
-            modVoucher.tblDetail.Item(Me.grdDetail.CurrentRowIndex).Item("px_gia_dd") = False
+            Try
+                modVoucher.tblDetail.Item(Me.grdDetail.CurrentRowIndex).Item("px_gia_dd") = False
+            Catch ex As Exception
+            End Try
+            Try
+                modVoucher.tblDetail.Item(Me.grdDetail.CurrentRowIndex).Item("select_del") = False
+            Catch ex As Exception
+            End Try
             modVoucher.tblDetail.Item(Me.grdDetail.CurrentRowIndex).Item("stt_rec0") = Me.GetIDItem(modVoucher.tblDetail, "0")
         End Sub
 
@@ -4535,15 +4544,24 @@ Namespace inctpxa
             If Fox.InList(oVoucher.cAction, New Object() {"New", "Edit"}) Then
                 If Msg.Question(StringType.FromObject(modVoucher.oVar.Item("m_sure_dele"))) = 1 Then
                     AllowCurrentCellChanged((Me.lAllowCurrentCellChanged), False)
-                    While modVoucher.tblDetail.Count > 0
-                        modVoucher.tblDetail.Item(modVoucher.tblDetail.Count - 1).Delete()
+                    Dim i As Integer = modVoucher.tblDetail.Count - 1
+                    'grdDetail.CurrentRowIndex = 1
+                    While i >= 0
+                        If i < modVoucher.tblDetail.Count Then
+                            If tblDetail.Item(i).Item("select_del") = True Then
+                                modVoucher.tblDetail.Item(i).Delete()
+                            End If
+                        End If
+                        i -= 1
                     End While
+                    Me.grdDetail.Refresh()
                     Me.UpdateList()
                     AllowCurrentCellChanged((Me.lAllowCurrentCellChanged), True)
-                    Me.grdDetail.Select(0)
+                    'Me.grdDetail.Select(0)
                 End If
             End If
         End Sub
+
     End Class
 End Namespace
 
