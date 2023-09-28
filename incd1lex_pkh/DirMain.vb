@@ -87,7 +87,11 @@ Namespace incd1lex
                         str = " AND " + DirMain.subQuery
                         str += Interaction.IIf((StringType.StrCmp(Strings.Trim(StringType.FromObject(curDataRow.Item("Ma_vt"))), "", False) <> 0), ObjectType.AddObj(" AND a.ma_vt = ", Sql.ConvertVS2SQLType(Strings.Trim(StringType.FromObject(curDataRow.Item("Ma_vt"))), "")), "")
                         str += Interaction.IIf((StringType.StrCmp(Strings.Trim(StringType.FromObject(curDataRow.Item("Ma_lo"))), "", False) <> 0), ObjectType.AddObj(" AND a.ma_lo = ", Sql.ConvertVS2SQLType(Strings.Trim(StringType.FromObject(curDataRow.Item("Ma_lo"))), "")), "")
-                        str += IIf(fPrint.txtMa_kho.Text = "", "", " AND a.ma_kho like '" + fPrint.txtMa_kho.Text.Trim.Replace("'", "''") + "%'")
+                        If curDataRow.Item("Ma_kho").ToString.Trim <> "" Then
+                            str += " AND a.ma_kho=" + Sql.ConvertVS2SQLType(curDataRow.Item("Ma_kho").ToString.Trim, "")
+                        Else
+                            str += IIf(fPrint.txtMa_kho.Text = "", "", " AND a.ma_kho like '" + fPrint.txtMa_kho.Text.Trim.Replace("'", "''") + "%'")
+                        End If
                         Dim str3 As String = ""
                         Dim cString As String = "sl_nhap, tien_nhap, tien_nt_n, sl_xuat, tien_xuat, tien_nt_x"
                         Dim num2 As Integer = IntegerType.FromObject(Fox.GetWordCount(cString, ","c))
@@ -101,18 +105,24 @@ Namespace incd1lex
                             End If
                             i += 1
                         Loop
-                        curDataRow = Nothing
                         Dim str2 As String = "'" + Reg.GetRegistryKey("Language") + "'"
                         str2 += ", " + Sql.ConvertVS2SQLType(DirMain.fPrint.txtDFrom.Value, "")
                         str2 += ", " + Sql.ConvertVS2SQLType(DirMain.fPrint.txtDTo.Value, "")
-                        str2 += ", " + Sql.ConvertVS2SQLType(DirMain.fPrint.txtMa_kho.Text, "")
+                        If curDataRow.Item("Ma_kho").ToString.Trim <> "" Then
+                            str2 += ", " + Sql.ConvertVS2SQLType(curDataRow.Item("Ma_kho").ToString.Trim, "")
+                        Else
+                            str2 += ", " + Sql.ConvertVS2SQLType(DirMain.fPrint.txtMa_kho.Text, "")
+                        End If
+                        str2 += ", " + Sql.ConvertVS2SQLType(curDataRow.Item("Ma_vt").ToString.Trim, "")
+                        str2 += ", " + Sql.ConvertVS2SQLType(curDataRow.Item("Ma_lo").ToString.Trim, "")
                         str2 += ", " + Sql.ConvertVS2SQLType(DirMain.fPrint.txtMa_dvcs.Text, "")
                         str2 += ", " + Sql.ConvertVS2SQLType(RuntimeHelpers.GetObjectValue(DirMain.fPrint.CbbTinh_dc.SelectedValue), "")
-                        str2 += ", " + Sql.ConvertVS2SQLType(DirMain.fPrint.txtMa_lo.Text, "")
                         str2 += ", " + Sql.ConvertVS2SQLType(RuntimeHelpers.GetObjectValue(DirMain.ReportRow.Item("cadvtables")), "")
                         str2 += ", " + Sql.ConvertVS2SQLType(RuntimeHelpers.GetObjectValue(DirMain.ReportRow.Item("cadvjoin1")), "")
                         str2 += ", " + Sql.ConvertVS2SQLType(RuntimeHelpers.GetObjectValue(DirMain.ReportRow.Item("cadvjoin2")), "")
                         str2 += ",'" + Strings.Replace(StringType.FromObject(ObjectType.AddObj(Interaction.IIf((StringType.StrCmp(Strings.Trim(DirMain.oAdvFilter.GetAdvSelectKey), "", False) = 0), "1=1", DirMain.oAdvFilter.GetAdvSelectKey), str)), "'", "''", 1, -1, CompareMethod.Binary) + "'"
+                        curDataRow = Nothing
+
                         DirMain.oDirFormDetailLib = New reportformlib("0111110001")
                         Dim oDirFormDetailLib As reportformlib = DirMain.oDirFormDetailLib
                         oDirFormDetailLib.sysConn = DirMain.sysConn

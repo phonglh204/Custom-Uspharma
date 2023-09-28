@@ -500,9 +500,12 @@ Namespace poctpd2
             Dim menu As New ContextMenu
             Dim item As New MenuItem(StringType.FromObject(modVoucher.oLan.Item("201")), New EventHandler(AddressOf Me.NewItem), Shortcut.F4)
             Dim item2 As New MenuItem(StringType.FromObject(modVoucher.oLan.Item("202")), New EventHandler(AddressOf Me.DeleteItem), Shortcut.F8)
+            Dim item6 As New MenuItem("In nhãn", New EventHandler(AddressOf Me.PrintLabel), Shortcut.F9)
             menu.MenuItems.Add(item)
             menu.MenuItems.Add(New MenuItem("-"))
             menu.MenuItems.Add(item2)
+            menu.MenuItems.Add(New MenuItem("-"))
+            menu.MenuItems.Add(item6)
             Me.txtKeyPress.Left = (-100 - Me.txtKeyPress.Width)
             Me.grdDetail.ContextMenu = menu
             ScatterMemvarBlank(Me)
@@ -2161,6 +2164,27 @@ Namespace poctpd2
             End Sub
 
         End Class
+        Private Sub PrintLabel()
+            If Not Fox.InList(oVoucher.cAction, New Object() {"New", "Edit"}) Then
+                Dim currentRowIndex As Integer = Me.grdDetail.CurrentRowIndex
+                If ((((currentRowIndex >= 0) And (currentRowIndex < modVoucher.tblDetail.Count)) AndAlso Not Me.grdDetail.EndEdit(Me.grdDetail.TableStyles.Item(0).GridColumnStyles.Item(Me.grdDetail.CurrentCell.ColumnNumber), currentRowIndex, False))) Then
+                    Dim strFile As String = Reg.GetRegistryKey("ReportDir") + "poctpd1_label.rpt"
+                    Dim view As New DataView
+                    Dim ds As New DataSet
+                    Dim tcSQL As String = "EXEC spPrintPD2Tran_Label "
+                    tcSQL += "'" + modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "'"
+                    tcSQL += ",'" + modVoucher.tblDetail.Item(currentRowIndex).Item("stt_rec0") + "'"
+                    Sql.SQLDecompressRetrieve((modVoucher.appConn), tcSQL, "cttmp", (ds))
+                    'ds.WriteXmlSchema("D:\LocalCustomer\Uspharma4.0\Rpt\poctpd1_label.xsd")
+                    Dim clsprint As New clsprint(Me, strFile, Nothing)
+                    clsprint.oRpt.SetDataSource(ds)
+
+                    clsprint.ShowReports()
+                    clsprint.oRpt.Close()
+                    ds = Nothing
+                End If
+            End If
+        End Sub
     End Class
 End Namespace
 
