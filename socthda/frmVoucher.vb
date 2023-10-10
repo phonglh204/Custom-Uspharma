@@ -4892,9 +4892,9 @@ Public Class frmVoucher
                             Return
                         End If
                     End If
-                    If tblDetail.Item(num).Item("ma_lo").ToString.Trim <> "" And IsDBNull(tblDetail.Item(num).Item("ngay_hhsd")) Then
+                    If tblDetail.Item(num).Item("ma_lo").ToString.Trim <> "" And IsDBNull(tblDetail.Item(num).Item("ngay_hhsd")) And Msg.Question("Dòng thứ " + (num + 1).ToString.Trim + ": Mã " + tblDetail.Item(num).Item("ma_vt").ToString.Trim + " là hàng hóa, dịch vụ theo lô phải có hạn dùng! Bạn có tiếp tục không?", 1) = 0 Then
                         oVoucher.isContinue = False
-                        Msg.Alert("Dòng thứ " + (num + 1).ToString.Trim + ": Mã " + tblDetail.Item(num).Item("ma_vt").ToString.Trim + " là hàng hóa, dịch vụ theo lô phải có hạn dùng!")
+                        'Msg.Alert("Dòng thứ " + (num + 1).ToString.Trim + ": Mã " + tblDetail.Item(num).Item("ma_vt").ToString.Trim + " là hàng hóa, dịch vụ theo lô phải có hạn dùng!")
                         Return
                     End If
                     num += 1
