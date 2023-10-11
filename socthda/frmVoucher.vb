@@ -4872,6 +4872,7 @@ Public Class frmVoucher
                 Dim num2 As Integer
                 Dim num14 As Integer = (tblDetail.Count - 1)
                 num = 0
+                Dim date_expired_blank_allow As Boolean = False
                 Do While (num <= num14)
                     Dim replacement As String = Strings.Trim(StringType.FromObject(tblDetail.Item(num).Item("ma_vt")))
                     If (clsfields.isEmpty(RuntimeHelpers.GetObjectValue(tblDetail.Item(num).Item("so_luong")), "N") AndAlso (ObjectType.ObjTst(Sql.GetValue((appConn), "dmvt", "gia_ton", ("ma_vt = '" & replacement & "'")), 3, False) = 0)) Then
@@ -4892,10 +4893,15 @@ Public Class frmVoucher
                             Return
                         End If
                     End If
-                    If tblDetail.Item(num).Item("ma_lo").ToString.Trim <> "" And IsDBNull(tblDetail.Item(num).Item("ngay_hhsd")) And Msg.Question("Dòng thứ " + (num + 1).ToString.Trim + ": Mã " + tblDetail.Item(num).Item("ma_vt").ToString.Trim + " là hàng hóa, dịch vụ theo lô phải có hạn dùng! Bạn có tiếp tục không?", 1) = 0 Then
-                        oVoucher.isContinue = False
-                        'Msg.Alert("Dòng thứ " + (num + 1).ToString.Trim + ": Mã " + tblDetail.Item(num).Item("ma_vt").ToString.Trim + " là hàng hóa, dịch vụ theo lô phải có hạn dùng!")
-                        Return
+                    If Not date_expired_blank_allow Then
+                        If tblDetail.Item(num).Item("ma_lo").ToString.Trim <> "" And IsDBNull(tblDetail.Item(num).Item("ngay_hhsd")) Then
+                            If Msg.Question("Dòng thứ " + (num + 1).ToString.Trim + ": Mã " + tblDetail.Item(num).Item("ma_vt").ToString.Trim + " là hàng hóa, dịch vụ theo lô phải có hạn dùng! Bạn có tiếp tục không?", 1) = 1 Then
+                                date_expired_blank_allow = True
+                            Else
+                                oVoucher.isContinue = False
+                                Return
+                            End If
+                        End If
                     End If
                     num += 1
                 Loop
