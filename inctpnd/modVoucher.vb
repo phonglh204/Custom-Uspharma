@@ -32,6 +32,12 @@ Namespace inctpnd
                 modVoucher.cIDVoucher = Fox.GetWordNum(CmdArgs(0), 2, "#"c)
             End If
             modVoucher.VoucherCode = StringType.FromObject(modVoucher.oVoucherRow.Item("ma_ct"))
+            tblStock = "ct70"
+            If VoucherCode = "PNE" Then
+                tblStock = "ct70dk"
+            ElseIf VoucherCode = "PNK" Then
+                tblStock = "ct70plan"
+            End If
             modVoucher.cLan = StringType.FromObject(Reg.GetRegistryKey("Language"))
             Dim index As Integer = 0
             Do
@@ -68,7 +74,7 @@ Namespace inctpnd
         Public tblDetail As DataView = New DataView
         Public tblMaster As DataView = New DataView
         Public tbsDetail As DataGridTableStyle = New DataGridTableStyle
-        Public VoucherCode As String
+        Public VoucherCode As String, tblStock As String
     End Module
 End Namespace
 

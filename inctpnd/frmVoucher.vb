@@ -144,12 +144,9 @@ Namespace inctpnd
                     End If
                     num = (num + -1)
                 Loop
-                If modVoucher.VoucherCode = "PNE" Then
-                    str4 = "ct70dk"
-                ElseIf modVoucher.VoucherCode = "PNK" Then
-                    str4 = "ct70plan"
-                Else
-                    str4 = "ct00,ct70"
+                str4 = tblStock
+                If modVoucher.VoucherCode = "PND" Then
+                    str4 += ",ct00"
                 End If
                 If CInt(oVar.Item("m_pack_yn")) = 1 Then
                     str4 = oVoucherRow.Item("m_phdbf").ToString.Trim + "," + str4
@@ -1673,7 +1670,11 @@ Namespace inctpnd
                         Exit Select
                     Case 5
                         Dim str2 As String = StringType.FromObject(ObjectType.AddObj(ObjectType.AddObj("stt_rec = '", modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec")), "'"))
-                        oVoucher.ViewPostedFile("ct70", str2, "IN")
+                        Dim code As String = "IN"
+                        If VoucherCode = "PNK" Then
+                            code = "IN_PKH"
+                        End If
+                        oVoucher.ViewPostedFile(tblStock, str2, code)
                         Exit Select
                 End Select
             End If
@@ -2711,6 +2712,10 @@ Namespace inctpnd
             LateBinding.LateSet(sender, Nothing, "Text", New Object() {RuntimeHelpers.GetObjectValue(modVoucher.oLan.Item("304"))}, Nothing)
         End Sub
         Private Sub RetrieveItemsFromIR_NB()
+            If Not Fox.InList(oVoucher.cAction, New Object() {"New", "Edit"}) And (Me.txtMa_dvcs.Text = "KHO" And oVoucher.VoucherCode = "PNK") Then
+                RetrieveItemsFromIR_NB2PNK()
+                Return
+            End If
             If Fox.InList(oVoucher.cAction, New Object() {"New", "Edit"}) And (Me.txtMa_dvcs.Text <> "KHO" Or oVoucher.VoucherCode = "PNE") Then
                 Dim _date As New frmFilterPN
                 AddHandler _date.Load, New EventHandler(AddressOf Me.frmRetrieveLoad)
@@ -2733,6 +2738,7 @@ Namespace inctpnd
                     Dim tcSQL As String = String.Concat(New String() {"EXEC spSearchIRTran4IR '", modVoucher.cLan, "', ", vouchersearchlibobj.ConvertLong2ShortStrings(str3, 10), ", ", vouchersearchlibobj.ConvertLong2ShortStrings(strSQLLong, 10), ", 'ph74', 'ct74'"})
                     tcSQL += ",'" + Replace(Me.txtMa_kh.Text.Trim, "'", "''") + "'"
                     tcSQL += ",'" + Replace(Me.txtMa_dvcs.Text.Trim, "'", "''") + "'"
+                    tcSQL += ",'" + VoucherCode + "'"
                     Dim ds As New DataSet
                     Sql.SQLDecompressRetrieve((modVoucher.appConn), tcSQL, "tran", (ds))
                     Me.tblRetrieveMaster = New DataView
@@ -2942,6 +2948,185 @@ Namespace inctpnd
                 End If
             End If
         End Sub
+
+        Private Sub RetrieveItemsFromIR_NB2PNK()
+            Dim _date As New frmFilterPN
+            AddHandler _date.Load, New EventHandler(AddressOf Me.frmRetrieveLoad)
+            If (_date.ShowDialog <> DialogResult.OK) Then
+                Return
+            End If
+            Dim str3 As String = "1=1"
+            If (ObjectType.ObjTst(_date.txtNgay_ct.Text, Fox.GetEmptyDate, False) <> 0) Then
+                str3 += " AND (a.ngay_ct >= " + Sql.ConvertVS2SQLType(_date.txtNgay_ct.Value, "") + ") "
+                ' str3 += " AND (a.ngay_ct <= " + Sql.ConvertVS2SQLType(Me.txtNgay_ct.Value, "") + ")"
+            End If
+            If (_date.txtMa_vt.Text <> "") Then
+                str3 += " AND (a.ma_vt like '" + _date.txtMa_vt.Text.Trim.Replace("'", "''") + "') "
+            End If
+            If (_date.txtMa_lo.Text <> "") Then
+                str3 += " AND (a.ma_lo like '" + _date.txtMa_lo.Text.Trim.Replace("'", "''") + "') "
+            End If
+            If (_date.txtMa_kho.Text <> "") Then
+                str3 += " AND (a.ma_kho like '" + _date.txtMa_kho.Text.Trim.Replace("'", "''") + "') "
+            End If
+            Dim strSQLLong As String = str3
+            Dim tcSQL As String = String.Concat(New String() {"EXEC spSearchIRTran4IR '", modVoucher.cLan, "', ", vouchersearchlibobj.ConvertLong2ShortStrings(str3, 10), ", ", vouchersearchlibobj.ConvertLong2ShortStrings(strSQLLong, 10), ", 'ph74', 'ct74'"})
+            tcSQL += ",''"
+            tcSQL += ",'KHO'"
+            tcSQL += ",'" + VoucherCode + "'"
+            Dim ds As New DataSet
+            Sql.SQLDecompressRetrieve((modVoucher.appConn), tcSQL, "tran", (ds))
+            Me.tblRetrieveMaster = New DataView
+            Me.tblRetrieveDetail = New DataView
+            If (ds.Tables.Item(0).Rows.Count <= 0) Then
+                Msg.Alert(StringType.FromObject(oVoucher.oClassMsg.Item("017")), 2)
+                Return
+            End If
+            Me.tblRetrieveMaster.Table = ds.Tables.Item(0)
+            Me.tblRetrieveDetail.Table = ds.Tables.Item(1)
+            Dim frmAdd As New Form
+            Dim gridformtran2 As New gridformtran
+            Dim gridformtran As New gridformtran
+            Dim tbs As New DataGridTableStyle
+            Dim style As New DataGridTableStyle
+            Dim cols As DataGridTextBoxColumn() = New DataGridTextBoxColumn(MaxColumns) {}
+            Dim index As Integer = 0
+            Do
+                cols(index) = New DataGridTextBoxColumn
+                If (Strings.InStr(modVoucher.tbcDetail(index).Format, "0", CompareMethod.Binary) > 0) Then
+                    cols(index).NullText = StringType.FromInteger(0)
+                Else
+                    cols(index).NullText = ""
+                End If
+                index += 1
+            Loop While (index < MaxColumns)
+            frmAdd.Top = 0
+            frmAdd.Left = 0
+            frmAdd.Width = Me.Width
+            frmAdd.Height = Me.Height
+            frmAdd.Text = StringType.FromObject(modVoucher.oLan.Item("036"))
+            frmAdd.StartPosition = FormStartPosition.CenterParent
+            Dim panel As StatusBarPanel = AddStb(frmAdd)
+            gridformtran2.CaptionVisible = False
+            gridformtran2.ReadOnly = False
+            gridformtran2.Top = 0
+            gridformtran2.Left = 0
+            gridformtran2.Height = CInt(Math.Round(CDbl((CDbl((Me.Height - SystemInformation.CaptionHeight)) / 2))))
+            gridformtran2.Width = (Me.Width - 5)
+            gridformtran2.Anchor = (AnchorStyles.Right Or (AnchorStyles.Left Or (AnchorStyles.Bottom Or AnchorStyles.Top)))
+            gridformtran2.BackgroundColor = Color.White
+            gridformtran.CaptionVisible = False
+            gridformtran.ReadOnly = True
+            gridformtran.Top = CInt(Math.Round(CDbl((CDbl((Me.Height - SystemInformation.CaptionHeight)) / 2))))
+            gridformtran.Left = 0
+            gridformtran.Height = CInt(Math.Round(CDbl(((CDbl((Me.Height - SystemInformation.CaptionHeight)) / 2) - 60))))
+            gridformtran.Width = (Me.Width - 5)
+            gridformtran.Anchor = (AnchorStyles.Right Or (AnchorStyles.Left Or AnchorStyles.Bottom))
+            gridformtran.BackgroundColor = Color.White
+            Dim button As New Button
+            button.Visible = True
+            button.Anchor = (AnchorStyles.Left Or AnchorStyles.Top)
+            button.Left = (-100 - button.Width)
+            frmAdd.Controls.Add(button)
+            frmAdd.CancelButton = button
+            frmAdd.Controls.Add(gridformtran2)
+            frmAdd.Controls.Add(gridformtran)
+            Fill2Grid.Fill(modVoucher.sysConn, (Me.tblRetrieveMaster), gridformtran2, (tbs), (cols), "IRMaster")
+            index = 0
+            Do
+                If (Strings.InStr(modVoucher.tbcDetail(index).Format, "0", CompareMethod.Binary) > 0) Then
+                    cols(index).NullText = StringType.FromInteger(0)
+                Else
+                    cols(index).NullText = ""
+                End If
+                index += 1
+            Loop While (index < MaxColumns)
+            cols(2).Alignment = HorizontalAlignment.Right
+            Fill2Grid.Fill(modVoucher.sysConn, (Me.tblRetrieveDetail), gridformtran, (style), (cols), "IRDetail")
+            index = 0
+            Do
+                If (Strings.InStr(modVoucher.tbcDetail(index).Format, "0", CompareMethod.Binary) > 0) Then
+                    cols(index).NullText = StringType.FromInteger(0)
+                Else
+                    cols(index).NullText = ""
+                End If
+                index += 1
+            Loop While (index < MaxColumns)
+            oVoucher.HideFields(gridformtran)
+            Me.tblRetrieveDetail.AllowDelete = False
+            Me.tblRetrieveDetail.AllowNew = False
+            index = 1
+            Do While (1 <> 0)
+                Try
+                    gridformtran2.TableStyles.Item(0).GridColumnStyles.Item(index).ReadOnly = True
+                    index += 1
+                Catch exception1 As Exception
+                    ProjectData.SetProjectError(exception1)
+                    Dim exception As Exception = exception1
+                    ProjectData.ClearProjectError()
+                    Exit Do
+                End Try
+            Loop
+            Dim expression As String = StringType.FromObject(oVoucher.oClassMsg.Item("016"))
+            Dim count As Integer = Me.tblRetrieveMaster.Count
+            expression = Strings.Replace(Strings.Replace(Strings.Replace(expression, "%n1", Strings.Trim(StringType.FromInteger(count)), 1, -1, CompareMethod.Binary), "%n2", "0", 1, -1, CompareMethod.Binary), "%n3", "0", 1, -1, CompareMethod.Binary)
+            panel.Text = expression
+            AddHandler gridformtran2.CurrentCellChanged, New EventHandler(AddressOf Me.grdRetrieveMVCurrentCellChanged)
+            gridformtran2.CurrentRowIndex = 0
+            Dim num2 As Integer = 0
+            Dim obj2 As Object = ObjectType.AddObj(ObjectType.AddObj("stt_rec = '", Me.tblRetrieveMaster.Item(num2).Item("stt_rec")), "'")
+            Me.tblRetrieveDetail.RowFilter = StringType.FromObject(obj2)
+            Obj.Init(frmAdd)
+            Dim button4 As New RadioButton
+            Dim button2 As New RadioButton
+            Dim button3 As New RadioButton
+            button4.Top = CInt(Math.Round(CDbl((((CDbl((Me.Height - 20)) / 2) + gridformtran.Height) + 5))))
+            button4.Left = 0
+            button4.Visible = True
+            button4.Checked = True
+            button4.Text = StringType.FromObject(modVoucher.oLan.Item("029"))
+            button4.Width = 100
+            button4.Anchor = (AnchorStyles.Left Or AnchorStyles.Bottom)
+            button2.Top = button4.Top
+            button2.Left = (button4.Left + 110)
+            button2.Visible = True
+            button2.Text = StringType.FromObject(modVoucher.oLan.Item("030"))
+            button2.Width = 120
+            button2.Anchor = (AnchorStyles.Left Or AnchorStyles.Bottom)
+            button3.Top = button4.Top
+            button3.Left = (button2.Left + 130)
+            button3.Visible = True
+            button3.Text = StringType.FromObject(modVoucher.oLan.Item("031"))
+            button3.Width = 200
+            button3.Anchor = (AnchorStyles.Left Or AnchorStyles.Bottom)
+            frmAdd.Controls.Add(button4)
+            frmAdd.Controls.Add(button2)
+            frmAdd.Controls.Add(button3)
+            frmAdd.ShowDialog()
+            If button4.Checked Then
+                ds = Nothing
+                Me.tblRetrieveMaster = Nothing
+                Me.tblRetrieveDetail = Nothing
+                Return
+            End If
+            Me.tblRetrieveMaster.RowFilter = "Tag=1"
+            Dim num7 As Integer = (Me.tblRetrieveMaster.Count - 1)
+            index = 0
+            Dim str7 As String = "", strSQL As String = ""
+            Try
+                Do While (index <= num7)
+                    strSQL = "EXEC spCreatePNKFromPND '" + Me.tblRetrieveMaster.Item(index).Item("stt_rec") + "'," + Reg.GetRegistryKey("CurrUserID").ToString.Trim
+                    Sql.SQLExecute(appConn, strSQL)
+                    index += 1
+                Loop
+                Msg.Alert("Đã lấy " + index.ToString.Trim + " phiếu, bạn vào tìm kiếm để kiểm tra dữ liệu đã lấy về nếu cần")
+            Catch ex As Exception
+                Msg.Alert("Có lỗi lấy phiếu: " + Me.tblRetrieveMaster.Item(index).Item("so_ct") + "    " + Me.tblRetrieveMaster.Item(index).Item("ngay_ct").ToString() + "(" + Me.tblRetrieveMaster.Item(index).Item("stt_rec") + ")")
+            End Try
+            Me.tblRetrieveMaster = Nothing
+            Me.tblRetrieveDetail = Nothing
+        End Sub
+
         Private Sub RetreiveFillHeader(_form As Form, drv As DataRowView, fields As String)
             Dim control As Control, fieldname As String
             For Each control In _form.Controls

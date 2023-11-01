@@ -326,7 +326,7 @@ Namespace poctpd2
             If Fox.InList(oVoucher.cAction, New Object() {"New", "Edit"}) Then
                 index = 0
                 Do
-                    If Fox.InList(modVoucher.tbcDetail(index).MappingName.ToLower, New Object() {"ma_kt", "tl_hl", "tl_da", "tl_hh", "sl_td2", "ma_lo"}) Then
+                    If Fox.InList(modVoucher.tbcDetail(index).MappingName.ToLower, New Object() {"ma_kt", "tl_hl", "tl_da", "tl_hh", "sl_td2", "ngay_td1", "ma_lo"}) Then
                         modVoucher.tbcDetail(index).TextBox.Enabled = True
                     End If
                     index += 1
@@ -1097,7 +1097,7 @@ Namespace poctpd2
             '
             'txtKeyPress
             '
-            Me.txtKeyPress.Location = New System.Drawing.Point(490, 66)
+            Me.txtKeyPress.Location = New System.Drawing.Point(516, 76)
             Me.txtKeyPress.Name = "txtKeyPress"
             Me.txtKeyPress.Size = New System.Drawing.Size(12, 22)
             Me.txtKeyPress.TabIndex = 12
@@ -1155,7 +1155,7 @@ Namespace poctpd2
             Me.txtSo_pn0.Location = New System.Drawing.Point(106, 6)
             Me.txtSo_pn0.Name = "txtSo_pn0"
             Me.txtSo_pn0.Size = New System.Drawing.Size(120, 22)
-            Me.txtSo_pn0.TabIndex = 1
+            Me.txtSo_pn0.TabIndex = 0
             Me.txtSo_pn0.Tag = "FCNBCF"
             Me.txtSo_pn0.Text = "TXTSO_PN0"
             Me.txtSo_pn0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1175,7 +1175,7 @@ Namespace poctpd2
             Me.txtOng_ba.BackColor = System.Drawing.Color.White
             Me.txtOng_ba.Location = New System.Drawing.Point(106, 30)
             Me.txtOng_ba.Name = "txtOng_ba"
-            Me.txtOng_ba.Size = New System.Drawing.Size(120, 22)
+            Me.txtOng_ba.Size = New System.Drawing.Size(205, 22)
             Me.txtOng_ba.TabIndex = 2
             Me.txtOng_ba.Tag = "FCCF"
             Me.txtOng_ba.Text = "txtOng_ba"
@@ -1193,10 +1193,12 @@ Namespace poctpd2
             '
             'txtDien_giai
             '
+            Me.txtDien_giai.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtDien_giai.BackColor = System.Drawing.Color.White
             Me.txtDien_giai.Location = New System.Drawing.Point(106, 54)
             Me.txtDien_giai.Name = "txtDien_giai"
-            Me.txtDien_giai.Size = New System.Drawing.Size(404, 22)
+            Me.txtDien_giai.Size = New System.Drawing.Size(479, 22)
             Me.txtDien_giai.TabIndex = 3
             Me.txtDien_giai.Tag = "FCCF"
             Me.txtDien_giai.Text = "txtDien_giai"
@@ -1241,7 +1243,7 @@ Namespace poctpd2
             Me.txtNgay_pn0.MaxLength = 10
             Me.txtNgay_pn0.Name = "txtNgay_pn0"
             Me.txtNgay_pn0.Size = New System.Drawing.Size(120, 22)
-            Me.txtNgay_pn0.TabIndex = 77
+            Me.txtNgay_pn0.TabIndex = 1
             Me.txtNgay_pn0.Tag = "FDCFDF"
             Me.txtNgay_pn0.Text = "  /  /    "
             Me.txtNgay_pn0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right

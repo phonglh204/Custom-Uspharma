@@ -31,6 +31,15 @@ Module modVoucher
             modVoucher.cIDVoucher = Fox.GetWordNum(CmdArgs(0), 2, "#"c)
         End If
         modVoucher.VoucherCode = StringType.FromObject(modVoucher.oVoucherRow.Item("ma_ct"))
+        If modVoucher.VoucherCode = "PNA" Then
+            tblStockCard = "ct70"
+            tblLedge = "ct00"
+            lstTblDelete = "ct70,ct00,ctgt30,ctcp30,cttt30"
+        ElseIf VoucherCode = "PN3" Then
+            tblStockCard = "ct70plan"
+            tblLedge = ""
+            lstTblDelete = "ct70plan"
+        End If
         modVoucher.cLan = StringType.FromObject(Reg.GetRegistryKey("Language"))
         Dim index As Integer = 0
         Do
@@ -76,6 +85,6 @@ Module modVoucher
     Public tbsCharge As DataGridTableStyle = New DataGridTableStyle
     Public tbsDetail As DataGridTableStyle = New DataGridTableStyle
     Public tbsOther As DataGridTableStyle = New DataGridTableStyle
-    Public VoucherCode As String
+    Public VoucherCode As String, tblStockCard As String, tblLedge As String, lstTblDelete As String
 End Module
 
