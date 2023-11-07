@@ -77,7 +77,7 @@ Namespace z18thbom
         Private Sub ReportProc(ByVal nIndex As Integer)
             Select Case nIndex
                 Case 0
-                    DirMain.oDirFormLib.GetClsreports.GetGrid.GetGrid.FindForm.Text = DirMain.strTitle
+                    'DirMain.oDirFormLib.GetClsreports.GetGrid.GetGrid.FindForm.Text = DirMain.strTitle
                     Exit Select
                 Case 1
                     If Not Information.IsNothing(DirMain.oDirFormLib.GetClsreports.GetGrid.CurDataRow) Then

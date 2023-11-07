@@ -92,6 +92,8 @@ Namespace z18thbom
             Me.cmdCancel = New System.Windows.Forms.Button()
             Me.tabReports = New System.Windows.Forms.TabControl()
             Me.tbgFilter = New System.Windows.Forms.TabPage()
+            Me.txtDFrom = New libscontrol.txtDate()
+            Me.lblDateFromTo = New System.Windows.Forms.Label()
             Me.Label4 = New System.Windows.Forms.Label()
             Me.txtMa_bp = New System.Windows.Forms.TextBox()
             Me.lblTen_bp = New System.Windows.Forms.Label()
@@ -112,8 +114,6 @@ Namespace z18thbom
             Me.lblMa_vv = New System.Windows.Forms.Label()
             Me.txtSo_lsx = New System.Windows.Forms.TextBox()
             Me.lblTen_nh = New System.Windows.Forms.Label()
-            Me.txtDFrom = New libscontrol.txtDate()
-            Me.lblDateFromTo = New System.Windows.Forms.Label()
             Me.tabReports.SuspendLayout()
             Me.tbgFilter.SuspendLayout()
             Me.SuspendLayout()
@@ -121,9 +121,9 @@ Namespace z18thbom
             'txtMa_dvcs
             '
             Me.txtMa_dvcs.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtMa_dvcs.Location = New System.Drawing.Point(160, 144)
+            Me.txtMa_dvcs.Location = New System.Drawing.Point(192, 166)
             Me.txtMa_dvcs.Name = "txtMa_dvcs"
-            Me.txtMa_dvcs.Size = New System.Drawing.Size(100, 20)
+            Me.txtMa_dvcs.Size = New System.Drawing.Size(120, 22)
             Me.txtMa_dvcs.TabIndex = 8
             Me.txtMa_dvcs.Tag = "FCMaster#dbo.ff_InUnits(a.ma_dvcs, '%s') = 1 #MLEX"
             Me.txtMa_dvcs.Text = "TXTMA_DVCS"
@@ -131,9 +131,9 @@ Namespace z18thbom
             'lblMa_dvcs
             '
             Me.lblMa_dvcs.AutoSize = True
-            Me.lblMa_dvcs.Location = New System.Drawing.Point(16, 146)
+            Me.lblMa_dvcs.Location = New System.Drawing.Point(19, 168)
             Me.lblMa_dvcs.Name = "lblMa_dvcs"
-            Me.lblMa_dvcs.Size = New System.Drawing.Size(38, 13)
+            Me.lblMa_dvcs.Size = New System.Drawing.Size(48, 17)
             Me.lblMa_dvcs.TabIndex = 1
             Me.lblMa_dvcs.Tag = "L108"
             Me.lblMa_dvcs.Text = "Don vi"
@@ -141,9 +141,9 @@ Namespace z18thbom
             'lblTen_dvcs
             '
             Me.lblTen_dvcs.AutoSize = True
-            Me.lblTen_dvcs.Location = New System.Drawing.Point(264, 146)
+            Me.lblTen_dvcs.Location = New System.Drawing.Point(317, 168)
             Me.lblTen_dvcs.Name = "lblTen_dvcs"
-            Me.lblTen_dvcs.Size = New System.Drawing.Size(52, 13)
+            Me.lblTen_dvcs.Size = New System.Drawing.Size(66, 17)
             Me.lblTen_dvcs.TabIndex = 7
             Me.lblTen_dvcs.Tag = "RF"
             Me.lblTen_dvcs.Text = "Ten dvcs"
@@ -151,9 +151,9 @@ Namespace z18thbom
             'cmdOk
             '
             Me.cmdOk.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-            Me.cmdOk.Location = New System.Drawing.Point(3, 253)
+            Me.cmdOk.Location = New System.Drawing.Point(4, 295)
             Me.cmdOk.Name = "cmdOk"
-            Me.cmdOk.Size = New System.Drawing.Size(75, 23)
+            Me.cmdOk.Size = New System.Drawing.Size(90, 26)
             Me.cmdOk.TabIndex = 1
             Me.cmdOk.Tag = "L001"
             Me.cmdOk.Text = "Nhan"
@@ -161,9 +161,9 @@ Namespace z18thbom
             'cmdCancel
             '
             Me.cmdCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-            Me.cmdCancel.Location = New System.Drawing.Point(79, 253)
+            Me.cmdCancel.Location = New System.Drawing.Point(95, 295)
             Me.cmdCancel.Name = "cmdCancel"
-            Me.cmdCancel.Size = New System.Drawing.Size(75, 23)
+            Me.cmdCancel.Size = New System.Drawing.Size(90, 26)
             Me.cmdCancel.TabIndex = 2
             Me.cmdCancel.Tag = "L002"
             Me.cmdCancel.Text = "Huy"
@@ -177,7 +177,7 @@ Namespace z18thbom
             Me.tabReports.Location = New System.Drawing.Point(-2, 0)
             Me.tabReports.Name = "tabReports"
             Me.tabReports.SelectedIndex = 0
-            Me.tabReports.Size = New System.Drawing.Size(609, 248)
+            Me.tabReports.Size = New System.Drawing.Size(587, 289)
             Me.tabReports.TabIndex = 0
             Me.tabReports.Tag = ""
             '
@@ -207,217 +207,19 @@ Namespace z18thbom
             Me.tbgFilter.Controls.Add(Me.lblTen_lsx)
             Me.tbgFilter.Controls.Add(Me.lblMa_vv)
             Me.tbgFilter.Controls.Add(Me.txtSo_lsx)
-            Me.tbgFilter.Location = New System.Drawing.Point(4, 22)
+            Me.tbgFilter.Location = New System.Drawing.Point(4, 25)
             Me.tbgFilter.Name = "tbgFilter"
-            Me.tbgFilter.Size = New System.Drawing.Size(601, 222)
+            Me.tbgFilter.Size = New System.Drawing.Size(579, 260)
             Me.tbgFilter.TabIndex = 0
             Me.tbgFilter.Tag = "L100"
             Me.tbgFilter.Text = "Dieu kien loc"
             '
-            'Label4
-            '
-            Me.Label4.AutoSize = True
-            Me.Label4.Location = New System.Drawing.Point(16, 100)
-            Me.Label4.Name = "Label4"
-            Me.Label4.Size = New System.Drawing.Size(64, 13)
-            Me.Label4.TabIndex = 134
-            Me.Label4.Tag = "L104"
-            Me.Label4.Text = "Phan xuong"
-            '
-            'txtMa_bp
-            '
-            Me.txtMa_bp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtMa_bp.Location = New System.Drawing.Point(160, 98)
-            Me.txtMa_bp.Name = "txtMa_bp"
-            Me.txtMa_bp.Size = New System.Drawing.Size(100, 20)
-            Me.txtMa_bp.TabIndex = 6
-            Me.txtMa_bp.Tag = ""
-            Me.txtMa_bp.Text = "TXTMA_BP"
-            '
-            'lblTen_bp
-            '
-            Me.lblTen_bp.AutoSize = True
-            Me.lblTen_bp.Location = New System.Drawing.Point(264, 100)
-            Me.lblTen_bp.Name = "lblTen_bp"
-            Me.lblTen_bp.Size = New System.Drawing.Size(40, 13)
-            Me.lblTen_bp.TabIndex = 133
-            Me.lblTen_bp.Tag = ""
-            Me.lblTen_bp.Text = "Ten sp"
-            '
-            'txtNh_vt3
-            '
-            Me.txtNh_vt3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtNh_vt3.Location = New System.Drawing.Point(366, 75)
-            Me.txtNh_vt3.Name = "txtNh_vt3"
-            Me.txtNh_vt3.Size = New System.Drawing.Size(100, 20)
-            Me.txtNh_vt3.TabIndex = 5
-            Me.txtNh_vt3.Tag = ""
-            Me.txtNh_vt3.Text = "TXTNH_VT3"
-            '
-            'txtNh_vt2
-            '
-            Me.txtNh_vt2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtNh_vt2.Location = New System.Drawing.Point(263, 75)
-            Me.txtNh_vt2.Name = "txtNh_vt2"
-            Me.txtNh_vt2.Size = New System.Drawing.Size(100, 20)
-            Me.txtNh_vt2.TabIndex = 4
-            Me.txtNh_vt2.Tag = ""
-            Me.txtNh_vt2.Text = "TXTNH_VT2"
-            '
-            'Label2
-            '
-            Me.Label2.AutoSize = True
-            Me.Label2.Location = New System.Drawing.Point(16, 77)
-            Me.Label2.Name = "Label2"
-            Me.Label2.Size = New System.Drawing.Size(35, 13)
-            Me.Label2.TabIndex = 129
-            Me.Label2.Tag = "L103"
-            Me.Label2.Text = "Nhom"
-            '
-            'txtNh_vt1
-            '
-            Me.txtNh_vt1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtNh_vt1.Location = New System.Drawing.Point(160, 75)
-            Me.txtNh_vt1.Name = "txtNh_vt1"
-            Me.txtNh_vt1.Size = New System.Drawing.Size(100, 20)
-            Me.txtNh_vt1.TabIndex = 3
-            Me.txtNh_vt1.Tag = ""
-            Me.txtNh_vt1.Text = "TXTNH_VT1"
-            '
-            'Label1
-            '
-            Me.Label1.AutoSize = True
-            Me.Label1.Location = New System.Drawing.Point(16, 123)
-            Me.Label1.Name = "Label1"
-            Me.Label1.Size = New System.Drawing.Size(90, 13)
-            Me.Label1.TabIndex = 126
-            Me.Label1.Tag = "L105"
-            Me.Label1.Text = "So lo thanh pham"
-            '
-            'txtMa_lo_sp
-            '
-            Me.txtMa_lo_sp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtMa_lo_sp.Location = New System.Drawing.Point(160, 121)
-            Me.txtMa_lo_sp.Name = "txtMa_lo_sp"
-            Me.txtMa_lo_sp.Size = New System.Drawing.Size(100, 20)
-            Me.txtMa_lo_sp.TabIndex = 7
-            Me.txtMa_lo_sp.Tag = "FC"
-            Me.txtMa_lo_sp.Text = "TXTMA_LO_SP"
-            '
-            'Label3
-            '
-            Me.Label3.AutoSize = True
-            Me.Label3.Location = New System.Drawing.Point(16, 54)
-            Me.Label3.Name = "Label3"
-            Me.Label3.Size = New System.Drawing.Size(55, 13)
-            Me.Label3.TabIndex = 124
-            Me.Label3.Tag = "L102"
-            Me.Label3.Text = "San pham"
-            '
-            'txtMa_vt
-            '
-            Me.txtMa_vt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtMa_vt.Location = New System.Drawing.Point(160, 52)
-            Me.txtMa_vt.Name = "txtMa_vt"
-            Me.txtMa_vt.Size = New System.Drawing.Size(100, 20)
-            Me.txtMa_vt.TabIndex = 2
-            Me.txtMa_vt.Tag = ""
-            Me.txtMa_vt.Text = "TXTMA_VT"
-            '
-            'lblTen_sp
-            '
-            Me.lblTen_sp.AutoSize = True
-            Me.lblTen_sp.Location = New System.Drawing.Point(264, 54)
-            Me.lblTen_sp.Name = "lblTen_sp"
-            Me.lblTen_sp.Size = New System.Drawing.Size(40, 13)
-            Me.lblTen_sp.TabIndex = 123
-            Me.lblTen_sp.Tag = ""
-            Me.lblTen_sp.Text = "Ten sp"
-            '
-            'lblMau_bc
-            '
-            Me.lblMau_bc.AutoSize = True
-            Me.lblMau_bc.Location = New System.Drawing.Point(16, 169)
-            Me.lblMau_bc.Name = "lblMau_bc"
-            Me.lblMau_bc.Size = New System.Drawing.Size(70, 13)
-            Me.lblMau_bc.TabIndex = 2
-            Me.lblMau_bc.Tag = "L109"
-            Me.lblMau_bc.Text = "Mau bao cao"
-            '
-            'cboReports
-            '
-            Me.cboReports.Location = New System.Drawing.Point(160, 167)
-            Me.cboReports.Name = "cboReports"
-            Me.cboReports.Size = New System.Drawing.Size(300, 21)
-            Me.cboReports.TabIndex = 9
-            Me.cboReports.Text = "cboReports"
-            '
-            'lblTitle
-            '
-            Me.lblTitle.AutoSize = True
-            Me.lblTitle.Location = New System.Drawing.Point(16, 193)
-            Me.lblTitle.Name = "lblTitle"
-            Me.lblTitle.Size = New System.Drawing.Size(43, 13)
-            Me.lblTitle.TabIndex = 3
-            Me.lblTitle.Tag = "L110"
-            Me.lblTitle.Text = "Tieu de"
-            '
-            'txtTitle
-            '
-            Me.txtTitle.Location = New System.Drawing.Point(160, 191)
-            Me.txtTitle.Name = "txtTitle"
-            Me.txtTitle.Size = New System.Drawing.Size(300, 20)
-            Me.txtTitle.TabIndex = 10
-            Me.txtTitle.Tag = "NB"
-            Me.txtTitle.Text = "txtTieu_de"
-            '
-            'lblTen_lsx
-            '
-            Me.lblTen_lsx.AutoSize = True
-            Me.lblTen_lsx.Location = New System.Drawing.Point(264, 31)
-            Me.lblTen_lsx.Name = "lblTen_lsx"
-            Me.lblTen_lsx.Size = New System.Drawing.Size(41, 13)
-            Me.lblTen_lsx.TabIndex = 108
-            Me.lblTen_lsx.Tag = ""
-            Me.lblTen_lsx.Text = "Ten lsx"
-            '
-            'lblMa_vv
-            '
-            Me.lblMa_vv.AutoSize = True
-            Me.lblMa_vv.Location = New System.Drawing.Point(16, 31)
-            Me.lblMa_vv.Name = "lblMa_vv"
-            Me.lblMa_vv.Size = New System.Drawing.Size(74, 13)
-            Me.lblMa_vv.TabIndex = 107
-            Me.lblMa_vv.Tag = "L101"
-            Me.lblMa_vv.Text = "Lenh san xuat"
-            '
-            'txtSo_lsx
-            '
-            Me.txtSo_lsx.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtSo_lsx.Location = New System.Drawing.Point(160, 29)
-            Me.txtSo_lsx.Name = "txtSo_lsx"
-            Me.txtSo_lsx.Size = New System.Drawing.Size(100, 20)
-            Me.txtSo_lsx.TabIndex = 1
-            Me.txtSo_lsx.Tag = "FC"
-            Me.txtSo_lsx.Text = "TXTSO_LSX"
-            '
-            'lblTen_nh
-            '
-            Me.lblTen_nh.AutoSize = True
-            Me.lblTen_nh.Location = New System.Drawing.Point(317, 285)
-            Me.lblTen_nh.Name = "lblTen_nh"
-            Me.lblTen_nh.Size = New System.Drawing.Size(41, 13)
-            Me.lblTen_nh.TabIndex = 128
-            Me.lblTen_nh.Tag = ""
-            Me.lblTen_nh.Text = "Ten nh"
-            Me.lblTen_nh.Visible = False
-            '
             'txtDFrom
             '
-            Me.txtDFrom.Location = New System.Drawing.Point(160, 5)
+            Me.txtDFrom.Location = New System.Drawing.Point(192, 6)
             Me.txtDFrom.MaxLength = 10
             Me.txtDFrom.Name = "txtDFrom"
-            Me.txtDFrom.Size = New System.Drawing.Size(100, 20)
+            Me.txtDFrom.Size = New System.Drawing.Size(120, 22)
             Me.txtDFrom.TabIndex = 0
             Me.txtDFrom.Tag = "NB"
             Me.txtDFrom.Text = "  /  /    "
@@ -427,17 +229,215 @@ Namespace z18thbom
             'lblDateFromTo
             '
             Me.lblDateFromTo.AutoSize = True
-            Me.lblDateFromTo.Location = New System.Drawing.Point(16, 7)
+            Me.lblDateFromTo.Location = New System.Drawing.Point(19, 8)
             Me.lblDateFromTo.Name = "lblDateFromTo"
-            Me.lblDateFromTo.Size = New System.Drawing.Size(46, 13)
+            Me.lblDateFromTo.Size = New System.Drawing.Size(60, 17)
             Me.lblDateFromTo.TabIndex = 136
             Me.lblDateFromTo.Tag = "L106"
             Me.lblDateFromTo.Text = "Tu ngay"
             '
+            'Label4
+            '
+            Me.Label4.AutoSize = True
+            Me.Label4.Location = New System.Drawing.Point(19, 115)
+            Me.Label4.Name = "Label4"
+            Me.Label4.Size = New System.Drawing.Size(83, 17)
+            Me.Label4.TabIndex = 134
+            Me.Label4.Tag = "L104"
+            Me.Label4.Text = "Phan xuong"
+            '
+            'txtMa_bp
+            '
+            Me.txtMa_bp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+            Me.txtMa_bp.Location = New System.Drawing.Point(192, 113)
+            Me.txtMa_bp.Name = "txtMa_bp"
+            Me.txtMa_bp.Size = New System.Drawing.Size(120, 22)
+            Me.txtMa_bp.TabIndex = 6
+            Me.txtMa_bp.Tag = ""
+            Me.txtMa_bp.Text = "TXTMA_BP"
+            '
+            'lblTen_bp
+            '
+            Me.lblTen_bp.AutoSize = True
+            Me.lblTen_bp.Location = New System.Drawing.Point(317, 115)
+            Me.lblTen_bp.Name = "lblTen_bp"
+            Me.lblTen_bp.Size = New System.Drawing.Size(52, 17)
+            Me.lblTen_bp.TabIndex = 133
+            Me.lblTen_bp.Tag = ""
+            Me.lblTen_bp.Text = "Ten sp"
+            '
+            'txtNh_vt3
+            '
+            Me.txtNh_vt3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+            Me.txtNh_vt3.Location = New System.Drawing.Point(439, 87)
+            Me.txtNh_vt3.Name = "txtNh_vt3"
+            Me.txtNh_vt3.Size = New System.Drawing.Size(120, 22)
+            Me.txtNh_vt3.TabIndex = 5
+            Me.txtNh_vt3.Tag = ""
+            Me.txtNh_vt3.Text = "TXTNH_VT3"
+            '
+            'txtNh_vt2
+            '
+            Me.txtNh_vt2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+            Me.txtNh_vt2.Location = New System.Drawing.Point(316, 87)
+            Me.txtNh_vt2.Name = "txtNh_vt2"
+            Me.txtNh_vt2.Size = New System.Drawing.Size(120, 22)
+            Me.txtNh_vt2.TabIndex = 4
+            Me.txtNh_vt2.Tag = ""
+            Me.txtNh_vt2.Text = "TXTNH_VT2"
+            '
+            'Label2
+            '
+            Me.Label2.AutoSize = True
+            Me.Label2.Location = New System.Drawing.Point(19, 89)
+            Me.Label2.Name = "Label2"
+            Me.Label2.Size = New System.Drawing.Size(45, 17)
+            Me.Label2.TabIndex = 129
+            Me.Label2.Tag = "L103"
+            Me.Label2.Text = "Nhom"
+            '
+            'txtNh_vt1
+            '
+            Me.txtNh_vt1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+            Me.txtNh_vt1.Location = New System.Drawing.Point(192, 87)
+            Me.txtNh_vt1.Name = "txtNh_vt1"
+            Me.txtNh_vt1.Size = New System.Drawing.Size(120, 22)
+            Me.txtNh_vt1.TabIndex = 3
+            Me.txtNh_vt1.Tag = ""
+            Me.txtNh_vt1.Text = "TXTNH_VT1"
+            '
+            'Label1
+            '
+            Me.Label1.AutoSize = True
+            Me.Label1.Location = New System.Drawing.Point(19, 142)
+            Me.Label1.Name = "Label1"
+            Me.Label1.Size = New System.Drawing.Size(119, 17)
+            Me.Label1.TabIndex = 126
+            Me.Label1.Tag = "L105"
+            Me.Label1.Text = "So lo thanh pham"
+            '
+            'txtMa_lo_sp
+            '
+            Me.txtMa_lo_sp.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+            Me.txtMa_lo_sp.Location = New System.Drawing.Point(192, 140)
+            Me.txtMa_lo_sp.Name = "txtMa_lo_sp"
+            Me.txtMa_lo_sp.Size = New System.Drawing.Size(120, 22)
+            Me.txtMa_lo_sp.TabIndex = 7
+            Me.txtMa_lo_sp.Tag = "FC"
+            Me.txtMa_lo_sp.Text = "TXTMA_LO_SP"
+            '
+            'Label3
+            '
+            Me.Label3.AutoSize = True
+            Me.Label3.Location = New System.Drawing.Point(19, 62)
+            Me.Label3.Name = "Label3"
+            Me.Label3.Size = New System.Drawing.Size(72, 17)
+            Me.Label3.TabIndex = 124
+            Me.Label3.Tag = "L102"
+            Me.Label3.Text = "San pham"
+            '
+            'txtMa_vt
+            '
+            Me.txtMa_vt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+            Me.txtMa_vt.Location = New System.Drawing.Point(192, 60)
+            Me.txtMa_vt.Name = "txtMa_vt"
+            Me.txtMa_vt.Size = New System.Drawing.Size(120, 22)
+            Me.txtMa_vt.TabIndex = 2
+            Me.txtMa_vt.Tag = ""
+            Me.txtMa_vt.Text = "TXTMA_VT"
+            '
+            'lblTen_sp
+            '
+            Me.lblTen_sp.AutoSize = True
+            Me.lblTen_sp.Location = New System.Drawing.Point(317, 62)
+            Me.lblTen_sp.Name = "lblTen_sp"
+            Me.lblTen_sp.Size = New System.Drawing.Size(52, 17)
+            Me.lblTen_sp.TabIndex = 123
+            Me.lblTen_sp.Tag = ""
+            Me.lblTen_sp.Text = "Ten sp"
+            '
+            'lblMau_bc
+            '
+            Me.lblMau_bc.AutoSize = True
+            Me.lblMau_bc.Location = New System.Drawing.Point(19, 195)
+            Me.lblMau_bc.Name = "lblMau_bc"
+            Me.lblMau_bc.Size = New System.Drawing.Size(90, 17)
+            Me.lblMau_bc.TabIndex = 2
+            Me.lblMau_bc.Tag = "L109"
+            Me.lblMau_bc.Text = "Mau bao cao"
+            '
+            'cboReports
+            '
+            Me.cboReports.Location = New System.Drawing.Point(192, 193)
+            Me.cboReports.Name = "cboReports"
+            Me.cboReports.Size = New System.Drawing.Size(360, 24)
+            Me.cboReports.TabIndex = 9
+            Me.cboReports.Text = "cboReports"
+            '
+            'lblTitle
+            '
+            Me.lblTitle.AutoSize = True
+            Me.lblTitle.Location = New System.Drawing.Point(19, 223)
+            Me.lblTitle.Name = "lblTitle"
+            Me.lblTitle.Size = New System.Drawing.Size(56, 17)
+            Me.lblTitle.TabIndex = 3
+            Me.lblTitle.Tag = "L110"
+            Me.lblTitle.Text = "Tieu de"
+            '
+            'txtTitle
+            '
+            Me.txtTitle.Location = New System.Drawing.Point(192, 220)
+            Me.txtTitle.Name = "txtTitle"
+            Me.txtTitle.Size = New System.Drawing.Size(360, 22)
+            Me.txtTitle.TabIndex = 10
+            Me.txtTitle.Tag = "NB"
+            Me.txtTitle.Text = "txtTieu_de"
+            '
+            'lblTen_lsx
+            '
+            Me.lblTen_lsx.AutoSize = True
+            Me.lblTen_lsx.Location = New System.Drawing.Point(317, 36)
+            Me.lblTen_lsx.Name = "lblTen_lsx"
+            Me.lblTen_lsx.Size = New System.Drawing.Size(53, 17)
+            Me.lblTen_lsx.TabIndex = 108
+            Me.lblTen_lsx.Tag = ""
+            Me.lblTen_lsx.Text = "Ten lsx"
+            '
+            'lblMa_vv
+            '
+            Me.lblMa_vv.AutoSize = True
+            Me.lblMa_vv.Location = New System.Drawing.Point(19, 36)
+            Me.lblMa_vv.Name = "lblMa_vv"
+            Me.lblMa_vv.Size = New System.Drawing.Size(97, 17)
+            Me.lblMa_vv.TabIndex = 107
+            Me.lblMa_vv.Tag = "L101"
+            Me.lblMa_vv.Text = "Lenh san xuat"
+            '
+            'txtSo_lsx
+            '
+            Me.txtSo_lsx.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+            Me.txtSo_lsx.Location = New System.Drawing.Point(192, 33)
+            Me.txtSo_lsx.Name = "txtSo_lsx"
+            Me.txtSo_lsx.Size = New System.Drawing.Size(120, 22)
+            Me.txtSo_lsx.TabIndex = 1
+            Me.txtSo_lsx.Tag = "FC"
+            Me.txtSo_lsx.Text = "TXTSO_LSX"
+            '
+            'lblTen_nh
+            '
+            Me.lblTen_nh.AutoSize = True
+            Me.lblTen_nh.Location = New System.Drawing.Point(380, 329)
+            Me.lblTen_nh.Name = "lblTen_nh"
+            Me.lblTen_nh.Size = New System.Drawing.Size(53, 17)
+            Me.lblTen_nh.TabIndex = 128
+            Me.lblTen_nh.Tag = ""
+            Me.lblTen_nh.Text = "Ten nh"
+            Me.lblTen_nh.Visible = False
+            '
             'frmFilter
             '
-            Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-            Me.ClientSize = New System.Drawing.Size(608, 297)
+            Me.AutoScaleBaseSize = New System.Drawing.Size(6, 15)
+            Me.ClientSize = New System.Drawing.Size(587, 346)
             Me.Controls.Add(Me.tabReports)
             Me.Controls.Add(Me.cmdCancel)
             Me.Controls.Add(Me.lblTen_nh)

@@ -157,6 +157,7 @@ Module DirMain
             str += ", " + Sql.ConvertVS2SQLType(DirMain.strGroups, "")
             str += ", " + Sql.ConvertVS2SQLType(DirMain.fPrint.txtTk_vt.Text, "")
             str += ", " + Sql.ConvertVS2SQLType(DirMain.fPrint.txtTk_vt2.Text, "")
+            str += ", " + Sql.ConvertVS2SQLType(DirMain.fPrint.txtTk_gv.Text, "")
             str += ", " + Sql.ConvertVS2SQLType(DirMain.fPrint.txtLoai_vt.Text, "")
             str += ", " + Sql.ConvertVS2SQLType(DirMain.oAdvFilter.GetGridTransCode(DirMain.fPrint.grdTransCode, "ma_gd"), "")
             str += ", " + Sql.ConvertVS2SQLType(DirMain.oAdvFilter.GetGridTransCode(DirMain.fPrint.grdTransCode, "loai_ct"), "")

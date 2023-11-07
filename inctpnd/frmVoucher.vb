@@ -309,6 +309,11 @@ Namespace inctpnd
                 ProjectData.SetProjectError(exception1)
                 ProjectData.ClearProjectError()
             End Try
+            Try
+                GetColumn(Me.grdDetail, "so_dh").TextBox.Enabled = False
+                GetColumn(Me.grdDetail, "po_line").TextBox.Enabled = False
+            Catch ex As Exception
+            End Try
         End Sub
 
         Private Sub EDTBColumns(ByVal lED As Boolean)
@@ -324,6 +329,11 @@ Namespace inctpnd
             Catch exception1 As Exception
                 ProjectData.SetProjectError(exception1)
                 ProjectData.ClearProjectError()
+            End Try
+            Try
+                GetColumn(Me.grdDetail, "so_dh").TextBox.Enabled = False
+                GetColumn(Me.grdDetail, "po_line").TextBox.Enabled = False
+            Catch ex As Exception
             End Try
             Me.EDStatus(lED)
         End Sub
@@ -2726,13 +2736,13 @@ Namespace inctpnd
                         str3 += " AND (a.ngay_ct <= " + Sql.ConvertVS2SQLType(Me.txtNgay_ct.Value, "") + ")"
                     End If
                     If (_date.txtMa_vt.Text <> "") Then
-                        str3 += " AND (a.ma_vt like '" + _date.txtMa_vt.Text.Trim.Replace("'", "''") + "') "
+                        str3 += " AND (a.ma_vt like '" + _date.txtMa_vt.Text.Trim.Replace("'", "''") + "%') "
                     End If
                     If (_date.txtMa_lo.Text <> "") Then
-                        str3 += " AND (a.ma_lo like '" + _date.txtMa_lo.Text.Trim.Replace("'", "''") + "') "
+                        str3 += " AND (a.ma_lo like '" + _date.txtMa_lo.Text.Trim.Replace("'", "''") + "%') "
                     End If
                     If (_date.txtMa_kho.Text <> "") Then
-                        str3 += " AND (a.ma_kho like '" + _date.txtMa_kho.Text.Trim.Replace("'", "''") + "') "
+                        str3 += " AND (a.ma_kho like '" + _date.txtMa_kho.Text.Trim.Replace("'", "''") + "%') "
                     End If
                     Dim strSQLLong As String = str3
                     Dim tcSQL As String = String.Concat(New String() {"EXEC spSearchIRTran4IR '", modVoucher.cLan, "', ", vouchersearchlibobj.ConvertLong2ShortStrings(str3, 10), ", ", vouchersearchlibobj.ConvertLong2ShortStrings(strSQLLong, 10), ", 'ph74', 'ct74'"})
@@ -2961,13 +2971,13 @@ Namespace inctpnd
                 ' str3 += " AND (a.ngay_ct <= " + Sql.ConvertVS2SQLType(Me.txtNgay_ct.Value, "") + ")"
             End If
             If (_date.txtMa_vt.Text <> "") Then
-                str3 += " AND (a.ma_vt like '" + _date.txtMa_vt.Text.Trim.Replace("'", "''") + "') "
+                str3 += " AND (a.ma_vt like '" + _date.txtMa_vt.Text.Trim.Replace("'", "''") + "%') "
             End If
             If (_date.txtMa_lo.Text <> "") Then
-                str3 += " AND (a.ma_lo like '" + _date.txtMa_lo.Text.Trim.Replace("'", "''") + "') "
+                str3 += " AND (a.ma_lo like '" + _date.txtMa_lo.Text.Trim.Replace("'", "''") + "%') "
             End If
             If (_date.txtMa_kho.Text <> "") Then
-                str3 += " AND (a.ma_kho like '" + _date.txtMa_kho.Text.Trim.Replace("'", "''") + "') "
+                str3 += " AND (a.ma_kho like '" + _date.txtMa_kho.Text.Trim.Replace("'", "''") + "%') "
             End If
             Dim strSQLLong As String = str3
             Dim tcSQL As String = String.Concat(New String() {"EXEC spSearchIRTran4IR '", modVoucher.cLan, "', ", vouchersearchlibobj.ConvertLong2ShortStrings(str3, 10), ", ", vouchersearchlibobj.ConvertLong2ShortStrings(strSQLLong, 10), ", 'ph74', 'ct74'"})
