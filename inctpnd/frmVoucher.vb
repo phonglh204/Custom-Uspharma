@@ -768,9 +768,9 @@ Namespace inctpnd
             '
             Me.cmdSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdSave.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdSave.Location = New System.Drawing.Point(2, 428)
+            Me.cmdSave.Location = New System.Drawing.Point(2, 421)
             Me.cmdSave.Name = "cmdSave"
-            Me.cmdSave.Size = New System.Drawing.Size(60, 23)
+            Me.cmdSave.Size = New System.Drawing.Size(72, 26)
             Me.cmdSave.TabIndex = 18
             Me.cmdSave.Tag = "CB01"
             Me.cmdSave.Text = "Luu"
@@ -780,9 +780,9 @@ Namespace inctpnd
             '
             Me.cmdNew.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdNew.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdNew.Location = New System.Drawing.Point(62, 428)
+            Me.cmdNew.Location = New System.Drawing.Point(74, 421)
             Me.cmdNew.Name = "cmdNew"
-            Me.cmdNew.Size = New System.Drawing.Size(60, 23)
+            Me.cmdNew.Size = New System.Drawing.Size(72, 26)
             Me.cmdNew.TabIndex = 19
             Me.cmdNew.Tag = "CB02"
             Me.cmdNew.Text = "Moi"
@@ -792,9 +792,9 @@ Namespace inctpnd
             '
             Me.cmdPrint.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdPrint.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdPrint.Location = New System.Drawing.Point(122, 428)
+            Me.cmdPrint.Location = New System.Drawing.Point(146, 421)
             Me.cmdPrint.Name = "cmdPrint"
-            Me.cmdPrint.Size = New System.Drawing.Size(60, 23)
+            Me.cmdPrint.Size = New System.Drawing.Size(72, 26)
             Me.cmdPrint.TabIndex = 20
             Me.cmdPrint.Tag = "CB03"
             Me.cmdPrint.Text = "In ctu"
@@ -804,9 +804,9 @@ Namespace inctpnd
             '
             Me.cmdEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdEdit.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdEdit.Location = New System.Drawing.Point(182, 428)
+            Me.cmdEdit.Location = New System.Drawing.Point(218, 421)
             Me.cmdEdit.Name = "cmdEdit"
-            Me.cmdEdit.Size = New System.Drawing.Size(60, 23)
+            Me.cmdEdit.Size = New System.Drawing.Size(72, 26)
             Me.cmdEdit.TabIndex = 21
             Me.cmdEdit.Tag = "CB04"
             Me.cmdEdit.Text = "Sua"
@@ -816,9 +816,9 @@ Namespace inctpnd
             '
             Me.cmdDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdDelete.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdDelete.Location = New System.Drawing.Point(242, 428)
+            Me.cmdDelete.Location = New System.Drawing.Point(290, 421)
             Me.cmdDelete.Name = "cmdDelete"
-            Me.cmdDelete.Size = New System.Drawing.Size(60, 23)
+            Me.cmdDelete.Size = New System.Drawing.Size(72, 26)
             Me.cmdDelete.TabIndex = 22
             Me.cmdDelete.Tag = "CB05"
             Me.cmdDelete.Text = "Xoa"
@@ -828,9 +828,9 @@ Namespace inctpnd
             '
             Me.cmdView.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdView.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdView.Location = New System.Drawing.Point(302, 428)
+            Me.cmdView.Location = New System.Drawing.Point(362, 421)
             Me.cmdView.Name = "cmdView"
-            Me.cmdView.Size = New System.Drawing.Size(60, 23)
+            Me.cmdView.Size = New System.Drawing.Size(72, 26)
             Me.cmdView.TabIndex = 23
             Me.cmdView.Tag = "CB06"
             Me.cmdView.Text = "Xem"
@@ -840,9 +840,9 @@ Namespace inctpnd
             '
             Me.cmdSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdSearch.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdSearch.Location = New System.Drawing.Point(362, 428)
+            Me.cmdSearch.Location = New System.Drawing.Point(434, 421)
             Me.cmdSearch.Name = "cmdSearch"
-            Me.cmdSearch.Size = New System.Drawing.Size(60, 23)
+            Me.cmdSearch.Size = New System.Drawing.Size(72, 26)
             Me.cmdSearch.TabIndex = 24
             Me.cmdSearch.Tag = "CB07"
             Me.cmdSearch.Text = "Tim"
@@ -852,9 +852,9 @@ Namespace inctpnd
             '
             Me.cmdClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdClose.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdClose.Location = New System.Drawing.Point(422, 428)
+            Me.cmdClose.Location = New System.Drawing.Point(506, 421)
             Me.cmdClose.Name = "cmdClose"
-            Me.cmdClose.Size = New System.Drawing.Size(60, 23)
+            Me.cmdClose.Size = New System.Drawing.Size(72, 26)
             Me.cmdClose.TabIndex = 25
             Me.cmdClose.Tag = "CB08"
             Me.cmdClose.Text = "Quay ra"
@@ -864,9 +864,9 @@ Namespace inctpnd
             '
             Me.cmdOption.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cmdOption.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdOption.Location = New System.Drawing.Point(543, 428)
+            Me.cmdOption.Location = New System.Drawing.Point(524, 421)
             Me.cmdOption.Name = "cmdOption"
-            Me.cmdOption.Size = New System.Drawing.Size(20, 23)
+            Me.cmdOption.Size = New System.Drawing.Size(24, 26)
             Me.cmdOption.TabIndex = 26
             Me.cmdOption.TabStop = False
             Me.cmdOption.Tag = "CB09"
@@ -876,9 +876,9 @@ Namespace inctpnd
             '
             Me.cmdTop.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cmdTop.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdTop.Location = New System.Drawing.Point(562, 428)
+            Me.cmdTop.Location = New System.Drawing.Point(546, 421)
             Me.cmdTop.Name = "cmdTop"
-            Me.cmdTop.Size = New System.Drawing.Size(20, 23)
+            Me.cmdTop.Size = New System.Drawing.Size(24, 26)
             Me.cmdTop.TabIndex = 27
             Me.cmdTop.TabStop = False
             Me.cmdTop.Tag = "CB10"
@@ -888,9 +888,9 @@ Namespace inctpnd
             '
             Me.cmdPrev.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cmdPrev.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdPrev.Location = New System.Drawing.Point(581, 428)
+            Me.cmdPrev.Location = New System.Drawing.Point(569, 421)
             Me.cmdPrev.Name = "cmdPrev"
-            Me.cmdPrev.Size = New System.Drawing.Size(20, 23)
+            Me.cmdPrev.Size = New System.Drawing.Size(24, 26)
             Me.cmdPrev.TabIndex = 28
             Me.cmdPrev.TabStop = False
             Me.cmdPrev.Tag = "CB11"
@@ -900,9 +900,9 @@ Namespace inctpnd
             '
             Me.cmdNext.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cmdNext.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdNext.Location = New System.Drawing.Point(600, 428)
+            Me.cmdNext.Location = New System.Drawing.Point(592, 421)
             Me.cmdNext.Name = "cmdNext"
-            Me.cmdNext.Size = New System.Drawing.Size(20, 23)
+            Me.cmdNext.Size = New System.Drawing.Size(24, 26)
             Me.cmdNext.TabIndex = 29
             Me.cmdNext.TabStop = False
             Me.cmdNext.Tag = "CB12"
@@ -912,9 +912,9 @@ Namespace inctpnd
             '
             Me.cmdBottom.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cmdBottom.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdBottom.Location = New System.Drawing.Point(619, 428)
+            Me.cmdBottom.Location = New System.Drawing.Point(615, 421)
             Me.cmdBottom.Name = "cmdBottom"
-            Me.cmdBottom.Size = New System.Drawing.Size(20, 23)
+            Me.cmdBottom.Size = New System.Drawing.Size(24, 26)
             Me.cmdBottom.TabIndex = 30
             Me.cmdBottom.TabStop = False
             Me.cmdBottom.Tag = "CB13"
@@ -923,9 +923,9 @@ Namespace inctpnd
             'lblMa_dvcs
             '
             Me.lblMa_dvcs.AutoSize = True
-            Me.lblMa_dvcs.Location = New System.Drawing.Point(272, 456)
+            Me.lblMa_dvcs.Location = New System.Drawing.Point(326, 526)
             Me.lblMa_dvcs.Name = "lblMa_dvcs"
-            Me.lblMa_dvcs.Size = New System.Drawing.Size(48, 13)
+            Me.lblMa_dvcs.Size = New System.Drawing.Size(60, 17)
             Me.lblMa_dvcs.TabIndex = 13
             Me.lblMa_dvcs.Tag = "L001"
             Me.lblMa_dvcs.Text = "Ma dvcs"
@@ -935,9 +935,9 @@ Namespace inctpnd
             '
             Me.txtMa_dvcs.BackColor = System.Drawing.Color.White
             Me.txtMa_dvcs.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtMa_dvcs.Location = New System.Drawing.Point(320, 456)
+            Me.txtMa_dvcs.Location = New System.Drawing.Point(384, 526)
             Me.txtMa_dvcs.Name = "txtMa_dvcs"
-            Me.txtMa_dvcs.Size = New System.Drawing.Size(100, 20)
+            Me.txtMa_dvcs.Size = New System.Drawing.Size(120, 22)
             Me.txtMa_dvcs.TabIndex = 0
             Me.txtMa_dvcs.Tag = "FCNBCF"
             Me.txtMa_dvcs.Text = "TXTMA_DVCS"
@@ -948,9 +948,9 @@ Namespace inctpnd
             Me.lblTen_dvcs.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblTen_dvcs.AutoSize = True
-            Me.lblTen_dvcs.Location = New System.Drawing.Point(424, 456)
+            Me.lblTen_dvcs.Location = New System.Drawing.Point(509, 526)
             Me.lblTen_dvcs.Name = "lblTen_dvcs"
-            Me.lblTen_dvcs.Size = New System.Drawing.Size(87, 13)
+            Me.lblTen_dvcs.Size = New System.Drawing.Size(113, 17)
             Me.lblTen_dvcs.TabIndex = 15
             Me.lblTen_dvcs.Tag = "FCRF"
             Me.lblTen_dvcs.Text = "Ten don vi co so"
@@ -960,9 +960,9 @@ Namespace inctpnd
             '
             Me.lblSo_ct.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblSo_ct.AutoSize = True
-            Me.lblSo_ct.Location = New System.Drawing.Point(438, 7)
+            Me.lblSo_ct.Location = New System.Drawing.Point(398, 8)
             Me.lblSo_ct.Name = "lblSo_ct"
-            Me.lblSo_ct.Size = New System.Drawing.Size(35, 13)
+            Me.lblSo_ct.Size = New System.Drawing.Size(45, 17)
             Me.lblSo_ct.TabIndex = 16
             Me.lblSo_ct.Tag = "L006"
             Me.lblSo_ct.Text = "So pn"
@@ -972,9 +972,9 @@ Namespace inctpnd
             Me.txtSo_ct.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtSo_ct.BackColor = System.Drawing.Color.White
             Me.txtSo_ct.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtSo_ct.Location = New System.Drawing.Point(538, 5)
+            Me.txtSo_ct.Location = New System.Drawing.Point(518, 6)
             Me.txtSo_ct.Name = "txtSo_ct"
-            Me.txtSo_ct.Size = New System.Drawing.Size(100, 20)
+            Me.txtSo_ct.Size = New System.Drawing.Size(120, 22)
             Me.txtSo_ct.TabIndex = 9
             Me.txtSo_ct.Tag = "FCNBCF"
             Me.txtSo_ct.Text = "TXTSO_CT"
@@ -984,10 +984,10 @@ Namespace inctpnd
             '
             Me.txtNgay_lct.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtNgay_lct.BackColor = System.Drawing.Color.White
-            Me.txtNgay_lct.Location = New System.Drawing.Point(538, 26)
+            Me.txtNgay_lct.Location = New System.Drawing.Point(518, 30)
             Me.txtNgay_lct.MaxLength = 10
             Me.txtNgay_lct.Name = "txtNgay_lct"
-            Me.txtNgay_lct.Size = New System.Drawing.Size(100, 20)
+            Me.txtNgay_lct.Size = New System.Drawing.Size(120, 22)
             Me.txtNgay_lct.TabIndex = 10
             Me.txtNgay_lct.Tag = "FDNBCFDF"
             Me.txtNgay_lct.Text = "  /  /    "
@@ -999,10 +999,10 @@ Namespace inctpnd
             Me.txtTy_gia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtTy_gia.BackColor = System.Drawing.Color.White
             Me.txtTy_gia.Format = "m_ip_tg"
-            Me.txtTy_gia.Location = New System.Drawing.Point(538, 68)
+            Me.txtTy_gia.Location = New System.Drawing.Point(518, 78)
             Me.txtTy_gia.MaxLength = 8
             Me.txtTy_gia.Name = "txtTy_gia"
-            Me.txtTy_gia.Size = New System.Drawing.Size(100, 20)
+            Me.txtTy_gia.Size = New System.Drawing.Size(120, 22)
             Me.txtTy_gia.TabIndex = 13
             Me.txtTy_gia.Tag = "FNCF"
             Me.txtTy_gia.Text = "m_ip_tg"
@@ -1013,9 +1013,9 @@ Namespace inctpnd
             '
             Me.lblNgay_lct.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblNgay_lct.AutoSize = True
-            Me.lblNgay_lct.Location = New System.Drawing.Point(438, 28)
+            Me.lblNgay_lct.Location = New System.Drawing.Point(398, 32)
             Me.lblNgay_lct.Name = "lblNgay_lct"
-            Me.lblNgay_lct.Size = New System.Drawing.Size(64, 13)
+            Me.lblNgay_lct.Size = New System.Drawing.Size(84, 17)
             Me.lblNgay_lct.TabIndex = 20
             Me.lblNgay_lct.Tag = "L007"
             Me.lblNgay_lct.Text = "Ngay lap pn"
@@ -1024,9 +1024,9 @@ Namespace inctpnd
             '
             Me.lblNgay_ct.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblNgay_ct.AutoSize = True
-            Me.lblNgay_ct.Location = New System.Drawing.Point(438, 49)
+            Me.lblNgay_ct.Location = New System.Drawing.Point(398, 57)
             Me.lblNgay_ct.Name = "lblNgay_ct"
-            Me.lblNgay_ct.Size = New System.Drawing.Size(83, 13)
+            Me.lblNgay_ct.Size = New System.Drawing.Size(108, 17)
             Me.lblNgay_ct.TabIndex = 21
             Me.lblNgay_ct.Tag = "L008"
             Me.lblNgay_ct.Text = "Ngay hach toan"
@@ -1035,9 +1035,9 @@ Namespace inctpnd
             '
             Me.lblTy_gia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblTy_gia.AutoSize = True
-            Me.lblTy_gia.Location = New System.Drawing.Point(438, 70)
+            Me.lblTy_gia.Location = New System.Drawing.Point(398, 81)
             Me.lblTy_gia.Name = "lblTy_gia"
-            Me.lblTy_gia.Size = New System.Drawing.Size(36, 13)
+            Me.lblTy_gia.Size = New System.Drawing.Size(47, 17)
             Me.lblTy_gia.TabIndex = 22
             Me.lblTy_gia.Tag = "L009"
             Me.lblTy_gia.Text = "Ty gia"
@@ -1046,10 +1046,10 @@ Namespace inctpnd
             '
             Me.txtNgay_ct.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtNgay_ct.BackColor = System.Drawing.Color.White
-            Me.txtNgay_ct.Location = New System.Drawing.Point(538, 47)
+            Me.txtNgay_ct.Location = New System.Drawing.Point(518, 54)
             Me.txtNgay_ct.MaxLength = 10
             Me.txtNgay_ct.Name = "txtNgay_ct"
-            Me.txtNgay_ct.Size = New System.Drawing.Size(100, 20)
+            Me.txtNgay_ct.Size = New System.Drawing.Size(120, 22)
             Me.txtNgay_ct.TabIndex = 11
             Me.txtNgay_ct.Tag = "FDNBCFDF"
             Me.txtNgay_ct.Text = "  /  /    "
@@ -1061,9 +1061,9 @@ Namespace inctpnd
             Me.cmdMa_nt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cmdMa_nt.BackColor = System.Drawing.SystemColors.Control
             Me.cmdMa_nt.Enabled = False
-            Me.cmdMa_nt.Location = New System.Drawing.Point(498, 68)
+            Me.cmdMa_nt.Location = New System.Drawing.Point(470, 78)
             Me.cmdMa_nt.Name = "cmdMa_nt"
-            Me.cmdMa_nt.Size = New System.Drawing.Size(36, 20)
+            Me.cmdMa_nt.Size = New System.Drawing.Size(43, 24)
             Me.cmdMa_nt.TabIndex = 12
             Me.cmdMa_nt.TabStop = False
             Me.cmdMa_nt.Tag = "FCCFCMDDF"
@@ -1077,19 +1077,19 @@ Namespace inctpnd
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.tbDetail.Controls.Add(Me.tpgDetail)
             Me.tbDetail.Controls.Add(Me.tpgOther)
-            Me.tbDetail.Location = New System.Drawing.Point(2, 137)
+            Me.tbDetail.Location = New System.Drawing.Point(2, 158)
             Me.tbDetail.Name = "tbDetail"
             Me.tbDetail.SelectedIndex = 0
-            Me.tbDetail.Size = New System.Drawing.Size(638, 255)
+            Me.tbDetail.Size = New System.Drawing.Size(638, 221)
             Me.tbDetail.TabIndex = 17
             '
             'tpgDetail
             '
             Me.tpgDetail.BackColor = System.Drawing.SystemColors.Control
             Me.tpgDetail.Controls.Add(Me.grdDetail)
-            Me.tpgDetail.Location = New System.Drawing.Point(4, 22)
+            Me.tpgDetail.Location = New System.Drawing.Point(4, 25)
             Me.tpgDetail.Name = "tpgDetail"
-            Me.tpgDetail.Size = New System.Drawing.Size(630, 229)
+            Me.tpgDetail.Size = New System.Drawing.Size(630, 192)
             Me.tpgDetail.TabIndex = 0
             Me.tpgDetail.Tag = "L016"
             Me.tpgDetail.Text = "Chung tu"
@@ -1109,15 +1109,15 @@ Namespace inctpnd
             Me.grdDetail.HeaderForeColor = System.Drawing.SystemColors.ControlText
             Me.grdDetail.Location = New System.Drawing.Point(-1, -1)
             Me.grdDetail.Name = "grdDetail"
-            Me.grdDetail.Size = New System.Drawing.Size(633, 230)
+            Me.grdDetail.Size = New System.Drawing.Size(631, 189)
             Me.grdDetail.TabIndex = 0
             Me.grdDetail.Tag = "L020CF"
             '
             'tpgOther
             '
-            Me.tpgOther.Location = New System.Drawing.Point(4, 22)
+            Me.tpgOther.Location = New System.Drawing.Point(4, 25)
             Me.tpgOther.Name = "tpgOther"
-            Me.tpgOther.Size = New System.Drawing.Size(630, 229)
+            Me.tpgOther.Size = New System.Drawing.Size(758, 265)
             Me.tpgOther.TabIndex = 1
             Me.tpgOther.Tag = "L017"
             Me.tpgOther.Text = "Thue GTGT dau vao"
@@ -1129,10 +1129,10 @@ Namespace inctpnd
             Me.txtT_tien.Enabled = False
             Me.txtT_tien.ForeColor = System.Drawing.Color.Black
             Me.txtT_tien.Format = "m_ip_tien"
-            Me.txtT_tien.Location = New System.Drawing.Point(538, 401)
+            Me.txtT_tien.Location = New System.Drawing.Point(518, 390)
             Me.txtT_tien.MaxLength = 10
             Me.txtT_tien.Name = "txtT_tien"
-            Me.txtT_tien.Size = New System.Drawing.Size(100, 20)
+            Me.txtT_tien.Size = New System.Drawing.Size(120, 22)
             Me.txtT_tien.TabIndex = 16
             Me.txtT_tien.Tag = "FN"
             Me.txtT_tien.Text = "m_ip_tien"
@@ -1146,10 +1146,10 @@ Namespace inctpnd
             Me.txtT_tien_nt.Enabled = False
             Me.txtT_tien_nt.ForeColor = System.Drawing.Color.Black
             Me.txtT_tien_nt.Format = "m_ip_tien_nt"
-            Me.txtT_tien_nt.Location = New System.Drawing.Point(437, 401)
+            Me.txtT_tien_nt.Location = New System.Drawing.Point(396, 390)
             Me.txtT_tien_nt.MaxLength = 13
             Me.txtT_tien_nt.Name = "txtT_tien_nt"
-            Me.txtT_tien_nt.Size = New System.Drawing.Size(100, 20)
+            Me.txtT_tien_nt.Size = New System.Drawing.Size(120, 22)
             Me.txtT_tien_nt.TabIndex = 15
             Me.txtT_tien_nt.Tag = "FN"
             Me.txtT_tien_nt.Text = "m_ip_tien_nt"
@@ -1160,10 +1160,10 @@ Namespace inctpnd
             '
             Me.txtStatus.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.txtStatus.BackColor = System.Drawing.Color.White
-            Me.txtStatus.Location = New System.Drawing.Point(8, 454)
+            Me.txtStatus.Location = New System.Drawing.Point(10, 451)
             Me.txtStatus.MaxLength = 1
             Me.txtStatus.Name = "txtStatus"
-            Me.txtStatus.Size = New System.Drawing.Size(25, 20)
+            Me.txtStatus.Size = New System.Drawing.Size(30, 22)
             Me.txtStatus.TabIndex = 41
             Me.txtStatus.TabStop = False
             Me.txtStatus.Tag = "FCCF"
@@ -1175,9 +1175,9 @@ Namespace inctpnd
             '
             Me.lblStatus.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblStatus.AutoSize = True
-            Me.lblStatus.Location = New System.Drawing.Point(438, 91)
+            Me.lblStatus.Location = New System.Drawing.Point(398, 105)
             Me.lblStatus.Name = "lblStatus"
-            Me.lblStatus.Size = New System.Drawing.Size(55, 13)
+            Me.lblStatus.Size = New System.Drawing.Size(73, 17)
             Me.lblStatus.TabIndex = 29
             Me.lblStatus.Tag = ""
             Me.lblStatus.Text = "Trang thai"
@@ -1186,9 +1186,9 @@ Namespace inctpnd
             '
             Me.lblStatusMess.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.lblStatusMess.AutoSize = True
-            Me.lblStatusMess.Location = New System.Drawing.Point(48, 456)
+            Me.lblStatusMess.Location = New System.Drawing.Point(58, 453)
             Me.lblStatusMess.Name = "lblStatusMess"
-            Me.lblStatusMess.Size = New System.Drawing.Size(191, 13)
+            Me.lblStatusMess.Size = New System.Drawing.Size(253, 17)
             Me.lblStatusMess.TabIndex = 42
             Me.lblStatusMess.Tag = ""
             Me.lblStatusMess.Text = "1 - Ghi vao SC, 0 - Chua ghi vao so cai"
@@ -1196,9 +1196,9 @@ Namespace inctpnd
             '
             'txtKeyPress
             '
-            Me.txtKeyPress.Location = New System.Drawing.Point(408, 96)
+            Me.txtKeyPress.Location = New System.Drawing.Point(490, 111)
             Me.txtKeyPress.Name = "txtKeyPress"
-            Me.txtKeyPress.Size = New System.Drawing.Size(10, 20)
+            Me.txtKeyPress.Size = New System.Drawing.Size(12, 22)
             Me.txtKeyPress.TabIndex = 16
             '
             'cboStatus
@@ -1206,9 +1206,9 @@ Namespace inctpnd
             Me.cboStatus.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cboStatus.BackColor = System.Drawing.Color.White
             Me.cboStatus.Enabled = False
-            Me.cboStatus.Location = New System.Drawing.Point(498, 89)
+            Me.cboStatus.Location = New System.Drawing.Point(470, 103)
             Me.cboStatus.Name = "cboStatus"
-            Me.cboStatus.Size = New System.Drawing.Size(140, 21)
+            Me.cboStatus.Size = New System.Drawing.Size(168, 24)
             Me.cboStatus.TabIndex = 14
             Me.cboStatus.TabStop = False
             Me.cboStatus.Tag = ""
@@ -1218,9 +1218,9 @@ Namespace inctpnd
             '
             Me.cboAction.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cboAction.BackColor = System.Drawing.Color.White
-            Me.cboAction.Location = New System.Drawing.Point(498, 110)
+            Me.cboAction.Location = New System.Drawing.Point(470, 127)
             Me.cboAction.Name = "cboAction"
-            Me.cboAction.Size = New System.Drawing.Size(140, 21)
+            Me.cboAction.Size = New System.Drawing.Size(168, 24)
             Me.cboAction.TabIndex = 15
             Me.cboAction.TabStop = False
             Me.cboAction.Tag = "CF"
@@ -1230,9 +1230,9 @@ Namespace inctpnd
             '
             Me.lblAction.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblAction.AutoSize = True
-            Me.lblAction.Location = New System.Drawing.Point(438, 112)
+            Me.lblAction.Location = New System.Drawing.Point(398, 129)
             Me.lblAction.Name = "lblAction"
-            Me.lblAction.Size = New System.Drawing.Size(30, 13)
+            Me.lblAction.Size = New System.Drawing.Size(39, 17)
             Me.lblAction.TabIndex = 33
             Me.lblAction.Tag = ""
             Me.lblAction.Text = "Xu ly"
@@ -1240,9 +1240,9 @@ Namespace inctpnd
             'lblMa_kh
             '
             Me.lblMa_kh.AutoSize = True
-            Me.lblMa_kh.Location = New System.Drawing.Point(2, 7)
+            Me.lblMa_kh.Location = New System.Drawing.Point(2, 8)
             Me.lblMa_kh.Name = "lblMa_kh"
-            Me.lblMa_kh.Size = New System.Drawing.Size(55, 13)
+            Me.lblMa_kh.Size = New System.Drawing.Size(69, 17)
             Me.lblMa_kh.TabIndex = 34
             Me.lblMa_kh.Tag = "L002"
             Me.lblMa_kh.Text = "Ma khach"
@@ -1251,9 +1251,9 @@ Namespace inctpnd
             '
             Me.txtMa_kh.BackColor = System.Drawing.Color.White
             Me.txtMa_kh.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtMa_kh.Location = New System.Drawing.Point(88, 5)
+            Me.txtMa_kh.Location = New System.Drawing.Point(106, 6)
             Me.txtMa_kh.Name = "txtMa_kh"
-            Me.txtMa_kh.Size = New System.Drawing.Size(100, 20)
+            Me.txtMa_kh.Size = New System.Drawing.Size(120, 22)
             Me.txtMa_kh.TabIndex = 0
             Me.txtMa_kh.Tag = "FCNBCF"
             Me.txtMa_kh.Text = "TXTMA_KH"
@@ -1262,9 +1262,9 @@ Namespace inctpnd
             '
             Me.lblTen_kh.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            Me.lblTen_kh.Location = New System.Drawing.Point(192, 8)
+            Me.lblTen_kh.Location = New System.Drawing.Point(230, 9)
             Me.lblTen_kh.Name = "lblTen_kh"
-            Me.lblTen_kh.Size = New System.Drawing.Size(233, 15)
+            Me.lblTen_kh.Size = New System.Drawing.Size(152, 18)
             Me.lblTen_kh.TabIndex = 36
             Me.lblTen_kh.Tag = "FCRF"
             Me.lblTen_kh.Text = "Ten khach"
@@ -1272,9 +1272,9 @@ Namespace inctpnd
             'lblOng_ba
             '
             Me.lblOng_ba.AutoSize = True
-            Me.lblOng_ba.Location = New System.Drawing.Point(2, 28)
+            Me.lblOng_ba.Location = New System.Drawing.Point(2, 32)
             Me.lblOng_ba.Name = "lblOng_ba"
-            Me.lblOng_ba.Size = New System.Drawing.Size(58, 13)
+            Me.lblOng_ba.Size = New System.Drawing.Size(76, 17)
             Me.lblOng_ba.TabIndex = 37
             Me.lblOng_ba.Tag = "L003"
             Me.lblOng_ba.Text = "Nguoi giao"
@@ -1282,9 +1282,9 @@ Namespace inctpnd
             'txtOng_ba
             '
             Me.txtOng_ba.BackColor = System.Drawing.Color.White
-            Me.txtOng_ba.Location = New System.Drawing.Point(88, 26)
+            Me.txtOng_ba.Location = New System.Drawing.Point(106, 30)
             Me.txtOng_ba.Name = "txtOng_ba"
-            Me.txtOng_ba.Size = New System.Drawing.Size(133, 20)
+            Me.txtOng_ba.Size = New System.Drawing.Size(159, 22)
             Me.txtOng_ba.TabIndex = 1
             Me.txtOng_ba.Tag = "FCCF"
             Me.txtOng_ba.Text = "txtOng_ba"
@@ -1292,9 +1292,9 @@ Namespace inctpnd
             'lblMa_gd
             '
             Me.lblMa_gd.AutoSize = True
-            Me.lblMa_gd.Location = New System.Drawing.Point(2, 70)
+            Me.lblMa_gd.Location = New System.Drawing.Point(2, 81)
             Me.lblMa_gd.Name = "lblMa_gd"
-            Me.lblMa_gd.Size = New System.Drawing.Size(68, 13)
+            Me.lblMa_gd.Size = New System.Drawing.Size(88, 17)
             Me.lblMa_gd.TabIndex = 39
             Me.lblMa_gd.Tag = "L005"
             Me.lblMa_gd.Text = "Ma giao dich"
@@ -1303,18 +1303,18 @@ Namespace inctpnd
             '
             Me.txtMa_gd.BackColor = System.Drawing.Color.White
             Me.txtMa_gd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtMa_gd.Location = New System.Drawing.Point(88, 68)
+            Me.txtMa_gd.Location = New System.Drawing.Point(106, 78)
             Me.txtMa_gd.Name = "txtMa_gd"
-            Me.txtMa_gd.Size = New System.Drawing.Size(30, 20)
+            Me.txtMa_gd.Size = New System.Drawing.Size(36, 22)
             Me.txtMa_gd.TabIndex = 4
             Me.txtMa_gd.Tag = "FCNBCF"
             Me.txtMa_gd.Text = "TXTMA_GD"
             '
             'lblTen_gd
             '
-            Me.lblTen_gd.Location = New System.Drawing.Point(120, 70)
+            Me.lblTen_gd.Location = New System.Drawing.Point(144, 81)
             Me.lblTen_gd.Name = "lblTen_gd"
-            Me.lblTen_gd.Size = New System.Drawing.Size(304, 16)
+            Me.lblTen_gd.Size = New System.Drawing.Size(365, 18)
             Me.lblTen_gd.TabIndex = 43
             Me.lblTen_gd.Tag = "FCRF"
             Me.lblTen_gd.Text = "Ten giao dich"
@@ -1323,9 +1323,9 @@ Namespace inctpnd
             '
             Me.lblTien_hang.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblTien_hang.AutoSize = True
-            Me.lblTien_hang.Location = New System.Drawing.Point(192, 403)
+            Me.lblTien_hang.Location = New System.Drawing.Point(102, 392)
             Me.lblTien_hang.Name = "lblTien_hang"
-            Me.lblTien_hang.Size = New System.Drawing.Size(59, 13)
+            Me.lblTien_hang.Size = New System.Drawing.Size(76, 17)
             Me.lblTien_hang.TabIndex = 60
             Me.lblTien_hang.Tag = "L010"
             Me.lblTien_hang.Text = "Tong cong"
@@ -1333,9 +1333,9 @@ Namespace inctpnd
             'lblTen
             '
             Me.lblTen.AutoSize = True
-            Me.lblTen.Location = New System.Drawing.Point(574, 456)
+            Me.lblTen.Location = New System.Drawing.Point(689, 526)
             Me.lblTen.Name = "lblTen"
-            Me.lblTen.Size = New System.Drawing.Size(59, 13)
+            Me.lblTen.Size = New System.Drawing.Size(76, 17)
             Me.lblTen.TabIndex = 68
             Me.lblTen.Tag = "RF"
             Me.lblTen.Text = "Ten chung"
@@ -1344,9 +1344,9 @@ Namespace inctpnd
             'txtDien_giai
             '
             Me.txtDien_giai.BackColor = System.Drawing.Color.White
-            Me.txtDien_giai.Location = New System.Drawing.Point(88, 47)
+            Me.txtDien_giai.Location = New System.Drawing.Point(106, 54)
             Me.txtDien_giai.Name = "txtDien_giai"
-            Me.txtDien_giai.Size = New System.Drawing.Size(337, 20)
+            Me.txtDien_giai.Size = New System.Drawing.Size(404, 22)
             Me.txtDien_giai.TabIndex = 3
             Me.txtDien_giai.Tag = "FCCF"
             Me.txtDien_giai.Text = "txtDien_giai"
@@ -1354,9 +1354,9 @@ Namespace inctpnd
             'lblDien_giai
             '
             Me.lblDien_giai.AutoSize = True
-            Me.lblDien_giai.Location = New System.Drawing.Point(2, 49)
+            Me.lblDien_giai.Location = New System.Drawing.Point(2, 57)
             Me.lblDien_giai.Name = "lblDien_giai"
-            Me.lblDien_giai.Size = New System.Drawing.Size(48, 13)
+            Me.lblDien_giai.Size = New System.Drawing.Size(63, 17)
             Me.lblDien_giai.TabIndex = 75
             Me.lblDien_giai.Tag = "L004"
             Me.lblDien_giai.Text = "Dien giai"
@@ -1368,10 +1368,10 @@ Namespace inctpnd
             Me.txtT_so_luong.Enabled = False
             Me.txtT_so_luong.ForeColor = System.Drawing.Color.Black
             Me.txtT_so_luong.Format = "m_ip_sl"
-            Me.txtT_so_luong.Location = New System.Drawing.Point(336, 401)
+            Me.txtT_so_luong.Location = New System.Drawing.Point(275, 390)
             Me.txtT_so_luong.MaxLength = 8
             Me.txtT_so_luong.Name = "txtT_so_luong"
-            Me.txtT_so_luong.Size = New System.Drawing.Size(100, 20)
+            Me.txtT_so_luong.Size = New System.Drawing.Size(120, 22)
             Me.txtT_so_luong.TabIndex = 14
             Me.txtT_so_luong.Tag = "FN"
             Me.txtT_so_luong.Text = "m_ip_sl"
@@ -1382,9 +1382,9 @@ Namespace inctpnd
             '
             Me.txtLoai_ct.BackColor = System.Drawing.Color.White
             Me.txtLoai_ct.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtLoai_ct.Location = New System.Drawing.Point(504, 454)
+            Me.txtLoai_ct.Location = New System.Drawing.Point(605, 524)
             Me.txtLoai_ct.Name = "txtLoai_ct"
-            Me.txtLoai_ct.Size = New System.Drawing.Size(30, 20)
+            Me.txtLoai_ct.Size = New System.Drawing.Size(36, 22)
             Me.txtLoai_ct.TabIndex = 76
             Me.txtLoai_ct.Tag = "FC"
             Me.txtLoai_ct.Text = "TXTLOAI_CT"
@@ -1393,9 +1393,9 @@ Namespace inctpnd
             'lblNgay_hd
             '
             Me.lblNgay_hd.AutoSize = True
-            Me.lblNgay_hd.Location = New System.Drawing.Point(232, 91)
+            Me.lblNgay_hd.Location = New System.Drawing.Point(278, 105)
             Me.lblNgay_hd.Name = "lblNgay_hd"
-            Me.lblNgay_hd.Size = New System.Drawing.Size(65, 13)
+            Me.lblNgay_hd.Size = New System.Drawing.Size(83, 17)
             Me.lblNgay_hd.TabIndex = 80
             Me.lblNgay_hd.Tag = "LZ02"
             Me.lblNgay_hd.Text = "Ngay ct goc"
@@ -1403,10 +1403,10 @@ Namespace inctpnd
             'txtNgay_ct0
             '
             Me.txtNgay_ct0.BackColor = System.Drawing.Color.White
-            Me.txtNgay_ct0.Location = New System.Drawing.Point(320, 89)
+            Me.txtNgay_ct0.Location = New System.Drawing.Point(384, 103)
             Me.txtNgay_ct0.MaxLength = 10
             Me.txtNgay_ct0.Name = "txtNgay_ct0"
-            Me.txtNgay_ct0.Size = New System.Drawing.Size(80, 20)
+            Me.txtNgay_ct0.Size = New System.Drawing.Size(96, 22)
             Me.txtNgay_ct0.TabIndex = 6
             Me.txtNgay_ct0.Tag = "FDCFDF"
             Me.txtNgay_ct0.Text = "  /  /    "
@@ -1417,10 +1417,10 @@ Namespace inctpnd
             '
             Me.txtSo_ct0.BackColor = System.Drawing.Color.White
             Me.txtSo_ct0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtSo_ct0.Location = New System.Drawing.Point(112, 89)
+            Me.txtSo_ct0.Location = New System.Drawing.Point(134, 103)
             Me.txtSo_ct0.Name = "txtSo_ct0"
             Me.txtSo_ct0.RightToLeft = System.Windows.Forms.RightToLeft.No
-            Me.txtSo_ct0.Size = New System.Drawing.Size(100, 20)
+            Me.txtSo_ct0.Size = New System.Drawing.Size(120, 22)
             Me.txtSo_ct0.TabIndex = 5
             Me.txtSo_ct0.Tag = "FCCF"
             Me.txtSo_ct0.Text = "TXTSO_CT0"
@@ -1428,9 +1428,9 @@ Namespace inctpnd
             'lblSo_hd
             '
             Me.lblSo_hd.AutoSize = True
-            Me.lblSo_hd.Location = New System.Drawing.Point(2, 91)
+            Me.lblSo_hd.Location = New System.Drawing.Point(2, 105)
             Me.lblSo_hd.Name = "lblSo_hd"
-            Me.lblSo_hd.Size = New System.Drawing.Size(53, 13)
+            Me.lblSo_hd.Size = New System.Drawing.Size(67, 17)
             Me.lblSo_hd.TabIndex = 79
             Me.lblSo_hd.Tag = "LZ01"
             Me.lblSo_hd.Text = "So ct goc"
@@ -1439,10 +1439,10 @@ Namespace inctpnd
             '
             Me.txtFcode1.BackColor = System.Drawing.Color.White
             Me.txtFcode1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtFcode1.Location = New System.Drawing.Point(112, 110)
+            Me.txtFcode1.Location = New System.Drawing.Point(134, 127)
             Me.txtFcode1.Name = "txtFcode1"
             Me.txtFcode1.RightToLeft = System.Windows.Forms.RightToLeft.No
-            Me.txtFcode1.Size = New System.Drawing.Size(100, 20)
+            Me.txtFcode1.Size = New System.Drawing.Size(120, 22)
             Me.txtFcode1.TabIndex = 7
             Me.txtFcode1.Tag = "FCCF"
             Me.txtFcode1.Text = "TXTFCODE1"
@@ -1450,9 +1450,9 @@ Namespace inctpnd
             'Label1
             '
             Me.Label1.AutoSize = True
-            Me.Label1.Location = New System.Drawing.Point(2, 112)
+            Me.Label1.Location = New System.Drawing.Point(2, 129)
             Me.Label1.Name = "Label1"
-            Me.Label1.Size = New System.Drawing.Size(93, 13)
+            Me.Label1.Size = New System.Drawing.Size(123, 17)
             Me.Label1.TabIndex = 82
             Me.Label1.Tag = "LZ03"
             Me.Label1.Text = "Bien ban ban giao"
@@ -1460,9 +1460,9 @@ Namespace inctpnd
             'Label2
             '
             Me.Label2.AutoSize = True
-            Me.Label2.Location = New System.Drawing.Point(232, 112)
+            Me.Label2.Location = New System.Drawing.Point(278, 129)
             Me.Label2.Name = "Label2"
-            Me.Label2.Size = New System.Drawing.Size(76, 13)
+            Me.Label2.Size = New System.Drawing.Size(100, 17)
             Me.Label2.TabIndex = 84
             Me.Label2.Tag = "LZ04"
             Me.Label2.Text = "Ngay ban giao"
@@ -1470,10 +1470,10 @@ Namespace inctpnd
             'txtFdate1
             '
             Me.txtFdate1.BackColor = System.Drawing.Color.White
-            Me.txtFdate1.Location = New System.Drawing.Point(320, 110)
+            Me.txtFdate1.Location = New System.Drawing.Point(384, 127)
             Me.txtFdate1.MaxLength = 10
             Me.txtFdate1.Name = "txtFdate1"
-            Me.txtFdate1.Size = New System.Drawing.Size(80, 20)
+            Me.txtFdate1.Size = New System.Drawing.Size(96, 22)
             Me.txtFdate1.TabIndex = 8
             Me.txtFdate1.Tag = "FDCFDF"
             Me.txtFdate1.Text = "  /  /    "
@@ -1483,9 +1483,9 @@ Namespace inctpnd
             'txtFnote1
             '
             Me.txtFnote1.BackColor = System.Drawing.Color.White
-            Me.txtFnote1.Location = New System.Drawing.Point(292, 25)
+            Me.txtFnote1.Location = New System.Drawing.Point(350, 29)
             Me.txtFnote1.Name = "txtFnote1"
-            Me.txtFnote1.Size = New System.Drawing.Size(133, 20)
+            Me.txtFnote1.Size = New System.Drawing.Size(160, 22)
             Me.txtFnote1.TabIndex = 2
             Me.txtFnote1.Tag = "FCCF"
             Me.txtFnote1.Text = "txtFnote1"
@@ -1493,16 +1493,16 @@ Namespace inctpnd
             'Label3
             '
             Me.Label3.AutoSize = True
-            Me.Label3.Location = New System.Drawing.Point(222, 27)
+            Me.Label3.Location = New System.Drawing.Point(266, 31)
             Me.Label3.Name = "Label3"
-            Me.Label3.Size = New System.Drawing.Size(62, 13)
+            Me.Label3.Size = New System.Drawing.Size(81, 17)
             Me.Label3.TabIndex = 86
             Me.Label3.Tag = "LZ05"
             Me.Label3.Text = "Nguoi nhan"
             '
             'frmVoucher
             '
-            Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
+            Me.AutoScaleBaseSize = New System.Drawing.Size(6, 15)
             Me.ClientSize = New System.Drawing.Size(642, 473)
             Me.Controls.Add(Me.txtFnote1)
             Me.Controls.Add(Me.Label3)

@@ -18,9 +18,14 @@ Module DirMain
                 DirMain.sysConn.Close()
                 DirMain.sysConn = Nothing
             Else
-                DirMain.cCodeSelected = Strings.Trim(Fox.GetWordNum(Strings.Trim(CmdArgs(0)), 1, "#"c))
                 Try
-                    DirMain.strKeyCust = Strings.Replace(Fox.GetWordNum(Strings.Trim(CmdArgs(0)), 2, "#"c), "%", " ", 1, -1, CompareMethod.Binary)
+                    DirMain.SysID = Strings.Trim(Fox.GetWordNum(Strings.Trim(CmdArgs(0)), 1, "#"c))
+                Catch ex As Exception
+                    DirMain.SysID = "zpsoth_lo_ct"
+                End Try
+                DirMain.cCodeSelected = Strings.Trim(Fox.GetWordNum(Strings.Trim(CmdArgs(0)), 2, "#"c))
+                Try
+                    DirMain.strKeyCust = Strings.Replace(Fox.GetWordNum(Strings.Trim(CmdArgs(0)), 3, "#"c), "%", " ", 1, -1, CompareMethod.Binary)
                 Catch exception1 As Exception
                     ProjectData.SetProjectError(exception1)
                     Dim exception As Exception = exception1
@@ -31,7 +36,7 @@ Module DirMain
                 Sys.InitVar(DirMain.sysConn, DirMain.oVar)
                 Sys.InitOptions(DirMain.appConn, DirMain.oOption)
                 Sys.InitColumns(DirMain.sysConn, DirMain.oLen)
-                DirMain.SysID = "zpsoth_lo_ct"
+
                 Sys.InitMessage(DirMain.sysConn, DirMain.oLan, DirMain.SysID)
                 DirMain.drAdvFilter = DirectCast(Sql.GetRow((DirMain.sysConn), "reports", ("form = '" & DirMain.SysID & "'")), DataRow)
                 DirMain.ReportRow = DirectCast(Sql.GetRow((DirMain.sysConn), "reports", StringType.FromObject(ObjectType.AddObj("form=", Sql.ConvertVS2SQLType(DirMain.SysID, "")))), DataRow)

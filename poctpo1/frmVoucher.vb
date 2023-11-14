@@ -627,7 +627,7 @@ Public Class frmVoucher
                     modVoucher.tbcDetail(index).NullText = ""
                 End If
             End If
-            If (index <> 0) Then
+            If index > 1 Then
                 AddHandler modVoucher.tbcDetail(index).TextBox.Enter, New EventHandler(AddressOf Me.txt_Enter)
             End If
             index += 1
