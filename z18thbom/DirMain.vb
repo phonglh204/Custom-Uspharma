@@ -140,6 +140,7 @@ Namespace z18thbom
         Public Sub ShowReport()
             Dim str As String = "EXEC spz18thbom "
             str += Sql.ConvertVS2SQLType(DirMain.fPrint.txtDFrom.Value, "")
+            str += "," + Sql.ConvertVS2SQLType(DirMain.fPrint.txtDTo.Value, "")
             str += "," + Sql.ConvertVS2SQLType(DirMain.fPrint.txtSo_lsx.Text, "")
             str += "," + Sql.ConvertVS2SQLType(DirMain.fPrint.txtMa_vt.Text, "")
             str += "," + Sql.ConvertVS2SQLType(DirMain.fPrint.txtNh_vt1.Text, "")

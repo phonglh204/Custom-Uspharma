@@ -37,13 +37,16 @@ Module DirMain
         Dim selectedIndex As Integer = DirMain.fPrint.cboReports.SelectedIndex
         Dim strFile As String = StringType.FromObject(ObjectType.AddObj(ObjectType.AddObj(Reg.GetRegistryKey("ReportDir"), Strings.Trim(StringType.FromObject(DirMain.rpTable.Rows.Item(selectedIndex).Item("rep_file")))), ".rpt"))
         Dim obj2 As Object = Strings.Replace(StringType.FromObject(Strings.Replace(StringType.FromObject(RuntimeHelpers.GetObjectValue(DirMain.oLan.Item("301"))), "%d1", StringType.FromDate(DirMain.dFrom), 1, -1, CompareMethod.Binary)), "%d2", StringType.FromDate(DirMain.dTo), 1, -1, CompareMethod.Binary)
+
+
+        Dim _date As Object = DirMain.oLan.Item("302").ToString.Trim.Replace("%d", DirMain.dTo.Day.ToString.Trim).Replace("%m", DirMain.dTo.Month.ToString.Trim).Replace("%y", DirMain.dTo.Year.ToString.Trim)
         Dim getGrid As ReportBrowse = DirMain.oDirFormLib.GetClsreports.GetGrid
         Dim clsprint As New clsprint(getGrid.GetForm, strFile, Nothing)
         clsprint.oRpt.SetDataSource(getGrid.GetDataView.Table)
         clsprint.oVar = DirMain.oVar
         clsprint.SetReportVar(DirMain.sysConn, DirMain.appConn, DirMain.SysID, DirMain.oOption, clsprint.oRpt)
         clsprint.oRpt.SetParameterValue("Title", Strings.Trim(DirMain.fPrint.txtTitle.Text))
-        clsprint.oRpt.SetParameterValue("t_date", RuntimeHelpers.GetObjectValue(obj2))
+        clsprint.oRpt.SetParameterValue("t_date", RuntimeHelpers.GetObjectValue(_date))
         clsprint.oRpt.SetParameterValue("r_ma_vt", Strings.Trim(DirMain.fPrint.txtMa_vt.Text))
         clsprint.oRpt.SetParameterValue("r_ten_vt", Strings.Trim(DirMain.fPrint.lblTen_vt.Text))
         Try

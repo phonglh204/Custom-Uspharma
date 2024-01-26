@@ -283,13 +283,13 @@ Public Class frmVoucher
                         If IsDBNull(.Item("tien_cp")) Then
                             .Item("tien_cp") = 0
                         End If
-                        If .Item("loai_cp") = "1" Then
+                        If .Item("loai_cp").ToString.Trim = "1" Then
                             str5 = "cp_vc"
                             str3 = "cp_vc_nt"
-                        ElseIf .Item("loai_cp") = "2" Then
+                        ElseIf .Item("loai_cp").ToString.Trim = "2" Then
                             str5 = "cp_bh"
                             str3 = "cp_bh_nt"
-                        ElseIf .Item("loai_cp") = "3" Then
+                        ElseIf .Item("loai_cp").ToString.Trim = "3" Then
                             str5 = "cp_khac"
                             str3 = "cp_khac_nt"
                         End If
@@ -409,13 +409,13 @@ Public Class frmVoucher
                     If IsDBNull(.Item("tien_cp")) Then
                         .Item("tien_cp") = 0
                     End If
-                    If (.Item("loai_cp") = "1") Then
+                    If (.Item("loai_cp").ToString.Trim = "1") Then
                         num7 = num7 + .Item("tien_cp_nt")
                         zero = zero + .Item("tien_cp")
-                    ElseIf (.Item("loai_cp") = "2") Then
+                    ElseIf (.Item("loai_cp").ToString.Trim = "2") Then
                         num3 = num3 + .Item("tien_cp_nt")
                         num2 = num2 + .Item("tien_cp")
-                    ElseIf (.Item("loai_cp") = "3") Then
+                    ElseIf (.Item("loai_cp").ToString.Trim = "3") Then
                         num5 = num5 + .Item("tien_cp_nt")
                         num4 = num4 + .Item("tien_cp")
                     End If
@@ -1256,11 +1256,11 @@ Public Class frmVoucher
     End Sub
 
     Private Function GetIDItem(ByVal tblItem As DataView, ByVal sStart As String) As String
-        Dim str2 As String = (sStart & "000")
+        Dim str2 As String = (sStart & "00")
         Dim num2 As Integer = (tblItem.Count - 1)
         Dim i As Integer = 0
         Do While (i <= num2)
-            If (Not IsDBNull(tblItem.Item(i).Item("stt_rec0")) AndAlso (ObjectType.ObjTst(tblItem.Item(i).Item("stt_rec0"), str2, False) > 0)) Then
+            If (Not Information.IsDBNull(RuntimeHelpers.GetObjectValue(tblItem.Item(i).Item("stt_rec0"))) AndAlso CInt(tblItem.Item(i).Item("stt_rec0")) > CInt(str2)) Then
                 str2 = StringType.FromObject(tblItem.Item(i).Item("stt_rec0"))
             End If
             i += 1
@@ -3163,6 +3163,7 @@ Public Class frmVoucher
                         End If
                         Dim tbl As New DataTable
                         tbl = Copy2Table(Me.tblRetrieveDetail)
+                        Dim stt_rec0max As Integer = CInt(Me.GetIDItem(modVoucher.tblDetail, "0"))
                         Dim num7 As Integer = (tbl.Rows.Count - 1)
                         index = 0
                         Do While (index <= num7)
@@ -3172,8 +3173,10 @@ Public Class frmVoucher
                                 Else
                                     .Item("stt_rec") = tblMaster.Item(Me.iMasterRow).Item("stt_rec")
                                 End If
+                                .Item("stt_rec0") = Strings.Format(stt_rec0max, "0000")
                                 tbl.Rows.Item(index).AcceptChanges()
                             End With
+                            stt_rec0max += 1
                             index += 1
                         Loop
                         AppendFrom(tblDetail, tbl)
@@ -3183,8 +3186,8 @@ Public Class frmVoucher
                             Do While (index >= 0)
                                 If clsfields.isEmpty(RuntimeHelpers.GetObjectValue(modVoucher.tblDetail.Item(index).Item("ma_vt")), "C") Then
                                     modVoucher.tblDetail.Item(index).Delete()
-                                ElseIf Not clsfields.isEmpty(RuntimeHelpers.GetObjectValue(modVoucher.tblDetail.Item(index).Item("stt_rec_pn")), "C") Then
-                                    modVoucher.tblDetail.Item(index).Item("stt_rec0") = Me.GetIDItem(modVoucher.tblDetail, "0")
+                                    'ElseIf Not clsfields.isEmpty(RuntimeHelpers.GetObjectValue(modVoucher.tblDetail.Item(index).Item("stt_rec_pn")), "C") Then
+                                    '    modVoucher.tblDetail.Item(index).Item("stt_rec0") = Me.GetIDItem(modVoucher.tblDetail, "0")
                                 End If
                                 index = (index + -1)
                             Loop
@@ -3423,6 +3426,7 @@ Public Class frmVoucher
                         End If
                         Dim tbl As New DataTable
                         tbl = Copy2Table(Me.tblRetrieveDetail)
+                        Dim stt_rec0max As Integer = CInt(Me.GetIDItem(modVoucher.tblDetail, "0"))
                         Dim num7 As Integer = (tbl.Rows.Count - 1)
                         index = 0
                         Do While (index <= num7)
@@ -3432,9 +3436,11 @@ Public Class frmVoucher
                                 Else
                                     .Item("stt_rec") = tblMaster.Item(Me.iMasterRow).Item("stt_rec")
                                 End If
+                                .Item("stt_rec0") = Strings.Format(stt_rec0max, "0000")
                                 .Item("sl_dh") = 0
                                 .AcceptChanges()
                             End With
+                            stt_rec0max += 1
                             index += 1
                         Loop
                         AppendFrom(modVoucher.tblDetail, tbl)
@@ -3444,8 +3450,8 @@ Public Class frmVoucher
                             Do While (index >= 0)
                                 If clsfields.isEmpty(tblDetail.Item(index).Item("ma_vt"), "C") Then
                                     tblDetail.Item(index).Delete()
-                                ElseIf Not clsfields.isEmpty(tblDetail.Item(index).Item("stt_rec_dh"), "C") Then
-                                    tblDetail.Item(index).Item("stt_rec0") = Me.GetIDItem(modVoucher.tblDetail, "0")
+                                    'ElseIf Not clsfields.isEmpty(tblDetail.Item(index).Item("stt_rec_dh"), "C") Then
+                                    '    tblDetail.Item(index).Item("stt_rec0") = Me.GetIDItem(modVoucher.tblDetail, "0")
                                 End If
                                 index = (index + -1)
                             Loop
@@ -5133,6 +5139,7 @@ Public Class frmVoucher
                     End If
                     Dim tbl As New DataTable
                     tbl = Copy2Table(Me.tblRetrieveDetail)
+                    Dim stt_rec0max As Integer = CInt(Me.GetIDItem(modVoucher.tblDetail, "0"))
                     Dim num6 As Integer = (tbl.Rows.Count - 1)
                     index = 0
                     Do While (index <= num6)
@@ -5142,8 +5149,10 @@ Public Class frmVoucher
                             Else
                                 .Item("stt_rec") = RuntimeHelpers.GetObjectValue(modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec"))
                             End If
+                            .Item("stt_rec0") = Strings.Format(stt_rec0max, "0000")
                             tbl.Rows.Item(index).AcceptChanges()
                         End With
+                        stt_rec0max += 1
                         index += 1
                     Loop
                     AppendFrom(modVoucher.tblDetail, tbl)
@@ -5153,8 +5162,8 @@ Public Class frmVoucher
                         Do While (index >= 0)
                             If clsfields.isEmpty(RuntimeHelpers.GetObjectValue(modVoucher.tblDetail.Item(index).Item("ma_vt")), "C") Then
                                 modVoucher.tblDetail.Item(index).Delete()
-                            ElseIf Not clsfields.isEmpty(RuntimeHelpers.GetObjectValue(modVoucher.tblDetail.Item(index).Item("stt_rec_pn")), "C") Then
-                                modVoucher.tblDetail.Item(index).Item("stt_rec0") = Me.GetIDItem(modVoucher.tblDetail, "0")
+                                'ElseIf Not clsfields.isEmpty(RuntimeHelpers.GetObjectValue(modVoucher.tblDetail.Item(index).Item("stt_rec_pn")), "C") Then
+                                '    modVoucher.tblDetail.Item(index).Item("stt_rec0") = Me.GetIDItem(modVoucher.tblDetail, "0")
                             End If
                             index = (index + -1)
                         Loop

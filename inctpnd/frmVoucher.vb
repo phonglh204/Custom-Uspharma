@@ -428,6 +428,10 @@ Namespace inctpnd
             Me.colTien = GetColumn(Me.grdDetail, "tien")
             Me.colTien_nt = GetColumn(Me.grdDetail, "tien_nt")
             Me.colMa_nsx = GetColumn(Me.grdDetail, "ma_nsx")
+            Try
+                Me.colPO = GetColumn(Me.grdDetail, "code_dh")
+            Catch ex As Exception
+            End Try
             Dim sKey As String = Strings.Trim(StringType.FromObject(Sql.GetValue((modVoucher.sysConn), "voucherinfo", "keyaccount", ("ma_ct = '" & modVoucher.VoucherCode & "'"))))
             Dim str2 As String = Strings.Trim(StringType.FromObject(Sql.GetValue((modVoucher.sysConn), "voucherinfo", "keycust", ("ma_ct = '" & modVoucher.VoucherCode & "'"))))
             Me.oSite = New VoucherKeyLibObj(Me.colMa_kho, "ten_kho", modVoucher.sysConn, modVoucher.appConn, "dmkho", "ma_kho", "ten_kho", "Site", ("ma_dvcs = '" & Strings.Trim(StringType.FromObject(Reg.GetRegistryKey("DFUnit"))) & "'"), modVoucher.tblDetail, Me.pnContent, False, Me.cmdEdit)
@@ -457,7 +461,10 @@ Namespace inctpnd
             Me.oInvItemDetail = New VoucherLibObj(Me.colMa_vt, "ten_vt", modVoucher.sysConn, modVoucher.appConn, "dmvt", "ma_vt", "ten_vt", "Item", "1=1", modVoucher.tblDetail, Me.pnContent, True, Me.cmdEdit)
 
             Dim oNSX As New VoucherLibObj(Me.colMa_nsx, "ten_nsx", modVoucher.sysConn, modVoucher.appConn, "dmkh", "ma_kh", "ten_kh", "Customer", "1=1", modVoucher.tblDetail, Me.pnContent, True, Me.cmdEdit)
-
+            Me.oPO = New VoucherKeyLibObj(Me.colPO, "so_dh", modVoucher.sysConn, modVoucher.appConn, "vct94", "code", "so_ct", "PODetail", "1=1", modVoucher.tblDetail, Me.pnContent, True, Me.cmdEdit)
+            Me.oPO.Empty = True
+            AddHandler Me.colPO.TextBox.Move, New EventHandler(AddressOf Me.WhenPOEnter)
+            AddHandler Me.colPO.TextBox.Validated, New EventHandler(AddressOf Me.WhenPOLeave)
             VoucherLibObj.oClassMsg = oVoucher.oClassMsg
             Me.oInvItemDetail.Colkey = True
             VoucherLibObj.dvDetail = modVoucher.tblDetail
@@ -635,6 +642,8 @@ Namespace inctpnd
                     Me.noldTien_nt = DecimalType.FromObject(oValue)
                 Case "TIEN"
                     Me.noldTien = DecimalType.FromObject(oValue)
+                Case "CODE_DH"
+                    Me.cOldPO = StringType.FromObject(oValue)
             End Select
         End Sub
 
@@ -768,7 +777,7 @@ Namespace inctpnd
             '
             Me.cmdSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdSave.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdSave.Location = New System.Drawing.Point(2, 421)
+            Me.cmdSave.Location = New System.Drawing.Point(2, 475)
             Me.cmdSave.Name = "cmdSave"
             Me.cmdSave.Size = New System.Drawing.Size(72, 26)
             Me.cmdSave.TabIndex = 18
@@ -780,7 +789,7 @@ Namespace inctpnd
             '
             Me.cmdNew.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdNew.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdNew.Location = New System.Drawing.Point(74, 421)
+            Me.cmdNew.Location = New System.Drawing.Point(74, 475)
             Me.cmdNew.Name = "cmdNew"
             Me.cmdNew.Size = New System.Drawing.Size(72, 26)
             Me.cmdNew.TabIndex = 19
@@ -792,7 +801,7 @@ Namespace inctpnd
             '
             Me.cmdPrint.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdPrint.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdPrint.Location = New System.Drawing.Point(146, 421)
+            Me.cmdPrint.Location = New System.Drawing.Point(146, 475)
             Me.cmdPrint.Name = "cmdPrint"
             Me.cmdPrint.Size = New System.Drawing.Size(72, 26)
             Me.cmdPrint.TabIndex = 20
@@ -804,7 +813,7 @@ Namespace inctpnd
             '
             Me.cmdEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdEdit.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdEdit.Location = New System.Drawing.Point(218, 421)
+            Me.cmdEdit.Location = New System.Drawing.Point(218, 475)
             Me.cmdEdit.Name = "cmdEdit"
             Me.cmdEdit.Size = New System.Drawing.Size(72, 26)
             Me.cmdEdit.TabIndex = 21
@@ -816,7 +825,7 @@ Namespace inctpnd
             '
             Me.cmdDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdDelete.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdDelete.Location = New System.Drawing.Point(290, 421)
+            Me.cmdDelete.Location = New System.Drawing.Point(290, 475)
             Me.cmdDelete.Name = "cmdDelete"
             Me.cmdDelete.Size = New System.Drawing.Size(72, 26)
             Me.cmdDelete.TabIndex = 22
@@ -828,7 +837,7 @@ Namespace inctpnd
             '
             Me.cmdView.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdView.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdView.Location = New System.Drawing.Point(362, 421)
+            Me.cmdView.Location = New System.Drawing.Point(362, 475)
             Me.cmdView.Name = "cmdView"
             Me.cmdView.Size = New System.Drawing.Size(72, 26)
             Me.cmdView.TabIndex = 23
@@ -840,7 +849,7 @@ Namespace inctpnd
             '
             Me.cmdSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdSearch.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdSearch.Location = New System.Drawing.Point(434, 421)
+            Me.cmdSearch.Location = New System.Drawing.Point(434, 475)
             Me.cmdSearch.Name = "cmdSearch"
             Me.cmdSearch.Size = New System.Drawing.Size(72, 26)
             Me.cmdSearch.TabIndex = 24
@@ -852,7 +861,7 @@ Namespace inctpnd
             '
             Me.cmdClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdClose.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdClose.Location = New System.Drawing.Point(506, 421)
+            Me.cmdClose.Location = New System.Drawing.Point(506, 475)
             Me.cmdClose.Name = "cmdClose"
             Me.cmdClose.Size = New System.Drawing.Size(72, 26)
             Me.cmdClose.TabIndex = 25
@@ -864,7 +873,7 @@ Namespace inctpnd
             '
             Me.cmdOption.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cmdOption.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdOption.Location = New System.Drawing.Point(524, 421)
+            Me.cmdOption.Location = New System.Drawing.Point(789, 475)
             Me.cmdOption.Name = "cmdOption"
             Me.cmdOption.Size = New System.Drawing.Size(24, 26)
             Me.cmdOption.TabIndex = 26
@@ -876,7 +885,7 @@ Namespace inctpnd
             '
             Me.cmdTop.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cmdTop.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdTop.Location = New System.Drawing.Point(546, 421)
+            Me.cmdTop.Location = New System.Drawing.Point(811, 475)
             Me.cmdTop.Name = "cmdTop"
             Me.cmdTop.Size = New System.Drawing.Size(24, 26)
             Me.cmdTop.TabIndex = 27
@@ -888,7 +897,7 @@ Namespace inctpnd
             '
             Me.cmdPrev.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cmdPrev.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdPrev.Location = New System.Drawing.Point(569, 421)
+            Me.cmdPrev.Location = New System.Drawing.Point(834, 475)
             Me.cmdPrev.Name = "cmdPrev"
             Me.cmdPrev.Size = New System.Drawing.Size(24, 26)
             Me.cmdPrev.TabIndex = 28
@@ -900,7 +909,7 @@ Namespace inctpnd
             '
             Me.cmdNext.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cmdNext.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdNext.Location = New System.Drawing.Point(592, 421)
+            Me.cmdNext.Location = New System.Drawing.Point(857, 475)
             Me.cmdNext.Name = "cmdNext"
             Me.cmdNext.Size = New System.Drawing.Size(24, 26)
             Me.cmdNext.TabIndex = 29
@@ -912,7 +921,7 @@ Namespace inctpnd
             '
             Me.cmdBottom.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cmdBottom.BackColor = System.Drawing.SystemColors.Control
-            Me.cmdBottom.Location = New System.Drawing.Point(615, 421)
+            Me.cmdBottom.Location = New System.Drawing.Point(880, 475)
             Me.cmdBottom.Name = "cmdBottom"
             Me.cmdBottom.Size = New System.Drawing.Size(24, 26)
             Me.cmdBottom.TabIndex = 30
@@ -960,7 +969,7 @@ Namespace inctpnd
             '
             Me.lblSo_ct.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblSo_ct.AutoSize = True
-            Me.lblSo_ct.Location = New System.Drawing.Point(398, 8)
+            Me.lblSo_ct.Location = New System.Drawing.Point(663, 8)
             Me.lblSo_ct.Name = "lblSo_ct"
             Me.lblSo_ct.Size = New System.Drawing.Size(45, 17)
             Me.lblSo_ct.TabIndex = 16
@@ -972,7 +981,7 @@ Namespace inctpnd
             Me.txtSo_ct.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtSo_ct.BackColor = System.Drawing.Color.White
             Me.txtSo_ct.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtSo_ct.Location = New System.Drawing.Point(518, 6)
+            Me.txtSo_ct.Location = New System.Drawing.Point(783, 6)
             Me.txtSo_ct.Name = "txtSo_ct"
             Me.txtSo_ct.Size = New System.Drawing.Size(120, 22)
             Me.txtSo_ct.TabIndex = 9
@@ -984,7 +993,7 @@ Namespace inctpnd
             '
             Me.txtNgay_lct.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtNgay_lct.BackColor = System.Drawing.Color.White
-            Me.txtNgay_lct.Location = New System.Drawing.Point(518, 30)
+            Me.txtNgay_lct.Location = New System.Drawing.Point(783, 30)
             Me.txtNgay_lct.MaxLength = 10
             Me.txtNgay_lct.Name = "txtNgay_lct"
             Me.txtNgay_lct.Size = New System.Drawing.Size(120, 22)
@@ -999,7 +1008,7 @@ Namespace inctpnd
             Me.txtTy_gia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtTy_gia.BackColor = System.Drawing.Color.White
             Me.txtTy_gia.Format = "m_ip_tg"
-            Me.txtTy_gia.Location = New System.Drawing.Point(518, 78)
+            Me.txtTy_gia.Location = New System.Drawing.Point(783, 78)
             Me.txtTy_gia.MaxLength = 8
             Me.txtTy_gia.Name = "txtTy_gia"
             Me.txtTy_gia.Size = New System.Drawing.Size(120, 22)
@@ -1013,7 +1022,7 @@ Namespace inctpnd
             '
             Me.lblNgay_lct.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblNgay_lct.AutoSize = True
-            Me.lblNgay_lct.Location = New System.Drawing.Point(398, 32)
+            Me.lblNgay_lct.Location = New System.Drawing.Point(663, 32)
             Me.lblNgay_lct.Name = "lblNgay_lct"
             Me.lblNgay_lct.Size = New System.Drawing.Size(84, 17)
             Me.lblNgay_lct.TabIndex = 20
@@ -1024,7 +1033,7 @@ Namespace inctpnd
             '
             Me.lblNgay_ct.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblNgay_ct.AutoSize = True
-            Me.lblNgay_ct.Location = New System.Drawing.Point(398, 57)
+            Me.lblNgay_ct.Location = New System.Drawing.Point(663, 57)
             Me.lblNgay_ct.Name = "lblNgay_ct"
             Me.lblNgay_ct.Size = New System.Drawing.Size(108, 17)
             Me.lblNgay_ct.TabIndex = 21
@@ -1035,7 +1044,7 @@ Namespace inctpnd
             '
             Me.lblTy_gia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblTy_gia.AutoSize = True
-            Me.lblTy_gia.Location = New System.Drawing.Point(398, 81)
+            Me.lblTy_gia.Location = New System.Drawing.Point(663, 81)
             Me.lblTy_gia.Name = "lblTy_gia"
             Me.lblTy_gia.Size = New System.Drawing.Size(47, 17)
             Me.lblTy_gia.TabIndex = 22
@@ -1046,7 +1055,7 @@ Namespace inctpnd
             '
             Me.txtNgay_ct.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.txtNgay_ct.BackColor = System.Drawing.Color.White
-            Me.txtNgay_ct.Location = New System.Drawing.Point(518, 54)
+            Me.txtNgay_ct.Location = New System.Drawing.Point(783, 54)
             Me.txtNgay_ct.MaxLength = 10
             Me.txtNgay_ct.Name = "txtNgay_ct"
             Me.txtNgay_ct.Size = New System.Drawing.Size(120, 22)
@@ -1061,7 +1070,7 @@ Namespace inctpnd
             Me.cmdMa_nt.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cmdMa_nt.BackColor = System.Drawing.SystemColors.Control
             Me.cmdMa_nt.Enabled = False
-            Me.cmdMa_nt.Location = New System.Drawing.Point(470, 78)
+            Me.cmdMa_nt.Location = New System.Drawing.Point(735, 78)
             Me.cmdMa_nt.Name = "cmdMa_nt"
             Me.cmdMa_nt.Size = New System.Drawing.Size(43, 24)
             Me.cmdMa_nt.TabIndex = 12
@@ -1080,7 +1089,7 @@ Namespace inctpnd
             Me.tbDetail.Location = New System.Drawing.Point(2, 158)
             Me.tbDetail.Name = "tbDetail"
             Me.tbDetail.SelectedIndex = 0
-            Me.tbDetail.Size = New System.Drawing.Size(638, 221)
+            Me.tbDetail.Size = New System.Drawing.Size(903, 275)
             Me.tbDetail.TabIndex = 17
             '
             'tpgDetail
@@ -1089,7 +1098,7 @@ Namespace inctpnd
             Me.tpgDetail.Controls.Add(Me.grdDetail)
             Me.tpgDetail.Location = New System.Drawing.Point(4, 25)
             Me.tpgDetail.Name = "tpgDetail"
-            Me.tpgDetail.Size = New System.Drawing.Size(630, 192)
+            Me.tpgDetail.Size = New System.Drawing.Size(895, 246)
             Me.tpgDetail.TabIndex = 0
             Me.tpgDetail.Tag = "L016"
             Me.tpgDetail.Text = "Chung tu"
@@ -1109,7 +1118,7 @@ Namespace inctpnd
             Me.grdDetail.HeaderForeColor = System.Drawing.SystemColors.ControlText
             Me.grdDetail.Location = New System.Drawing.Point(-1, -1)
             Me.grdDetail.Name = "grdDetail"
-            Me.grdDetail.Size = New System.Drawing.Size(631, 189)
+            Me.grdDetail.Size = New System.Drawing.Size(896, 243)
             Me.grdDetail.TabIndex = 0
             Me.grdDetail.Tag = "L020CF"
             '
@@ -1117,7 +1126,7 @@ Namespace inctpnd
             '
             Me.tpgOther.Location = New System.Drawing.Point(4, 25)
             Me.tpgOther.Name = "tpgOther"
-            Me.tpgOther.Size = New System.Drawing.Size(758, 265)
+            Me.tpgOther.Size = New System.Drawing.Size(711, 238)
             Me.tpgOther.TabIndex = 1
             Me.tpgOther.Tag = "L017"
             Me.tpgOther.Text = "Thue GTGT dau vao"
@@ -1129,7 +1138,7 @@ Namespace inctpnd
             Me.txtT_tien.Enabled = False
             Me.txtT_tien.ForeColor = System.Drawing.Color.Black
             Me.txtT_tien.Format = "m_ip_tien"
-            Me.txtT_tien.Location = New System.Drawing.Point(518, 390)
+            Me.txtT_tien.Location = New System.Drawing.Point(783, 444)
             Me.txtT_tien.MaxLength = 10
             Me.txtT_tien.Name = "txtT_tien"
             Me.txtT_tien.Size = New System.Drawing.Size(120, 22)
@@ -1146,7 +1155,7 @@ Namespace inctpnd
             Me.txtT_tien_nt.Enabled = False
             Me.txtT_tien_nt.ForeColor = System.Drawing.Color.Black
             Me.txtT_tien_nt.Format = "m_ip_tien_nt"
-            Me.txtT_tien_nt.Location = New System.Drawing.Point(396, 390)
+            Me.txtT_tien_nt.Location = New System.Drawing.Point(661, 444)
             Me.txtT_tien_nt.MaxLength = 13
             Me.txtT_tien_nt.Name = "txtT_tien_nt"
             Me.txtT_tien_nt.Size = New System.Drawing.Size(120, 22)
@@ -1160,7 +1169,7 @@ Namespace inctpnd
             '
             Me.txtStatus.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.txtStatus.BackColor = System.Drawing.Color.White
-            Me.txtStatus.Location = New System.Drawing.Point(10, 451)
+            Me.txtStatus.Location = New System.Drawing.Point(10, 505)
             Me.txtStatus.MaxLength = 1
             Me.txtStatus.Name = "txtStatus"
             Me.txtStatus.Size = New System.Drawing.Size(30, 22)
@@ -1175,7 +1184,7 @@ Namespace inctpnd
             '
             Me.lblStatus.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblStatus.AutoSize = True
-            Me.lblStatus.Location = New System.Drawing.Point(398, 105)
+            Me.lblStatus.Location = New System.Drawing.Point(663, 105)
             Me.lblStatus.Name = "lblStatus"
             Me.lblStatus.Size = New System.Drawing.Size(73, 17)
             Me.lblStatus.TabIndex = 29
@@ -1186,7 +1195,7 @@ Namespace inctpnd
             '
             Me.lblStatusMess.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.lblStatusMess.AutoSize = True
-            Me.lblStatusMess.Location = New System.Drawing.Point(58, 453)
+            Me.lblStatusMess.Location = New System.Drawing.Point(58, 507)
             Me.lblStatusMess.Name = "lblStatusMess"
             Me.lblStatusMess.Size = New System.Drawing.Size(253, 17)
             Me.lblStatusMess.TabIndex = 42
@@ -1196,7 +1205,7 @@ Namespace inctpnd
             '
             'txtKeyPress
             '
-            Me.txtKeyPress.Location = New System.Drawing.Point(490, 111)
+            Me.txtKeyPress.Location = New System.Drawing.Point(269, 130)
             Me.txtKeyPress.Name = "txtKeyPress"
             Me.txtKeyPress.Size = New System.Drawing.Size(12, 22)
             Me.txtKeyPress.TabIndex = 16
@@ -1206,7 +1215,7 @@ Namespace inctpnd
             Me.cboStatus.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cboStatus.BackColor = System.Drawing.Color.White
             Me.cboStatus.Enabled = False
-            Me.cboStatus.Location = New System.Drawing.Point(470, 103)
+            Me.cboStatus.Location = New System.Drawing.Point(735, 103)
             Me.cboStatus.Name = "cboStatus"
             Me.cboStatus.Size = New System.Drawing.Size(168, 24)
             Me.cboStatus.TabIndex = 14
@@ -1218,7 +1227,7 @@ Namespace inctpnd
             '
             Me.cboAction.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.cboAction.BackColor = System.Drawing.Color.White
-            Me.cboAction.Location = New System.Drawing.Point(470, 127)
+            Me.cboAction.Location = New System.Drawing.Point(735, 127)
             Me.cboAction.Name = "cboAction"
             Me.cboAction.Size = New System.Drawing.Size(168, 24)
             Me.cboAction.TabIndex = 15
@@ -1230,7 +1239,7 @@ Namespace inctpnd
             '
             Me.lblAction.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblAction.AutoSize = True
-            Me.lblAction.Location = New System.Drawing.Point(398, 129)
+            Me.lblAction.Location = New System.Drawing.Point(663, 129)
             Me.lblAction.Name = "lblAction"
             Me.lblAction.Size = New System.Drawing.Size(39, 17)
             Me.lblAction.TabIndex = 33
@@ -1264,7 +1273,7 @@ Namespace inctpnd
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblTen_kh.Location = New System.Drawing.Point(230, 9)
             Me.lblTen_kh.Name = "lblTen_kh"
-            Me.lblTen_kh.Size = New System.Drawing.Size(152, 18)
+            Me.lblTen_kh.Size = New System.Drawing.Size(417, 18)
             Me.lblTen_kh.TabIndex = 36
             Me.lblTen_kh.Tag = "FCRF"
             Me.lblTen_kh.Text = "Ten khach"
@@ -1323,7 +1332,7 @@ Namespace inctpnd
             '
             Me.lblTien_hang.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.lblTien_hang.AutoSize = True
-            Me.lblTien_hang.Location = New System.Drawing.Point(102, 392)
+            Me.lblTien_hang.Location = New System.Drawing.Point(367, 446)
             Me.lblTien_hang.Name = "lblTien_hang"
             Me.lblTien_hang.Size = New System.Drawing.Size(76, 17)
             Me.lblTien_hang.TabIndex = 60
@@ -1368,7 +1377,7 @@ Namespace inctpnd
             Me.txtT_so_luong.Enabled = False
             Me.txtT_so_luong.ForeColor = System.Drawing.Color.Black
             Me.txtT_so_luong.Format = "m_ip_sl"
-            Me.txtT_so_luong.Location = New System.Drawing.Point(275, 390)
+            Me.txtT_so_luong.Location = New System.Drawing.Point(540, 444)
             Me.txtT_so_luong.MaxLength = 8
             Me.txtT_so_luong.Name = "txtT_so_luong"
             Me.txtT_so_luong.Size = New System.Drawing.Size(120, 22)
@@ -1503,7 +1512,7 @@ Namespace inctpnd
             'frmVoucher
             '
             Me.AutoScaleBaseSize = New System.Drawing.Size(6, 15)
-            Me.ClientSize = New System.Drawing.Size(642, 473)
+            Me.ClientSize = New System.Drawing.Size(907, 527)
             Me.Controls.Add(Me.txtFnote1)
             Me.Controls.Add(Me.Label3)
             Me.Controls.Add(Me.Label2)
@@ -1717,7 +1726,7 @@ Namespace inctpnd
                     view.AddNew()
                     i += 1
                 Loop
-                Dim clsprint As New clsprint(Me, strFile, Nothing)
+                Dim clsprint As New libssys.clsprint(Me, strFile, Nothing)
                 clsprint.oRpt.SetDataSource(view.Table)
                 clsprint.oVar = modVoucher.oVar
                 clsprint.dr = modVoucher.tblMaster.Item(Me.iMasterRow).Row
@@ -3724,6 +3733,47 @@ Namespace inctpnd
             Dim tcSQL As String = String.Concat(New String() {"spBeforUpdateIR '", lcIDNumber, "', '", lcAction, "', ", Strings.Trim(StringType.FromObject(Reg.GetRegistryKey("CurrUserID")))})
             Sql.SQLExecute((modVoucher.appConn), tcSQL)
         End Sub
+        Private Sub WhenPOEnter(ByVal sender As Object, ByVal e As EventArgs)
+            Dim view As DataRowView = modVoucher.tblDetail.Item(Me.grdDetail.CurrentRowIndex)
+            If Not clsfields.isEmpty(RuntimeHelpers.GetObjectValue(view.Item("ma_vt")), "C") Then
+                Dim cKey As String = ("ma_vt = '" & Strings.Trim(StringType.FromObject(view.Item("ma_vt"))) & "'")
+                Me.oPO.Key = cKey
+            End If
+            view = Nothing
+        End Sub
+        Private Sub WhenPOLeave(ByVal sender As Object, ByVal e As EventArgs)
+            If (Me.grdDetail.CurrentRowIndex >= 0) Then
+                Dim str As String = Strings.Trim(StringType.FromObject(LateBinding.LateGet(sender, Nothing, "Text", New Object(0 - 1) {}, Nothing, Nothing)))
+                With modVoucher.tblDetail.Item(Me.grdDetail.CurrentRowIndex)
+                    If (StringType.StrCmp(Strings.Trim(str), Strings.Trim(Me.cOldPO), False) <> 0) Then
+                        If str = "" Then
+                            .Item("so_dh") = ""
+                            .Item("po_line") = 0
+                            .Item("stt_rec_dh") = ""
+                            .Item("stt_rec0dh") = ""
+                        Else
+                            Dim str3 As String = Strings.Trim(StringType.FromObject(.Item("ma_vt")))
+                            Dim dr As DataRow = Sql.GetRow(appConn, "vct94", "ma_vt='" + .Item("ma_vt") + "' AND code='" + str + "'")
+                            .Item("so_dh") = dr.Item("so_ct")
+                            .Item("po_line") = dr.Item("line_nbr")
+                            .Item("stt_rec_dh") = dr.Item("stt_rec")
+                            .Item("stt_rec0dh") = dr.Item("stt_rec0")
+                            .Item("gia_nt") = dr.Item("gia_nt")
+                            .Item("gia") = dr.Item("gia")
+                            Dim m_round_tien_nt As Integer = 0
+                            Dim m_round_tien As Integer = CInt(oVar("m_round_tien"))
+                            If Me.cmdMa_nt.Text.Trim = modVoucher.oOption.Item("m_ma_nt0").ToString.Trim Then
+                                m_round_tien_nt = m_round_tien
+                            Else
+                                m_round_tien_nt = CInt(oVar("m_round_tien_nt"))
+                            End If
+                            .Item("tien_nt") = Math.Round(.Item("so_luong") * dr.Item("gia_nt"), m_round_tien_nt)
+                            .Item("tien") = Math.Round(.Item("so_luong") * dr.Item("gia"), m_round_tien)
+                        End If
+                    End If
+                End With
+            End If
+        End Sub
         ' Properties
         Friend WithEvents cboAction As ComboBox
         Friend WithEvents cboStatus As ComboBox
@@ -3832,6 +3882,9 @@ Namespace inctpnd
         Private xInventory As clsInventory
         Private tblRetrieveDetail As DataView
         Private tblRetrieveMaster As DataView
+        Private colPO As DataGridTextBoxColumn
+        Private oPO As VoucherKeyLibObj
+        Private cOldPO As String
     End Class
 End Namespace
 

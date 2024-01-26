@@ -4999,15 +4999,17 @@ Public Class frmVoucher
                                 Return
                             End If
                         End If
-                        If Information.IsDBNull(RuntimeHelpers.GetObjectValue(tblDetail.Item(num).Item("tk_cpbh"))) Then
-                            str9 = ""
-                        Else
-                            str9 = Strings.Trim(StringType.FromObject(tblDetail.Item(num).Item("tk_cpbh")))
-                        End If
-                        If BooleanType.FromObject(ObjectType.BitAndObj(ObjectType.BitAndObj((StringType.StrCmp(sShowTkcpbh, "1", False) = 0), (ObjectType.ObjTst(tblDetail.Item(num).Item("km_yn"), 1, False) = 0)), (ObjectType.ObjTst(Sql.GetValue((appConn), "dmtk", "loai_tk", ("tk = '" & str9 & "'")), 1, False) <> 0))) Then
-                            oVoucher.isContinue = False
-                            Msg.Alert(StringType.FromObject(oLan.Item("049")), 2)
-                            Return
+                        If sShowTkcpbh = "1" And CBool(tblDetail.Item(num).Item("km_yn")) Then
+                            If Information.IsDBNull(RuntimeHelpers.GetObjectValue(tblDetail.Item(num).Item("tk_cpbh"))) Then
+                                str9 = ""
+                            Else
+                                str9 = Strings.Trim(StringType.FromObject(tblDetail.Item(num).Item("tk_cpbh")))
+                            End If
+                            If (ObjectType.ObjTst(Sql.GetValue((appConn), "dmtk", "loai_tk", ("tk = '" & str9 & "'")), 1, False) <> 0) Then
+                                oVoucher.isContinue = False
+                                Msg.Alert(StringType.FromObject(oLan.Item("049")), 2)
+                                Return
+                            End If
                         End If
                         num += 1
                     Loop
@@ -5049,7 +5051,17 @@ Public Class frmVoucher
                     Else
                         Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
                     End If
+                    Dim _rowfilter As String = tblDetail.RowFilter
+                    tblDetail.RowFilter = "(" + _rowfilter + ") and km_yn=0"
                     Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue.Value), False, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
+                    tblDetail.RowFilter = "(" + _rowfilter + ") and km_yn=1"
+                    If (ObjectType.ObjTst(Me.cmdMa_nt.Text, modVoucher.oOption.Item("m_ma_nt0"), False) <> 0) Then
+                        Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien_nt")), False)
+                    Else
+                        Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
+                    End If
+                    Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km.Value), False, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
+                    tblDetail.RowFilter = _rowfilter
                     'Me.AuditAmountsEx(New Decimal(Me.txtT_thue_nt.Value), "thue_nt", modVoucher.tblDetail, True)
                     'Me.AuditAmountsEx(New Decimal(Me.txtT_thue.Value), "thue", modVoucher.tblDetail, True)
                     'If (ObjectType.ObjTst(Me.cmdMa_nt.Text, modVoucher.oOption.Item("m_ma_nt0"), False) <> 0) Then
@@ -5564,8 +5576,8 @@ Public Class frmVoucher
         Dim num3 As Decimal = Me.noldKm_yn
         Dim num2 As New Decimal(Conversion.Val(Strings.Replace(StringType.FromObject(LateBinding.LateGet(sender, Nothing, "Text", New Object(0 - 1) {}, Nothing, Nothing)), " ", "", 1, -1, CompareMethod.Binary)))
         If (Decimal.Compare(num2, num3) <> 0) Then
-            If (Decimal.Compare(num2, Decimal.One) = 0) Then
-                With tblDetail.Item(Me.grdDetail.CurrentRowIndex)
+            With tblDetail.Item(Me.grdDetail.CurrentRowIndex)
+                If (Decimal.Compare(num2, Decimal.One) = 0) Then
                     If Not clsfields.isEmpty(.Item("ma_vt"), "C") Then
                         Dim str2 As String = Strings.Trim(.Item("ma_vt"))
                         Dim row As DataRow = Sql.GetRow(appConn, "dmvt", ("ma_vt = '" & str2 & "'"))
@@ -5582,12 +5594,22 @@ Public Class frmVoucher
                             End If
                             i += 1
                         Loop
+                        .Item("px_gia_dd") = True
+                        .Item("gia") = .Item("gia2")
+                        .Item("gia_nt") = .Item("gia_nt2")
+                        .Item("tien") = .Item("tien2")
+                        .Item("tien_nt") = .Item("tien_nt2")
                     End If
-                End With
-            Else
-                tblDetail.Item(Me.grdDetail.CurrentRowIndex).Item("tk_cpbh") = ""
-            End If
-            tblDetail.Item(Me.grdDetail.CurrentRowIndex).Item("km_yn") = num2
+                Else
+                    tblDetail.Item(Me.grdDetail.CurrentRowIndex).Item("tk_cpbh") = ""
+                    .Item("px_gia_dd") = False
+                    .Item("gia") = 0
+                    .Item("gia_nt") = 0
+                    .Item("tien") = 0
+                    .Item("tien_nt") = 0
+                End If
+                .Item("km_yn") = num2
+            End With
             Me.RecalcTax(Me.grdDetail.CurrentRowIndex, 2)
             Me.UpdateList()
         End If
