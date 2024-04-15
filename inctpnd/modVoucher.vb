@@ -21,7 +21,7 @@ Namespace inctpnd
                 modVoucher.sysConn = Nothing
                 ProjectData.EndApp()
             End If
-            Control.CheckForIllegalCrossThreadCalls = False
+            'Control.CheckForIllegalCrossThreadCalls = False
             Sys.InitVar(modVoucher.sysConn, modVoucher.oVar)
             Sys.InitOptions(modVoucher.appConn, modVoucher.oOption)
             Sys.InitMessage(modVoucher.sysConn, modVoucher.oLan, "IRTran")
@@ -43,7 +43,7 @@ Namespace inctpnd
             Do
                 modVoucher.tbcDetail(index) = New DataGridTextBoxColumn
                 index += 1
-            Loop While (index <= MaxColumns - 1)
+            Loop While (index < MaxColumns)
             modVoucher.frmMain = New frmVoucher
             modVoucher.frmMain.ShowDialog()
             modVoucher.sysConn.Close()
