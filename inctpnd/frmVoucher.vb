@@ -531,7 +531,8 @@ Namespace inctpnd
                     'End If
                 End If
                 index += 1
-            Loop While (index <= MaxColumns - 1)
+            Loop While (index < MaxColumns)
+            MsgBox(sysConn.State.ToString)
             Dim menu2 As New ContextMenu
             Dim item5 As New MenuItem(StringType.FromObject(modVoucher.oLan.Item("035")), New EventHandler(AddressOf Me.RetrieveItems), Shortcut.F8)
             Dim item6 As New MenuItem(StringType.FromObject(modVoucher.oLan.Item("Z08")), New EventHandler(AddressOf Me.RetrieveItems), Shortcut.F6)
@@ -557,6 +558,7 @@ Namespace inctpnd
             oVoucher.cAction = "Start"
             Me.isActive = False
             Me.grdHeader = New grdHeader(Me.tbDetail, (Me.txtKeyPress.TabIndex - 1), Me, modVoucher.appConn, modVoucher.sysConn, modVoucher.VoucherCode, Me.pnContent, Me.cmdEdit)
+            MsgBox(sysConn.State.ToString)
             Me.EDTBColumns()
             Me.oSecurity = New clssecurity(modVoucher.VoucherCode, IntegerType.FromObject(Reg.GetRegistryKey("CurrUserid")))
             Me.oSecurity.oVoucher = Me.oVoucher
@@ -572,6 +574,7 @@ Namespace inctpnd
             Me.oSecurity.Invisible()
             Me.oSecurity.SetReadOnly()
             Me.InitInventory()
+            MsgBox(sysConn.State.ToString)
         End Sub
 
         Private Function GetIDItem(ByVal tblItem As DataView, ByVal sStart As String) As String
