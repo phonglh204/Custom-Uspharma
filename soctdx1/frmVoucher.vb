@@ -3451,6 +3451,7 @@ Public Class frmVoucher
             .Item("gia_ck_nt") = IIf(.Item("so_luong") = 0, Round(.Item("gia_nt2") * (1 - .Item("tl_ck") / 100), m_round_gia_nt), Math.Round((.Item("tien_nt2") - .Item("ck_nt")) / .Item("so_luong"), m_round_gia_nt))
             .Item("gia_ck") = Math.Round(.Item("gia_ck_nt") * Me.txtTy_gia.Value, m_round_gia)
         End With
+        Me.RecalcTax(Me.grdDetail.CurrentRowIndex, 2)
         Me.UpdateList()
     End Sub
     Private Sub txtTl_ck_valid(ByVal sender As Object, ByVal e As EventArgs)

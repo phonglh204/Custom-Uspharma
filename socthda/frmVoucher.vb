@@ -890,6 +890,7 @@ Public Class frmVoucher
         Dim isEditHDDT As String = ""
         If oOption("m_sd_hddt") = "1" Then
             isEditHDDT = oEIInvoice.CheckEdit()
+            MsgBox(isEditHDDT)
             If isEditHDDT = "2" Then
                 Msg.Alert(oVar("m_hddt_009"), 2)
                 cmdSave.Enabled = False
