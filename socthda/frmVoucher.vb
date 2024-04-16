@@ -889,9 +889,7 @@ Public Class frmVoucher
     Public Sub Edit()
         Dim isEditHDDT As String = ""
         If oOption("m_sd_hddt") = "1" Then
-            isEditHDDT = oEIInvoice.CheckEdit()
-            MsgBox(isEditHDDT)
-            If isEditHDDT = "2" Then
+            If Sql.GetValue(appConn, "TaxVcNo", "status", "VcIDChar='" + tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "' and status in ('2','3','4','9')") IsNot Nothing Then
                 Msg.Alert(oVar("m_hddt_009"), 2)
                 cmdSave.Enabled = False
                 Return
