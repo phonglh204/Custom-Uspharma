@@ -721,9 +721,10 @@ Public Class frmDirInfor
             'Me.cboXuat_xu.SelectedText = "Anh"
             'Me.cboXuat_xu.SelectedIndex = 3
             Try
-                Dim dr As DataRow = Sql.GetRow(DirMain.oDirFormLib.appConn, "dmvt", "ma_vt='" + Me.txtMa_vt.Text.Replace("'", "''") + "'")
                 If Me.txtQuy_cach.Text = "" Then
+                    Dim dr As DataRow = Sql.GetRow(DirMain.oDirFormLib.appConn, "dbo.ftGetPacksizeItem('" + Me.txtMa_vt.Text.Replace("'", "''") + "')")
                     Me.txtQuy_cach.Text = dr.Item("pack_size")
+                    Me.txtPacks.Value = dr.Item("packs")
                 End If
                 'If CType(findcontrols(DirMain.oDirFormLib.oTab.TabPages.Item(1), "txtsl_td1"), txtNumeric).Value = 0 Then
                 '    CType(findcontrols(DirMain.oDirFormLib.oTab.TabPages.Item(1), "txtsl_td1"), txtNumeric).Value = CDec(dr.Item("packs"))
@@ -731,6 +732,8 @@ Public Class frmDirInfor
             Catch ex As Exception
             End Try
         End If
+        AddHandler Me.txtMa_vt.Leave, AddressOf txtMa_vt_Leave
+        AddHandler Me.txtNgay_nhap.Leave, AddressOf txtNgay_nhap_Leave
     End Sub
 
     Private Sub cmdOk_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdOk.Click
@@ -749,7 +752,7 @@ Public Class frmDirInfor
         oDirFormLib.frmUpdate = New frmDirInfor
     End Sub
 
-    Private Sub txtNgay_nhap_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtNgay_nhap.Leave
+    Private Sub txtNgay_nhap_Leave(ByVal sender As Object, ByVal e As System.EventArgs)
         If Trim(txtMa_vt.Text) <> "" And txtNgay_nhap.Text <> Fox.GetEmptyDate() Then
             If Sql.GetValue(oDirFormLib.appConn, "dmvt", "kieu_lo", "ma_vt = '" + Trim(txtMa_vt.Text) + "'") = 1 Then
                 If txtNgay_hhsd.Text = Fox.GetEmptyDate() Then
@@ -770,11 +773,12 @@ Public Class frmDirInfor
             End If
         End If
     End Sub
-    Private Sub txtMa_vt_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtMa_vt.Leave
+    Private Sub txtMa_vt_Leave(ByVal sender As Object, ByVal e As System.EventArgs)
         On Error Resume Next
-        Dim dr As DataRow = Sql.GetRow(DirMain.oDirFormLib.appConn, "dmvt", "ma_vt='" + Me.txtMa_vt.Text.Replace("'", "''") + "'")
         If Me.txtQuy_cach.Text = "" Then
+            Dim dr As DataRow = Sql.GetRow(DirMain.oDirFormLib.appConn, "select * from dbo.ftGetPacksizeItem('" + Me.txtMa_vt.Text.Replace("'", "''") + "')")
             Me.txtQuy_cach.Text = dr.Item("pack_size")
+            Me.txtPacks.Value = dr.Item("packs")
         End If
     End Sub
     Function findcontrols(ByVal root As Control, ByVal name As String) As Control
