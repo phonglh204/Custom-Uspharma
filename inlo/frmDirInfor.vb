@@ -722,7 +722,7 @@ Public Class frmDirInfor
             'Me.cboXuat_xu.SelectedIndex = 3
             Try
                 If Me.txtQuy_cach.Text = "" Then
-                    Dim dr As DataRow = Sql.GetRow(DirMain.oDirFormLib.appConn, "dbo.ftGetPacksizeItem('" + Me.txtMa_vt.Text.Replace("'", "''") + "')")
+                    Dim dr As DataRow = Sql.GetRow(DirMain.oDirFormLib.appConn, "select * from dbo.ftGetPacksizeItem('" + Me.txtMa_vt.Text.Replace("'", "''") + "')")
                     Me.txtQuy_cach.Text = dr.Item("pack_size")
                     Me.txtPacks.Value = dr.Item("packs")
                 End If
