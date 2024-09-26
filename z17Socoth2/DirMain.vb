@@ -108,7 +108,7 @@ Namespace z16Socoth1
                 oDirFormDetailLib.oVar = DirMain.oVar
                 oDirFormDetailLib.SysID = DirMain.SysID
                 oDirFormDetailLib.cForm = "z17Socoth2_detail"
-                oDirFormDetailLib.cCode = Strings.Trim(StringType.FromObject(DirMain.rpTable.Rows.Item(DirMain.fPrint.cboReports.SelectedIndex).Item("rep_id")))
+                oDirFormDetailLib.cCode = "001"
                 oDirFormDetailLib.strAliasReports = "z17Socoth2_detail"
                 oDirFormDetailLib.Init()
                 oDirFormDetailLib.strSQLRunReports = str

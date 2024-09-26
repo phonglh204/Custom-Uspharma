@@ -169,9 +169,9 @@ Namespace z16Socoth1
             'txtMa_dvcs
             '
             Me.txtMa_dvcs.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtMa_dvcs.Location = New System.Drawing.Point(160, 127)
+            Me.txtMa_dvcs.Location = New System.Drawing.Point(192, 147)
             Me.txtMa_dvcs.Name = "txtMa_dvcs"
-            Me.txtMa_dvcs.Size = New System.Drawing.Size(100, 20)
+            Me.txtMa_dvcs.Size = New System.Drawing.Size(120, 22)
             Me.txtMa_dvcs.TabIndex = 10
             Me.txtMa_dvcs.Tag = "FCML"
             Me.txtMa_dvcs.Text = "TXTMA_DVCS"
@@ -179,9 +179,9 @@ Namespace z16Socoth1
             'lblMa_dvcs
             '
             Me.lblMa_dvcs.AutoSize = True
-            Me.lblMa_dvcs.Location = New System.Drawing.Point(20, 129)
+            Me.lblMa_dvcs.Location = New System.Drawing.Point(24, 149)
             Me.lblMa_dvcs.Name = "lblMa_dvcs"
-            Me.lblMa_dvcs.Size = New System.Drawing.Size(38, 13)
+            Me.lblMa_dvcs.Size = New System.Drawing.Size(48, 17)
             Me.lblMa_dvcs.TabIndex = 1
             Me.lblMa_dvcs.Tag = "L004"
             Me.lblMa_dvcs.Text = "Don vi"
@@ -189,9 +189,9 @@ Namespace z16Socoth1
             'lblTen_dvcs
             '
             Me.lblTen_dvcs.AutoSize = True
-            Me.lblTen_dvcs.Location = New System.Drawing.Point(264, 129)
+            Me.lblTen_dvcs.Location = New System.Drawing.Point(317, 149)
             Me.lblTen_dvcs.Name = "lblTen_dvcs"
-            Me.lblTen_dvcs.Size = New System.Drawing.Size(52, 13)
+            Me.lblTen_dvcs.Size = New System.Drawing.Size(66, 17)
             Me.lblTen_dvcs.TabIndex = 7
             Me.lblTen_dvcs.Tag = "L002"
             Me.lblTen_dvcs.Text = "Ten dvcs"
@@ -199,9 +199,9 @@ Namespace z16Socoth1
             'cmdOk
             '
             Me.cmdOk.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-            Me.cmdOk.Location = New System.Drawing.Point(3, 232)
+            Me.cmdOk.Location = New System.Drawing.Point(4, 278)
             Me.cmdOk.Name = "cmdOk"
-            Me.cmdOk.Size = New System.Drawing.Size(75, 23)
+            Me.cmdOk.Size = New System.Drawing.Size(90, 26)
             Me.cmdOk.TabIndex = 0
             Me.cmdOk.Tag = "L001"
             Me.cmdOk.Text = "Nhan"
@@ -209,9 +209,9 @@ Namespace z16Socoth1
             'cmdCancel
             '
             Me.cmdCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-            Me.cmdCancel.Location = New System.Drawing.Point(79, 232)
+            Me.cmdCancel.Location = New System.Drawing.Point(95, 278)
             Me.cmdCancel.Name = "cmdCancel"
-            Me.cmdCancel.Size = New System.Drawing.Size(75, 23)
+            Me.cmdCancel.Size = New System.Drawing.Size(90, 26)
             Me.cmdCancel.TabIndex = 1
             Me.cmdCancel.Tag = "L002"
             Me.cmdCancel.Text = "Huy"
@@ -228,7 +228,7 @@ Namespace z16Socoth1
             Me.tabReports.Location = New System.Drawing.Point(-2, 0)
             Me.tabReports.Name = "tabReports"
             Me.tabReports.SelectedIndex = 0
-            Me.tabReports.Size = New System.Drawing.Size(609, 224)
+            Me.tabReports.Size = New System.Drawing.Size(595, 268)
             Me.tabReports.TabIndex = 0
             '
             'tbgFilter
@@ -257,9 +257,9 @@ Namespace z16Socoth1
             Me.tbgFilter.Controls.Add(Me.lblMau_bc)
             Me.tbgFilter.Controls.Add(Me.lblTitle)
             Me.tbgFilter.Controls.Add(Me.txtTitle)
-            Me.tbgFilter.Location = New System.Drawing.Point(4, 22)
+            Me.tbgFilter.Location = New System.Drawing.Point(4, 25)
             Me.tbgFilter.Name = "tbgFilter"
-            Me.tbgFilter.Size = New System.Drawing.Size(601, 198)
+            Me.tbgFilter.Size = New System.Drawing.Size(587, 239)
             Me.tbgFilter.TabIndex = 0
             Me.tbgFilter.Tag = "L100"
             Me.tbgFilter.Text = "Dieu kien loc"
@@ -267,9 +267,9 @@ Namespace z16Socoth1
             'txtNh_kh3
             '
             Me.txtNh_kh3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtNh_kh3.Location = New System.Drawing.Point(368, 104)
+            Me.txtNh_kh3.Location = New System.Drawing.Point(442, 120)
             Me.txtNh_kh3.Name = "txtNh_kh3"
-            Me.txtNh_kh3.Size = New System.Drawing.Size(100, 20)
+            Me.txtNh_kh3.Size = New System.Drawing.Size(120, 22)
             Me.txtNh_kh3.TabIndex = 9
             Me.txtNh_kh3.Tag = "FCML"
             Me.txtNh_kh3.Text = "TXTNH_KH1"
@@ -277,9 +277,9 @@ Namespace z16Socoth1
             'txtNh_kh2
             '
             Me.txtNh_kh2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtNh_kh2.Location = New System.Drawing.Point(264, 104)
+            Me.txtNh_kh2.Location = New System.Drawing.Point(317, 120)
             Me.txtNh_kh2.Name = "txtNh_kh2"
-            Me.txtNh_kh2.Size = New System.Drawing.Size(100, 20)
+            Me.txtNh_kh2.Size = New System.Drawing.Size(120, 22)
             Me.txtNh_kh2.TabIndex = 8
             Me.txtNh_kh2.Tag = "FCML"
             Me.txtNh_kh2.Text = "TXTNH_KH1"
@@ -287,9 +287,9 @@ Namespace z16Socoth1
             'txtNh_kh1
             '
             Me.txtNh_kh1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtNh_kh1.Location = New System.Drawing.Point(160, 104)
+            Me.txtNh_kh1.Location = New System.Drawing.Point(192, 120)
             Me.txtNh_kh1.Name = "txtNh_kh1"
-            Me.txtNh_kh1.Size = New System.Drawing.Size(100, 20)
+            Me.txtNh_kh1.Size = New System.Drawing.Size(120, 22)
             Me.txtNh_kh1.TabIndex = 7
             Me.txtNh_kh1.Tag = "FCML"
             Me.txtNh_kh1.Text = "TXTNH_KH1"
@@ -297,9 +297,9 @@ Namespace z16Socoth1
             'Label9
             '
             Me.Label9.AutoSize = True
-            Me.Label9.Location = New System.Drawing.Point(20, 106)
+            Me.Label9.Location = New System.Drawing.Point(24, 122)
             Me.Label9.Name = "Label9"
-            Me.Label9.Size = New System.Drawing.Size(95, 13)
+            Me.Label9.Size = New System.Drawing.Size(125, 17)
             Me.Label9.TabIndex = 55
             Me.Label9.Tag = "L009"
             Me.Label9.Text = "Nhom khach 1-2-3"
@@ -307,18 +307,18 @@ Namespace z16Socoth1
             'lblTen_kh
             '
             Me.lblTen_kh.AutoSize = True
-            Me.lblTen_kh.Location = New System.Drawing.Point(264, 83)
+            Me.lblTen_kh.Location = New System.Drawing.Point(317, 96)
             Me.lblTen_kh.Name = "lblTen_kh"
-            Me.lblTen_kh.Size = New System.Drawing.Size(86, 13)
+            Me.lblTen_kh.Size = New System.Drawing.Size(111, 17)
             Me.lblTen_kh.TabIndex = 54
             Me.lblTen_kh.Tag = "RF"
             Me.lblTen_kh.Text = "Ten khach hang"
             '
             'txtMa_kh
             '
-            Me.txtMa_kh.Location = New System.Drawing.Point(160, 81)
+            Me.txtMa_kh.Location = New System.Drawing.Point(192, 93)
             Me.txtMa_kh.Name = "txtMa_kh"
-            Me.txtMa_kh.Size = New System.Drawing.Size(100, 20)
+            Me.txtMa_kh.Size = New System.Drawing.Size(120, 22)
             Me.txtMa_kh.TabIndex = 6
             Me.txtMa_kh.Tag = "FCML"
             Me.txtMa_kh.Text = "txtMa_kh"
@@ -326,19 +326,19 @@ Namespace z16Socoth1
             'lblTk_co
             '
             Me.lblTk_co.AutoSize = True
-            Me.lblTk_co.Location = New System.Drawing.Point(20, 83)
+            Me.lblTk_co.Location = New System.Drawing.Point(24, 96)
             Me.lblTk_co.Name = "lblTk_co"
-            Me.lblTk_co.Size = New System.Drawing.Size(65, 13)
+            Me.lblTk_co.Size = New System.Drawing.Size(84, 17)
             Me.lblTk_co.TabIndex = 53
             Me.lblTk_co.Tag = "L008"
             Me.lblTk_co.Text = "Khach hang"
             '
             'txtDTo
             '
-            Me.txtDTo.Location = New System.Drawing.Point(264, 13)
+            Me.txtDTo.Location = New System.Drawing.Point(317, 15)
             Me.txtDTo.MaxLength = 10
             Me.txtDTo.Name = "txtDTo"
-            Me.txtDTo.Size = New System.Drawing.Size(100, 20)
+            Me.txtDTo.Size = New System.Drawing.Size(120, 22)
             Me.txtDTo.TabIndex = 1
             Me.txtDTo.Tag = "NB"
             Me.txtDTo.Text = "  /  /    "
@@ -348,9 +348,9 @@ Namespace z16Socoth1
             'txtNh_vt2
             '
             Me.txtNh_vt2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtNh_vt2.Location = New System.Drawing.Point(264, 58)
+            Me.txtNh_vt2.Location = New System.Drawing.Point(317, 67)
             Me.txtNh_vt2.Name = "txtNh_vt2"
-            Me.txtNh_vt2.Size = New System.Drawing.Size(100, 20)
+            Me.txtNh_vt2.Size = New System.Drawing.Size(120, 22)
             Me.txtNh_vt2.TabIndex = 4
             Me.txtNh_vt2.Tag = "FCML"
             Me.txtNh_vt2.Text = "TXTNH_VT2"
@@ -358,27 +358,27 @@ Namespace z16Socoth1
             'txtNh_vt3
             '
             Me.txtNh_vt3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtNh_vt3.Location = New System.Drawing.Point(368, 58)
+            Me.txtNh_vt3.Location = New System.Drawing.Point(442, 67)
             Me.txtNh_vt3.Name = "txtNh_vt3"
-            Me.txtNh_vt3.Size = New System.Drawing.Size(100, 20)
+            Me.txtNh_vt3.Size = New System.Drawing.Size(120, 22)
             Me.txtNh_vt3.TabIndex = 5
             Me.txtNh_vt3.Tag = "FCML"
             Me.txtNh_vt3.Text = "TXTNH_VT3"
             '
             'cboReports
             '
-            Me.cboReports.Location = New System.Drawing.Point(160, 150)
+            Me.cboReports.Location = New System.Drawing.Point(192, 173)
             Me.cboReports.Name = "cboReports"
-            Me.cboReports.Size = New System.Drawing.Size(300, 21)
+            Me.cboReports.Size = New System.Drawing.Size(370, 24)
             Me.cboReports.TabIndex = 11
             Me.cboReports.Text = "cboReports"
             '
             'Label5
             '
             Me.Label5.AutoSize = True
-            Me.Label5.Location = New System.Drawing.Point(20, 60)
+            Me.Label5.Location = New System.Drawing.Point(24, 69)
             Me.Label5.Name = "Label5"
-            Me.Label5.Size = New System.Drawing.Size(65, 13)
+            Me.Label5.Size = New System.Drawing.Size(84, 17)
             Me.Label5.TabIndex = 17
             Me.Label5.Tag = "L012"
             Me.Label5.Text = "Nhom vat tu"
@@ -386,9 +386,9 @@ Namespace z16Socoth1
             'txtNh_vt
             '
             Me.txtNh_vt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtNh_vt.Location = New System.Drawing.Point(160, 58)
+            Me.txtNh_vt.Location = New System.Drawing.Point(192, 67)
             Me.txtNh_vt.Name = "txtNh_vt"
-            Me.txtNh_vt.Size = New System.Drawing.Size(100, 20)
+            Me.txtNh_vt.Size = New System.Drawing.Size(120, 22)
             Me.txtNh_vt.TabIndex = 3
             Me.txtNh_vt.Tag = "FCML"
             Me.txtNh_vt.Text = "TXTNH_VT"
@@ -396,9 +396,9 @@ Namespace z16Socoth1
             'Label1
             '
             Me.Label1.AutoSize = True
-            Me.Label1.Location = New System.Drawing.Point(20, 37)
+            Me.Label1.Location = New System.Drawing.Point(24, 43)
             Me.Label1.Name = "Label1"
-            Me.Label1.Size = New System.Drawing.Size(52, 13)
+            Me.Label1.Size = New System.Drawing.Size(66, 17)
             Me.Label1.TabIndex = 14
             Me.Label1.Tag = "L011"
             Me.Label1.Text = "Ma vat tu"
@@ -406,9 +406,9 @@ Namespace z16Socoth1
             'txtMa_vt
             '
             Me.txtMa_vt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtMa_vt.Location = New System.Drawing.Point(160, 35)
+            Me.txtMa_vt.Location = New System.Drawing.Point(192, 40)
             Me.txtMa_vt.Name = "txtMa_vt"
-            Me.txtMa_vt.Size = New System.Drawing.Size(100, 20)
+            Me.txtMa_vt.Size = New System.Drawing.Size(120, 22)
             Me.txtMa_vt.TabIndex = 2
             Me.txtMa_vt.Tag = "FCML"
             Me.txtMa_vt.Text = "TXTMA_VT"
@@ -416,19 +416,19 @@ Namespace z16Socoth1
             'lblTen_vt
             '
             Me.lblTen_vt.AutoSize = True
-            Me.lblTen_vt.Location = New System.Drawing.Point(264, 37)
+            Me.lblTen_vt.Location = New System.Drawing.Point(317, 43)
             Me.lblTen_vt.Name = "lblTen_vt"
-            Me.lblTen_vt.Size = New System.Drawing.Size(56, 13)
+            Me.lblTen_vt.Size = New System.Drawing.Size(72, 17)
             Me.lblTen_vt.TabIndex = 15
             Me.lblTen_vt.Tag = "L014"
             Me.lblTen_vt.Text = "Ten vat tu"
             '
             'txtDFrom
             '
-            Me.txtDFrom.Location = New System.Drawing.Point(160, 13)
+            Me.txtDFrom.Location = New System.Drawing.Point(192, 15)
             Me.txtDFrom.MaxLength = 10
             Me.txtDFrom.Name = "txtDFrom"
-            Me.txtDFrom.Size = New System.Drawing.Size(100, 20)
+            Me.txtDFrom.Size = New System.Drawing.Size(120, 22)
             Me.txtDFrom.TabIndex = 0
             Me.txtDFrom.Tag = "NB"
             Me.txtDFrom.Text = "  /  /    "
@@ -438,9 +438,9 @@ Namespace z16Socoth1
             'lblDateFromTo
             '
             Me.lblDateFromTo.AutoSize = True
-            Me.lblDateFromTo.Location = New System.Drawing.Point(20, 15)
+            Me.lblDateFromTo.Location = New System.Drawing.Point(24, 17)
             Me.lblDateFromTo.Name = "lblDateFromTo"
-            Me.lblDateFromTo.Size = New System.Drawing.Size(67, 13)
+            Me.lblDateFromTo.Size = New System.Drawing.Size(85, 17)
             Me.lblDateFromTo.TabIndex = 0
             Me.lblDateFromTo.Tag = "L003"
             Me.lblDateFromTo.Text = "Ngay tu/den"
@@ -448,9 +448,9 @@ Namespace z16Socoth1
             'lblMau_bc
             '
             Me.lblMau_bc.AutoSize = True
-            Me.lblMau_bc.Location = New System.Drawing.Point(20, 152)
+            Me.lblMau_bc.Location = New System.Drawing.Point(24, 175)
             Me.lblMau_bc.Name = "lblMau_bc"
-            Me.lblMau_bc.Size = New System.Drawing.Size(70, 13)
+            Me.lblMau_bc.Size = New System.Drawing.Size(90, 17)
             Me.lblMau_bc.TabIndex = 2
             Me.lblMau_bc.Tag = "L006"
             Me.lblMau_bc.Text = "Mau bao cao"
@@ -458,18 +458,18 @@ Namespace z16Socoth1
             'lblTitle
             '
             Me.lblTitle.AutoSize = True
-            Me.lblTitle.Location = New System.Drawing.Point(20, 176)
+            Me.lblTitle.Location = New System.Drawing.Point(24, 203)
             Me.lblTitle.Name = "lblTitle"
-            Me.lblTitle.Size = New System.Drawing.Size(43, 13)
+            Me.lblTitle.Size = New System.Drawing.Size(56, 17)
             Me.lblTitle.TabIndex = 3
             Me.lblTitle.Tag = "L007"
             Me.lblTitle.Text = "Tieu de"
             '
             'txtTitle
             '
-            Me.txtTitle.Location = New System.Drawing.Point(160, 174)
+            Me.txtTitle.Location = New System.Drawing.Point(192, 201)
             Me.txtTitle.Name = "txtTitle"
-            Me.txtTitle.Size = New System.Drawing.Size(300, 20)
+            Me.txtTitle.Size = New System.Drawing.Size(370, 22)
             Me.txtTitle.TabIndex = 12
             Me.txtTitle.Tag = "NB"
             Me.txtTitle.Text = "txtTieu_de"
@@ -484,9 +484,9 @@ Namespace z16Socoth1
             Me.tbgOptions.Controls.Add(Me.CbbGroup)
             Me.tbgOptions.Controls.Add(Me.Label2)
             Me.tbgOptions.Controls.Add(Me.Label6)
-            Me.tbgOptions.Location = New System.Drawing.Point(4, 22)
+            Me.tbgOptions.Location = New System.Drawing.Point(4, 25)
             Me.tbgOptions.Name = "tbgOptions"
-            Me.tbgOptions.Size = New System.Drawing.Size(601, 198)
+            Me.tbgOptions.Size = New System.Drawing.Size(722, 229)
             Me.tbgOptions.TabIndex = 2
             Me.tbgOptions.Tag = "L200"
             Me.tbgOptions.Text = "Lua chon"
@@ -494,10 +494,10 @@ Namespace z16Socoth1
             'txtGroup3
             '
             Me.txtGroup3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtGroup3.Location = New System.Drawing.Point(214, 37)
+            Me.txtGroup3.Location = New System.Drawing.Point(257, 43)
             Me.txtGroup3.MaxLength = 1
             Me.txtGroup3.Name = "txtGroup3"
-            Me.txtGroup3.Size = New System.Drawing.Size(24, 20)
+            Me.txtGroup3.Size = New System.Drawing.Size(29, 22)
             Me.txtGroup3.TabIndex = 4
             Me.txtGroup3.Tag = "FC"
             Me.txtGroup3.Text = "TXTNO_CO"
@@ -505,10 +505,10 @@ Namespace z16Socoth1
             'txtGroup2
             '
             Me.txtGroup2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtGroup2.Location = New System.Drawing.Point(187, 37)
+            Me.txtGroup2.Location = New System.Drawing.Point(224, 43)
             Me.txtGroup2.MaxLength = 1
             Me.txtGroup2.Name = "txtGroup2"
-            Me.txtGroup2.Size = New System.Drawing.Size(24, 20)
+            Me.txtGroup2.Size = New System.Drawing.Size(29, 22)
             Me.txtGroup2.TabIndex = 2
             Me.txtGroup2.Tag = "FC"
             Me.txtGroup2.Text = "TXTNO_CO"
@@ -516,10 +516,10 @@ Namespace z16Socoth1
             'txtGroup1
             '
             Me.txtGroup1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtGroup1.Location = New System.Drawing.Point(160, 37)
+            Me.txtGroup1.Location = New System.Drawing.Point(192, 43)
             Me.txtGroup1.MaxLength = 1
             Me.txtGroup1.Name = "txtGroup1"
-            Me.txtGroup1.Size = New System.Drawing.Size(24, 20)
+            Me.txtGroup1.Size = New System.Drawing.Size(29, 22)
             Me.txtGroup1.TabIndex = 1
             Me.txtGroup1.Tag = "FC"
             Me.txtGroup1.Text = "TXTNO_CO"
@@ -527,9 +527,9 @@ Namespace z16Socoth1
             'lblTk
             '
             Me.lblTk.AutoSize = True
-            Me.lblTk.Location = New System.Drawing.Point(20, 39)
+            Me.lblTk.Location = New System.Drawing.Point(24, 45)
             Me.lblTk.Name = "lblTk"
-            Me.lblTk.Size = New System.Drawing.Size(131, 13)
+            Me.lblTk.Size = New System.Drawing.Size(173, 17)
             Me.lblTk.TabIndex = 151
             Me.lblTk.Tag = "LA01"
             Me.lblTk.Text = "Thu tu sap xep theo nhom"
@@ -537,26 +537,26 @@ Namespace z16Socoth1
             'CbbPrintAmtTotal
             '
             Me.CbbPrintAmtTotal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-            Me.CbbPrintAmtTotal.Location = New System.Drawing.Point(160, 85)
+            Me.CbbPrintAmtTotal.Location = New System.Drawing.Point(192, 98)
             Me.CbbPrintAmtTotal.Name = "CbbPrintAmtTotal"
-            Me.CbbPrintAmtTotal.Size = New System.Drawing.Size(300, 21)
+            Me.CbbPrintAmtTotal.Size = New System.Drawing.Size(360, 24)
             Me.CbbPrintAmtTotal.TabIndex = 135
             Me.CbbPrintAmtTotal.Visible = False
             '
             'CbbGroup
             '
             Me.CbbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-            Me.CbbGroup.Location = New System.Drawing.Point(160, 13)
+            Me.CbbGroup.Location = New System.Drawing.Point(192, 15)
             Me.CbbGroup.Name = "CbbGroup"
-            Me.CbbGroup.Size = New System.Drawing.Size(300, 21)
+            Me.CbbGroup.Size = New System.Drawing.Size(360, 24)
             Me.CbbGroup.TabIndex = 0
             '
             'Label2
             '
             Me.Label2.AutoSize = True
-            Me.Label2.Location = New System.Drawing.Point(20, 15)
+            Me.Label2.Location = New System.Drawing.Point(24, 17)
             Me.Label2.Name = "Label2"
-            Me.Label2.Size = New System.Drawing.Size(59, 13)
+            Me.Label2.Size = New System.Drawing.Size(77, 17)
             Me.Label2.TabIndex = 128
             Me.Label2.Tag = "L201"
             Me.Label2.Text = "Nhom theo"
@@ -564,9 +564,9 @@ Namespace z16Socoth1
             'Label6
             '
             Me.Label6.AutoSize = True
-            Me.Label6.Location = New System.Drawing.Point(8, 87)
+            Me.Label6.Location = New System.Drawing.Point(10, 100)
             Me.Label6.Name = "Label6"
-            Me.Label6.Size = New System.Drawing.Size(83, 13)
+            Me.Label6.Size = New System.Drawing.Size(109, 17)
             Me.Label6.TabIndex = 125
             Me.Label6.Tag = "L202"
             Me.Label6.Text = "In tong so luong"
@@ -574,9 +574,9 @@ Namespace z16Socoth1
             '
             'TabAdv
             '
-            Me.TabAdv.Location = New System.Drawing.Point(4, 22)
+            Me.TabAdv.Location = New System.Drawing.Point(4, 25)
             Me.TabAdv.Name = "TabAdv"
-            Me.TabAdv.Size = New System.Drawing.Size(601, 198)
+            Me.TabAdv.Size = New System.Drawing.Size(722, 229)
             Me.TabAdv.TabIndex = 1
             Me.TabAdv.Tag = "L400"
             Me.TabAdv.Text = "Advance filter"
@@ -584,9 +584,9 @@ Namespace z16Socoth1
             'tbgOrder
             '
             Me.tbgOrder.Controls.Add(Me.grdOrder)
-            Me.tbgOrder.Location = New System.Drawing.Point(4, 22)
+            Me.tbgOrder.Location = New System.Drawing.Point(4, 25)
             Me.tbgOrder.Name = "tbgOrder"
-            Me.tbgOrder.Size = New System.Drawing.Size(601, 198)
+            Me.tbgOrder.Size = New System.Drawing.Size(722, 229)
             Me.tbgOrder.TabIndex = 3
             Me.tbgOrder.Tag = "L300"
             Me.tbgOrder.Text = "Thu tu sap xep"
@@ -602,15 +602,15 @@ Namespace z16Socoth1
             Me.grdOrder.HeaderForeColor = System.Drawing.SystemColors.ControlText
             Me.grdOrder.Location = New System.Drawing.Point(0, 0)
             Me.grdOrder.Name = "grdOrder"
-            Me.grdOrder.Size = New System.Drawing.Size(601, 198)
+            Me.grdOrder.Size = New System.Drawing.Size(721, 225)
             Me.grdOrder.TabIndex = 0
             '
             'lblTen_nh2
             '
             Me.lblTen_nh2.AutoSize = True
-            Me.lblTen_nh2.Location = New System.Drawing.Point(306, 258)
+            Me.lblTen_nh2.Location = New System.Drawing.Point(367, 298)
             Me.lblTen_nh2.Name = "lblTen_nh2"
-            Me.lblTen_nh2.Size = New System.Drawing.Size(44, 13)
+            Me.lblTen_nh2.Size = New System.Drawing.Size(57, 17)
             Me.lblTen_nh2.TabIndex = 56
             Me.lblTen_nh2.Tag = "L015"
             Me.lblTen_nh2.Text = "Ten_nh"
@@ -619,9 +619,9 @@ Namespace z16Socoth1
             'lblTen_nh3
             '
             Me.lblTen_nh3.AutoSize = True
-            Me.lblTen_nh3.Location = New System.Drawing.Point(362, 258)
+            Me.lblTen_nh3.Location = New System.Drawing.Point(434, 298)
             Me.lblTen_nh3.Name = "lblTen_nh3"
-            Me.lblTen_nh3.Size = New System.Drawing.Size(44, 13)
+            Me.lblTen_nh3.Size = New System.Drawing.Size(57, 17)
             Me.lblTen_nh3.TabIndex = 57
             Me.lblTen_nh3.Tag = "L015"
             Me.lblTen_nh3.Text = "Ten_nh"
@@ -630,9 +630,9 @@ Namespace z16Socoth1
             'lblTen_nh
             '
             Me.lblTen_nh.AutoSize = True
-            Me.lblTen_nh.Location = New System.Drawing.Point(234, 242)
+            Me.lblTen_nh.Location = New System.Drawing.Point(281, 279)
             Me.lblTen_nh.Name = "lblTen_nh"
-            Me.lblTen_nh.Size = New System.Drawing.Size(44, 13)
+            Me.lblTen_nh.Size = New System.Drawing.Size(57, 17)
             Me.lblTen_nh.TabIndex = 18
             Me.lblTen_nh.Tag = "L015"
             Me.lblTen_nh.Text = "Ten_nh"
@@ -640,8 +640,8 @@ Namespace z16Socoth1
             '
             'frmFilter
             '
-            Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-            Me.ClientSize = New System.Drawing.Size(608, 285)
+            Me.AutoScaleBaseSize = New System.Drawing.Size(6, 15)
+            Me.ClientSize = New System.Drawing.Size(595, 339)
             Me.Controls.Add(Me.tabReports)
             Me.Controls.Add(Me.cmdCancel)
             Me.Controls.Add(Me.cmdOk)
