@@ -62,30 +62,30 @@ Namespace z21coAutopost622
             Next
             Dim sKey As String = ("status = '1' AND ma_dvcs IN (SELECT ma_dvcs FROM dbo.sysunitrights where user_id = " & Strings.Trim(StringType.FromObject(Reg.GetRegistryKey("CurrUserID"))) & " AND r_access = 1)")
             Dim getcodes As New clsGetcodes.clsGetcodes(Me.txtDsDvcs, Sys.GetSysConn, Sys.GetConn, "dmdvcs", "ma_dvcs", "Unit", sKey, Me)
-            Me.txtMonth.Value = Reg.GetRegistryKey("DFMTo")
-            Me.txtYear.Value = Reg.GetRegistryKey("DFYear")
+            Me.txtMonth.Value = Date.Now.AddDays(-25).Month
+            Me.txtYear.Value = Date.Now.AddDays(-25).Year
         End Sub
         Friend WithEvents txtMonth As txtNumeric
 
         <DebuggerStepThrough()>
         Private Sub InitializeComponent()
-            Me.lblYear = New System.Windows.Forms.Label
-            Me.cmdOk = New System.Windows.Forms.Button
-            Me.cmdCancel = New System.Windows.Forms.Button
-            Me.grpInfor = New System.Windows.Forms.GroupBox
-            Me.lblTy_ky = New System.Windows.Forms.Label
-            Me.txtYear = New txtNumeric
-            Me.txtMonth = New txtNumeric
-            Me.txtDsDvcs = New System.Windows.Forms.TextBox
-            Me.Label1 = New System.Windows.Forms.Label
+            Me.lblYear = New System.Windows.Forms.Label()
+            Me.cmdOk = New System.Windows.Forms.Button()
+            Me.cmdCancel = New System.Windows.Forms.Button()
+            Me.grpInfor = New System.Windows.Forms.GroupBox()
+            Me.lblTy_ky = New System.Windows.Forms.Label()
+            Me.txtYear = New libscontrol.txtNumeric()
+            Me.txtMonth = New libscontrol.txtNumeric()
+            Me.txtDsDvcs = New System.Windows.Forms.TextBox()
+            Me.Label1 = New System.Windows.Forms.Label()
             Me.SuspendLayout()
             '
             'lblYear
             '
             Me.lblYear.AutoSize = True
-            Me.lblYear.Location = New System.Drawing.Point(23, 48)
+            Me.lblYear.Location = New System.Drawing.Point(28, 55)
             Me.lblYear.Name = "lblYear"
-            Me.lblYear.Size = New System.Drawing.Size(28, 16)
+            Me.lblYear.Size = New System.Drawing.Size(37, 17)
             Me.lblYear.TabIndex = 5
             Me.lblYear.Tag = "L003"
             Me.lblYear.Text = "Nam"
@@ -93,8 +93,9 @@ Namespace z21coAutopost622
             'cmdOk
             '
             Me.cmdOk.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-            Me.cmdOk.Location = New System.Drawing.Point(8, 131)
+            Me.cmdOk.Location = New System.Drawing.Point(10, 135)
             Me.cmdOk.Name = "cmdOk"
+            Me.cmdOk.Size = New System.Drawing.Size(90, 27)
             Me.cmdOk.TabIndex = 4
             Me.cmdOk.Tag = "L004"
             Me.cmdOk.Text = "Nhan"
@@ -102,8 +103,9 @@ Namespace z21coAutopost622
             'cmdCancel
             '
             Me.cmdCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-            Me.cmdCancel.Location = New System.Drawing.Point(84, 131)
+            Me.cmdCancel.Location = New System.Drawing.Point(101, 135)
             Me.cmdCancel.Name = "cmdCancel"
+            Me.cmdCancel.Size = New System.Drawing.Size(90, 27)
             Me.cmdCancel.TabIndex = 5
             Me.cmdCancel.Tag = "L005"
             Me.cmdCancel.Text = "Huy"
@@ -111,20 +113,20 @@ Namespace z21coAutopost622
             'grpInfor
             '
             Me.grpInfor.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                        Or System.Windows.Forms.AnchorStyles.Left) _
-                        Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            Me.grpInfor.Location = New System.Drawing.Point(8, 8)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.grpInfor.Location = New System.Drawing.Point(10, 9)
             Me.grpInfor.Name = "grpInfor"
-            Me.grpInfor.Size = New System.Drawing.Size(592, 112)
+            Me.grpInfor.Size = New System.Drawing.Size(644, 113)
             Me.grpInfor.TabIndex = 17
             Me.grpInfor.TabStop = False
             '
             'lblTy_ky
             '
             Me.lblTy_ky.AutoSize = True
-            Me.lblTy_ky.Location = New System.Drawing.Point(23, 26)
+            Me.lblTy_ky.Location = New System.Drawing.Point(28, 30)
             Me.lblTy_ky.Name = "lblTy_ky"
-            Me.lblTy_ky.Size = New System.Drawing.Size(36, 16)
+            Me.lblTy_ky.Size = New System.Drawing.Size(49, 17)
             Me.lblTy_ky.TabIndex = 26
             Me.lblTy_ky.Tag = "L001"
             Me.lblTy_ky.Text = "Thang"
@@ -132,51 +134,52 @@ Namespace z21coAutopost622
             'txtYear
             '
             Me.txtYear.Format = "###0"
-            Me.txtYear.Location = New System.Drawing.Point(155, 48)
+            Me.txtYear.Location = New System.Drawing.Point(186, 55)
             Me.txtYear.MaxLength = 5
             Me.txtYear.Name = "txtYear"
-            Me.txtYear.Size = New System.Drawing.Size(48, 20)
+            Me.txtYear.Size = New System.Drawing.Size(58, 22)
             Me.txtYear.TabIndex = 2
             Me.txtYear.Tag = "FNNB"
             Me.txtYear.Text = "0"
             Me.txtYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-            Me.txtYear.Value = 0
+            Me.txtYear.Value = 0R
             '
             'txtMonth
             '
             Me.txtMonth.Format = "#0"
-            Me.txtMonth.Location = New System.Drawing.Point(155, 24)
+            Me.txtMonth.Location = New System.Drawing.Point(186, 28)
             Me.txtMonth.MaxLength = 3
             Me.txtMonth.Name = "txtMonth"
-            Me.txtMonth.Size = New System.Drawing.Size(48, 20)
+            Me.txtMonth.Size = New System.Drawing.Size(58, 22)
             Me.txtMonth.TabIndex = 0
             Me.txtMonth.Tag = "FNNB"
             Me.txtMonth.Text = "0"
             Me.txtMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-            Me.txtMonth.Value = 0
+            Me.txtMonth.Value = 0R
             '
             'txtDsDvcs
             '
-            Me.txtDsDvcs.Location = New System.Drawing.Point(155, 72)
+            Me.txtDsDvcs.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.txtDsDvcs.Location = New System.Drawing.Point(186, 83)
             Me.txtDsDvcs.Name = "txtDsDvcs"
-            Me.txtDsDvcs.Size = New System.Drawing.Size(364, 20)
+            Me.txtDsDvcs.Size = New System.Drawing.Size(437, 22)
             Me.txtDsDvcs.TabIndex = 3
-            Me.txtDsDvcs.Text = ""
             '
             'Label1
             '
             Me.Label1.AutoSize = True
-            Me.Label1.Location = New System.Drawing.Point(23, 72)
+            Me.Label1.Location = New System.Drawing.Point(28, 83)
             Me.Label1.Name = "Label1"
-            Me.Label1.Size = New System.Drawing.Size(84, 16)
+            Me.Label1.Size = New System.Drawing.Size(109, 17)
             Me.Label1.TabIndex = 27
             Me.Label1.Tag = "L008"
             Me.Label1.Text = "Danh sach dvcs"
             '
             'frmDates
             '
-            Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-            Me.ClientSize = New System.Drawing.Size(608, 161)
+            Me.AutoScaleBaseSize = New System.Drawing.Size(6, 15)
+            Me.ClientSize = New System.Drawing.Size(664, 170)
             Me.Controls.Add(Me.Label1)
             Me.Controls.Add(Me.txtYear)
             Me.Controls.Add(Me.txtMonth)
@@ -190,6 +193,7 @@ Namespace z21coAutopost622
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
             Me.Text = "frmDates"
             Me.ResumeLayout(False)
+            Me.PerformLayout()
 
         End Sub
 

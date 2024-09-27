@@ -71,6 +71,7 @@ Namespace z21coAutopost622
 
             Me.txtMonth.Value = Reg.GetRegistryKey("DFMTo")
             Me.txtYear.Value = Reg.GetRegistryKey("DFYear")
+            'Me.txtMonth.Value = Date.Now.AddDays(-25)
             Me.Validated_Mess1()
             Obj.Init(Me)
         End Sub
@@ -80,29 +81,29 @@ Namespace z21coAutopost622
 
         <DebuggerStepThrough()>
         Private Sub InitializeComponent()
-            Me.txtMa_dvcs = New System.Windows.Forms.TextBox
-            Me.lblMa_dvcs = New System.Windows.Forms.Label
-            Me.lblTen_dvcs = New System.Windows.Forms.Label
-            Me.cmdOk = New System.Windows.Forms.Button
-            Me.cmdCancel = New System.Windows.Forms.Button
-            Me.lblMau_bc = New System.Windows.Forms.Label
-            Me.cboReports = New System.Windows.Forms.ComboBox
-            Me.lblTitle = New System.Windows.Forms.Label
-            Me.txtTitle = New System.Windows.Forms.TextBox
-            Me.grpInfor = New System.Windows.Forms.GroupBox
-            Me.lblTu_kyMess = New System.Windows.Forms.Label
-            Me.txtMonth = New txtNumeric
-            Me.lblTy_ky = New System.Windows.Forms.Label
-            Me.txtYear = New txtNumeric
-            Me.Label1 = New System.Windows.Forms.Label
+            Me.txtMa_dvcs = New System.Windows.Forms.TextBox()
+            Me.lblMa_dvcs = New System.Windows.Forms.Label()
+            Me.lblTen_dvcs = New System.Windows.Forms.Label()
+            Me.cmdOk = New System.Windows.Forms.Button()
+            Me.cmdCancel = New System.Windows.Forms.Button()
+            Me.lblMau_bc = New System.Windows.Forms.Label()
+            Me.cboReports = New System.Windows.Forms.ComboBox()
+            Me.lblTitle = New System.Windows.Forms.Label()
+            Me.txtTitle = New System.Windows.Forms.TextBox()
+            Me.grpInfor = New System.Windows.Forms.GroupBox()
+            Me.lblTu_kyMess = New System.Windows.Forms.Label()
+            Me.txtMonth = New libscontrol.txtNumeric()
+            Me.lblTy_ky = New System.Windows.Forms.Label()
+            Me.txtYear = New libscontrol.txtNumeric()
+            Me.Label1 = New System.Windows.Forms.Label()
             Me.SuspendLayout()
             '
             'txtMa_dvcs
             '
             Me.txtMa_dvcs.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-            Me.txtMa_dvcs.Location = New System.Drawing.Point(155, 72)
+            Me.txtMa_dvcs.Location = New System.Drawing.Point(186, 83)
             Me.txtMa_dvcs.Name = "txtMa_dvcs"
-            Me.txtMa_dvcs.Size = New System.Drawing.Size(104, 20)
+            Me.txtMa_dvcs.Size = New System.Drawing.Size(125, 22)
             Me.txtMa_dvcs.TabIndex = 4
             Me.txtMa_dvcs.Tag = "FCMaster#dbo.ff_InUnits(a.ma_dvcs, '%s') = 1 #MLEX"
             Me.txtMa_dvcs.Text = "TXTMA_DVCS"
@@ -110,9 +111,9 @@ Namespace z21coAutopost622
             'lblMa_dvcs
             '
             Me.lblMa_dvcs.AutoSize = True
-            Me.lblMa_dvcs.Location = New System.Drawing.Point(16, 74)
+            Me.lblMa_dvcs.Location = New System.Drawing.Point(19, 85)
             Me.lblMa_dvcs.Name = "lblMa_dvcs"
-            Me.lblMa_dvcs.Size = New System.Drawing.Size(36, 16)
+            Me.lblMa_dvcs.Size = New System.Drawing.Size(48, 17)
             Me.lblMa_dvcs.TabIndex = 1
             Me.lblMa_dvcs.Tag = "L108"
             Me.lblMa_dvcs.Text = "Don vi"
@@ -120,9 +121,9 @@ Namespace z21coAutopost622
             'lblTen_dvcs
             '
             Me.lblTen_dvcs.AutoSize = True
-            Me.lblTen_dvcs.Location = New System.Drawing.Point(259, 74)
+            Me.lblTen_dvcs.Location = New System.Drawing.Point(311, 85)
             Me.lblTen_dvcs.Name = "lblTen_dvcs"
-            Me.lblTen_dvcs.Size = New System.Drawing.Size(50, 16)
+            Me.lblTen_dvcs.Size = New System.Drawing.Size(66, 17)
             Me.lblTen_dvcs.TabIndex = 7
             Me.lblTen_dvcs.Tag = ""
             Me.lblTen_dvcs.Text = "Ten dvcs"
@@ -130,8 +131,9 @@ Namespace z21coAutopost622
             'cmdOk
             '
             Me.cmdOk.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-            Me.cmdOk.Location = New System.Drawing.Point(8, 189)
+            Me.cmdOk.Location = New System.Drawing.Point(10, 181)
             Me.cmdOk.Name = "cmdOk"
+            Me.cmdOk.Size = New System.Drawing.Size(90, 27)
             Me.cmdOk.TabIndex = 7
             Me.cmdOk.Tag = "L004"
             Me.cmdOk.Text = "Nhan"
@@ -140,8 +142,9 @@ Namespace z21coAutopost622
             '
             Me.cmdCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-            Me.cmdCancel.Location = New System.Drawing.Point(84, 189)
+            Me.cmdCancel.Location = New System.Drawing.Point(101, 181)
             Me.cmdCancel.Name = "cmdCancel"
+            Me.cmdCancel.Size = New System.Drawing.Size(90, 27)
             Me.cmdCancel.TabIndex = 8
             Me.cmdCancel.Tag = "L005"
             Me.cmdCancel.Text = "Huy"
@@ -149,36 +152,36 @@ Namespace z21coAutopost622
             'lblMau_bc
             '
             Me.lblMau_bc.AutoSize = True
-            Me.lblMau_bc.Location = New System.Drawing.Point(16, 98)
+            Me.lblMau_bc.Location = New System.Drawing.Point(19, 113)
             Me.lblMau_bc.Name = "lblMau_bc"
-            Me.lblMau_bc.Size = New System.Drawing.Size(69, 16)
+            Me.lblMau_bc.Size = New System.Drawing.Size(90, 17)
             Me.lblMau_bc.TabIndex = 2
             Me.lblMau_bc.Tag = "L109"
             Me.lblMau_bc.Text = "Mau bao cao"
             '
             'cboReports
             '
-            Me.cboReports.Location = New System.Drawing.Point(155, 96)
+            Me.cboReports.Location = New System.Drawing.Point(186, 111)
             Me.cboReports.Name = "cboReports"
-            Me.cboReports.Size = New System.Drawing.Size(364, 21)
+            Me.cboReports.Size = New System.Drawing.Size(437, 24)
             Me.cboReports.TabIndex = 5
             Me.cboReports.Text = "cboReports"
             '
             'lblTitle
             '
             Me.lblTitle.AutoSize = True
-            Me.lblTitle.Location = New System.Drawing.Point(16, 122)
+            Me.lblTitle.Location = New System.Drawing.Point(19, 141)
             Me.lblTitle.Name = "lblTitle"
-            Me.lblTitle.Size = New System.Drawing.Size(42, 16)
+            Me.lblTitle.Size = New System.Drawing.Size(56, 17)
             Me.lblTitle.TabIndex = 3
             Me.lblTitle.Tag = "L110"
             Me.lblTitle.Text = "Tieu de"
             '
             'txtTitle
             '
-            Me.txtTitle.Location = New System.Drawing.Point(155, 120)
+            Me.txtTitle.Location = New System.Drawing.Point(186, 138)
             Me.txtTitle.Name = "txtTitle"
-            Me.txtTitle.Size = New System.Drawing.Size(364, 20)
+            Me.txtTitle.Size = New System.Drawing.Size(437, 22)
             Me.txtTitle.TabIndex = 6
             Me.txtTitle.Tag = "NB"
             Me.txtTitle.Text = "txtTieu_de"
@@ -186,11 +189,11 @@ Namespace z21coAutopost622
             'grpInfor
             '
             Me.grpInfor.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                        Or System.Windows.Forms.AnchorStyles.Left) _
-                        Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            Me.grpInfor.Location = New System.Drawing.Point(8, 8)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.grpInfor.Location = New System.Drawing.Point(10, 9)
             Me.grpInfor.Name = "grpInfor"
-            Me.grpInfor.Size = New System.Drawing.Size(592, 168)
+            Me.grpInfor.Size = New System.Drawing.Size(588, 157)
             Me.grpInfor.TabIndex = 0
             Me.grpInfor.TabStop = False
             Me.grpInfor.Tag = ""
@@ -198,9 +201,9 @@ Namespace z21coAutopost622
             'lblTu_kyMess
             '
             Me.lblTu_kyMess.AutoSize = True
-            Me.lblTu_kyMess.Location = New System.Drawing.Point(242, 26)
+            Me.lblTu_kyMess.Location = New System.Drawing.Point(290, 30)
             Me.lblTu_kyMess.Name = "lblTu_kyMess"
-            Me.lblTu_kyMess.Size = New System.Drawing.Size(61, 16)
+            Me.lblTu_kyMess.Size = New System.Drawing.Size(80, 17)
             Me.lblTu_kyMess.TabIndex = 51
             Me.lblTu_kyMess.Tag = ""
             Me.lblTu_kyMess.Text = "01/01/1990"
@@ -208,22 +211,22 @@ Namespace z21coAutopost622
             'txtMonth
             '
             Me.txtMonth.Format = "#0"
-            Me.txtMonth.Location = New System.Drawing.Point(155, 24)
+            Me.txtMonth.Location = New System.Drawing.Point(186, 28)
             Me.txtMonth.MaxLength = 2
             Me.txtMonth.Name = "txtMonth"
-            Me.txtMonth.Size = New System.Drawing.Size(30, 20)
+            Me.txtMonth.Size = New System.Drawing.Size(36, 22)
             Me.txtMonth.TabIndex = 0
             Me.txtMonth.Tag = "FNNB"
             Me.txtMonth.Text = "0"
             Me.txtMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-            Me.txtMonth.Value = 0
+            Me.txtMonth.Value = 0R
             '
             'lblTy_ky
             '
             Me.lblTy_ky.AutoSize = True
-            Me.lblTy_ky.Location = New System.Drawing.Point(16, 26)
+            Me.lblTy_ky.Location = New System.Drawing.Point(19, 30)
             Me.lblTy_ky.Name = "lblTy_ky"
-            Me.lblTy_ky.Size = New System.Drawing.Size(17, 16)
+            Me.lblTy_ky.Size = New System.Drawing.Size(24, 17)
             Me.lblTy_ky.TabIndex = 49
             Me.lblTy_ky.Tag = "L001"
             Me.lblTy_ky.Text = "Ky"
@@ -231,29 +234,29 @@ Namespace z21coAutopost622
             'txtYear
             '
             Me.txtYear.Format = "###0"
-            Me.txtYear.Location = New System.Drawing.Point(155, 48)
+            Me.txtYear.Location = New System.Drawing.Point(186, 55)
             Me.txtYear.MaxLength = 5
             Me.txtYear.Name = "txtYear"
-            Me.txtYear.Size = New System.Drawing.Size(48, 20)
+            Me.txtYear.Size = New System.Drawing.Size(58, 22)
             Me.txtYear.TabIndex = 52
             Me.txtYear.Tag = "FNNB"
             Me.txtYear.Text = "0"
             Me.txtYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-            Me.txtYear.Value = 0
+            Me.txtYear.Value = 0R
             '
             'Label1
             '
             Me.Label1.AutoSize = True
-            Me.Label1.Location = New System.Drawing.Point(16, 50)
+            Me.Label1.Location = New System.Drawing.Point(19, 58)
             Me.Label1.Name = "Label1"
-            Me.Label1.Size = New System.Drawing.Size(28, 16)
+            Me.Label1.Size = New System.Drawing.Size(37, 17)
             Me.Label1.TabIndex = 53
             Me.Label1.Tag = "L003"
             Me.Label1.Text = "Nam"
             '
             'frmFilter
             '
-            Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
+            Me.AutoScaleBaseSize = New System.Drawing.Size(6, 15)
             Me.ClientSize = New System.Drawing.Size(608, 241)
             Me.Controls.Add(Me.Label1)
             Me.Controls.Add(Me.txtYear)
@@ -274,6 +277,7 @@ Namespace z21coAutopost622
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
             Me.Text = "frmFilter"
             Me.ResumeLayout(False)
+            Me.PerformLayout()
 
         End Sub
 
