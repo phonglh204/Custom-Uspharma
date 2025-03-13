@@ -1488,7 +1488,7 @@ Namespace poctpd1
                     Dim i As Integer = 0
                     Do While (i <= num2)
                         Dim view As DataRowView = modVoucher.tblDetail.Item(i)
-                        If BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.BitOrObj((ObjectType.ObjTst(view.Item("sl_hd"), 0, False) > 0), (ObjectType.ObjTst(view.Item("sl_kt"), 0, False) > 0)), ObjectType.BitAndObj(view.Item("qc_yn"), (StringType.StrCmp(Strings.Trim(StringType.FromObject(view.Item("xstatus"))), "2", False) = 0)))) Then
+                        If view.Item("sl_hd") <> 0 Or view.Item("sl_kt") <> 0 Then
                             flag2 = False
                             Exit Do
                         End If

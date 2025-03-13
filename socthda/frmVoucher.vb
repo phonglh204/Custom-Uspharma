@@ -701,18 +701,18 @@ Public Class frmVoucher
         Dim num3 As Integer = (dv.Count - 1)
         num = 0
         Do While (num <= num3)
-            If Information.IsDBNull(RuntimeHelpers.GetObjectValue(dv.Item(num).Item("km_yn"))) Then
-                dv.Item(num).Item("km_yn") = 0
-            End If
+            'If Information.IsDBNull(RuntimeHelpers.GetObjectValue(dv.Item(num).Item("km_yn"))) Then
+            '    dv.Item(num).Item("km_yn") = 0
+            'End If
             If Information.IsDBNull(RuntimeHelpers.GetObjectValue(dv.Item(num).Item(str2))) Then
                 dv.Item(num).Item(str2) = 0
             End If
             If Information.IsDBNull(RuntimeHelpers.GetObjectValue(dv.Item(num).Item(str))) Then
                 dv.Item(num).Item(str) = 0
             End If
-            If dv.Item(num).Item("km_yn") = 0 Then
-                zero = zero + dv.Item(num).Item(str2) - dv.Item(num).Item(str)
-            End If
+            'If dv.Item(num).Item("km_yn") = 0 Then
+            zero = zero + dv.Item(num).Item(str2) - dv.Item(num).Item(str)
+            'End If
             dv.Item(num).Item(str3) = 0
             num += 1
         Loop
@@ -720,7 +720,7 @@ Public Class frmVoucher
         Dim tmp As Double = 0
         Dim row_gan_chenh_lech As Integer = 0
         Do While (num <= (dv.Count - 1))
-            If dv.Item(num).Item("km_yn") = 0 And dv(num)(str2) <> 0 Then
+            If dv(num)(str2) <> 0 Then
                 If (Decimal.Compare(zero, Decimal.Zero) <> 0) Then
                     dv.Item(num).Item(str3) = Fox.Round(nTotalAmount * (dv(num)(str2) - dv(num)(str)) / zero, nRound)
                 Else
@@ -729,9 +729,6 @@ Public Class frmVoucher
                 row_gan_chenh_lech = num
             End If
             tmp += dv.Item(num).Item(str3)
-            'If num = dv.Count - 1 And tmp <> nTotalAmount Then
-            '    dv.Item(num).Item(str3) += nTotalAmount - tmp
-            'End If
             num += 1
         Loop
         If tmp <> nTotalAmount Then
@@ -1438,6 +1435,19 @@ Public Class frmVoucher
             i += 1
         Loop
         Return zero
+    End Function
+    Private Function GetSumValue(ByVal dv As DataView, ByVal cField As String) As Decimal
+        Dim result As Decimal = Decimal.Zero
+        Dim num4 As Integer = (dv.Count - 1)
+        Dim i As Integer = 0
+        Do While (i <= num4)
+            If Information.IsDBNull(RuntimeHelpers.GetObjectValue(dv.Item(i).Item(cField))) Then
+                dv.Item(i).Item(cField) = 0
+            End If
+            result += dv.Item(i).Item(cField)
+            i += 1
+        Loop
+        Return result
     End Function
 
     Public Sub GoRecno(ByVal cRecno As Object)
@@ -4129,19 +4139,22 @@ Public Class frmVoucher
             num2 = ByteType.FromObject(modVoucher.oVar.Item("m_round_tien_nt"))
         End If
         Dim num7 As New Decimal(Me.txtThue_suat.Value)
+        Dim t_tien_nt2 As Double = Me.GetSumValue(tblDetail, "tien_nt2")
+        Dim t_tien2 As Double = Me.GetSumValue(tblDetail, "tien2")
+        Me.txtT_thue_nt.Value = DoubleType.FromObject(Fox.Round(Decimal.Divide(Decimal.Multiply(t_tien_nt2, num7), 100), num2))
+        Me.txtT_thue.Value = DoubleType.FromObject(Fox.Round(Decimal.Divide(Decimal.Multiply(t_tien2, num7), 100), decimals))
+
         Dim num6 As Decimal = Decimal.Subtract(Me.GetSumValue("tien2", False), Me.GetSumValue("ck", False))
         Dim num4 As Decimal = Decimal.Subtract(Me.GetSumValue("tien2", True), Me.GetSumValue("ck", True))
         If (nType > 1) Then
             Dim num3 As Decimal = Decimal.Subtract(Me.GetSumValue("tien_nt2", False), Me.GetSumValue("ck_nt", False))
             Dim num As Decimal = Decimal.Subtract(Me.GetSumValue("tien_nt2", True), Me.GetSumValue("ck_nt", True))
-            Me.txtT_thue_nt.Value = DoubleType.FromObject(Fox.Round(Decimal.Divide(Decimal.Multiply(num3, num7), 100), num2))
             If (ObjectType.ObjTst(modVoucher.oOption.Item("m_km_tax_yn"), "1", False) = 0) Then
                 Me.txtT_thue_km_nt.Value = DoubleType.FromObject(Fox.Round(Decimal.Divide(Decimal.Multiply(num, num7), 100), num2))
             Else
                 Me.txtT_thue_km_nt.Value = 0
             End If
         End If
-        Me.txtT_thue.Value = DoubleType.FromObject(Fox.Round(Decimal.Divide(Decimal.Multiply(num6, num7), 100), decimals))
         Me.txtT_thue_km.Value = DoubleType.FromObject(Fox.Round(Decimal.Divide(Decimal.Multiply(num4, num7), 100), decimals))
         If (ObjectType.ObjTst(modVoucher.oOption.Item("m_km_tax_yn"), "1", False) = 0) Then
             Me.txtT_thue_km.Value = DoubleType.FromObject(Fox.Round(Decimal.Divide(Decimal.Multiply(num4, num7), 100), decimals))
@@ -5050,17 +5063,17 @@ Public Class frmVoucher
                     Else
                         Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
                     End If
-                    Dim _rowfilter As String = tblDetail.RowFilter
-                    tblDetail.RowFilter = "(" + _rowfilter + ") and km_yn=0"
+                    'Dim _rowfilter As String = tblDetail.RowFilter
+                    'tblDetail.RowFilter = "(" + _rowfilter + ") and km_yn=0"
                     Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue.Value), False, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
-                    tblDetail.RowFilter = "(" + _rowfilter + ") and km_yn=1"
+                    'tblDetail.RowFilter = "(" + _rowfilter + ") and km_yn=1"
                     If (ObjectType.ObjTst(Me.cmdMa_nt.Text, modVoucher.oOption.Item("m_ma_nt0"), False) <> 0) Then
                         Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien_nt")), False)
                     Else
                         Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
                     End If
                     Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km.Value), False, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
-                    tblDetail.RowFilter = _rowfilter
+                    'tblDetail.RowFilter = _rowfilter
                     'Me.AuditAmountsEx(New Decimal(Me.txtT_thue_nt.Value), "thue_nt", modVoucher.tblDetail, True)
                     'Me.AuditAmountsEx(New Decimal(Me.txtT_thue.Value), "thue", modVoucher.tblDetail, True)
                     'If (ObjectType.ObjTst(Me.cmdMa_nt.Text, modVoucher.oOption.Item("m_ma_nt0"), False) <> 0) Then
