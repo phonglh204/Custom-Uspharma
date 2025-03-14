@@ -5067,12 +5067,12 @@ Public Class frmVoucher
                     'tblDetail.RowFilter = "(" + _rowfilter + ") and km_yn=0"
                     Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue.Value), False, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
                     'tblDetail.RowFilter = "(" + _rowfilter + ") and km_yn=1"
-                    If (ObjectType.ObjTst(Me.cmdMa_nt.Text, modVoucher.oOption.Item("m_ma_nt0"), False) <> 0) Then
-                        Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien_nt")), False)
-                    Else
-                        Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
-                    End If
-                    Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km.Value), False, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
+                    'If (ObjectType.ObjTst(Me.cmdMa_nt.Text, modVoucher.oOption.Item("m_ma_nt0"), False) <> 0) Then
+                    '    Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien_nt")), False)
+                    'Else
+                    '    Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
+                    'End If
+                    'Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km.Value), False, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
                     'tblDetail.RowFilter = _rowfilter
                     'Me.AuditAmountsEx(New Decimal(Me.txtT_thue_nt.Value), "thue_nt", modVoucher.tblDetail, True)
                     'Me.AuditAmountsEx(New Decimal(Me.txtT_thue.Value), "thue", modVoucher.tblDetail, True)
