@@ -884,17 +884,17 @@ Public Class frmVoucher
     End Sub
 
     Public Sub Edit()
-        Dim isEditHDDT As String = ""
-        If oOption("m_sd_hddt") = "1" Then
-            If Sql.GetValue(appConn, "TaxVcNo", "status", "VcIDChar='" + tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "' and status in ('2','3','4','9')") IsNot Nothing Then
-                Msg.Alert(oVar("m_hddt_009"), 2)
-                cmdSave.Enabled = False
-                Return
-            End If
-        End If
-        Dim _stt_rec As String
-        _stt_rec = Sql.GetValue(appConn, "cttt20", "stt_rec", "stt_rec_tt='" + tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "'")
-        Dim flag As Boolean = (_stt_rec <> "")
+        'Dim isEditHDDT As String = ""
+        'If oOption("m_sd_hddt") = "1" Then
+        '    If Sql.GetValue(appConn, "TaxVcNo", "status", "VcIDChar='" + tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "' and status in ('2','3','4','9')") IsNot Nothing Then
+        '        Msg.Alert(oVar("m_hddt_009"), 2)
+        '        cmdSave.Enabled = False
+        '        Return
+        '    End If
+        'End If
+        'Dim _stt_rec As String
+        '_stt_rec = Sql.GetValue(appConn, "cttt20", "stt_rec", "stt_rec_tt='" + tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "'")
+        Dim flag As Boolean = False
         Me.txtTk.ReadOnly = flag
         Me.oldtblDetail = Copy2Table(modVoucher.tblDetail)
         Me.iOldMasterRow = Me.iMasterRow
@@ -4824,30 +4824,25 @@ Public Class frmVoucher
             Me.cboAction.SelectedIndex = 2
         End If
         Me.txtStatus.Text = Strings.Trim(StringType.FromObject(Me.tblHandling.Rows.Item(Me.cboAction.SelectedIndex).Item("action_id")))
-        Dim isSaveHDDT As String = ""
-        'If oOption("m_sd_hddt") = "1" Then
-        '    oEIInvoice.CurrentTable = txtNgay_ct.Value
-        '    isSaveHDDT = oEIInvoice.CheckSave()
-        '    'If isSaveHDDT = "2" Then
-        '    '    Msg.Alert(oVar("m_hddt_002"), 2)
-        '    '    oVoucher.isContinue = False
-        '    '    Return
-        '    'End If
-        '    'If isSaveHDDT = "1" And txtStatus.Text <> "3" Then
-        '    '    Msg.Alert(oVar("m_hddt_001"), 2)
-        '    '    oVoucher.isContinue = False
-        '    '    Return
-        '    'End If
-        '    If txtStatus.Text = "3" And isSaveHDDT = "3" Then
-        '        Msg.Alert(oLan("713"), 2)
-        '        oVoucher.isContinue = False
-        '        Return
-        '    End If
-        'End If
-        'If (StringType.StrCmp(Me.txtStatus.Text, "3", False) = 0) Then
-        '    Msg.Alert(StringType.FromObject(modVoucher.oLan.Item("713")), 2)
-        '    oVoucher.isContinue = False
-        'Else
+        If oOption("m_sd_hddt") = "1" And oVoucher.cAction = "Edit" Then
+            'isEditHDDT = oEIInvoice.CheckEdit()
+            If Sql.GetValue(appConn, "taxvcno", "vcidchar", "(vcidchar='" + tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "') and status <> 0 and status <> 1") IsNot Nothing Then
+                Dim isEqual As Boolean = True
+                Dim strAlert As String = ""
+                If modVoucher.tblMaster(Me.iOldMasterRow).Row.Item("t_tien_nt2") <> Me.txtT_tien_nt2.Value Then
+                    isEqual = False
+                    strAlert += "Bị lệch tiền hàng với hóa đơn đã phát hành"
+                ElseIf modVoucher.tblMaster(Me.iOldMasterRow).Row.Item("t_thue_nt") <> Me.txtT_thue_nt.Value Then
+                    isEqual = False
+                    strAlert += "Bị lệch tiền thuế với hóa đơn đã phát hành"
+                End If
+                If Not isEqual Then
+                    Msg.Alert(strAlert)
+                    oVoucher.isContinue = False
+                    Return
+                End If
+            End If
+        End If
         Me.txtLoai_ct.Text = StringType.FromObject(Sql.GetValue((modVoucher.appConn), "dmmagd", "loai_ct", String.Concat(New String() {"ma_ct = '", modVoucher.VoucherCode, "' AND ma_gd = '", Strings.Trim(Me.txtMa_gd.Text), "'"})))
         Try
             Me.grdDetail.CurrentCell = New DataGridCell(0, 0)

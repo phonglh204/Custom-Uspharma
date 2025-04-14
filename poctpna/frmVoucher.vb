@@ -722,9 +722,10 @@ Public Class frmVoucher
     End Sub
 
     Public Sub Edit()
-        Dim flag As Boolean = (Sql.GetValue(appConn, "cttt30", "stt_rec", "LEFT(stt_rec_tt, 10) = '" & Strings.Mid(tblMaster.Item(Me.iMasterRow).Item("stt_rec"), 1, 10) & "'") <> "")
-        Dim _stt_rec As String = Sql.GetValue(appConn, "cttt30", "stt_rec", "stt_rec_tt='" + tblMaster.Item(iMasterRow).Item("stt_rec") + "'")
-        flag = (_stt_rec <> "")
+        'Dim flag As Boolean = (Sql.GetValue(appConn, "cttt30", "stt_rec", "LEFT(stt_rec_tt, 10) = '" & Strings.Mid(tblMaster.Item(Me.iMasterRow).Item("stt_rec"), 1, 10) & "'") <> "")
+        'Dim _stt_rec As String = Sql.GetValue(appConn, "cttt30", "stt_rec", "stt_rec_tt='" + tblMaster.Item(iMasterRow).Item("stt_rec") + "'")
+        Dim flag As Boolean = False
+        'flag = (_stt_rec <> "")
         Me.txtMa_kh.ReadOnly = flag
         Me.txtTk.ReadOnly = flag
         Me.txtMa_dvcs.ReadOnly = flag
@@ -2787,7 +2788,7 @@ Public Class frmVoucher
                     Exit Select
                 Case 7
                     Dim str4 As String = StringType.FromObject(ObjectType.AddObj(ObjectType.AddObj("stt_rec = '", modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec")), "'"))
-                    Dim codeBrow As String = "Integer"
+                    Dim codeBrow As String = "IN"
                     If tblStockCard = "ct70plan" Then
                         codeBrow = "IN_PKH"
                     End If
