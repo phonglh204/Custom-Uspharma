@@ -4139,8 +4139,8 @@ Public Class frmVoucher
             num2 = ByteType.FromObject(modVoucher.oVar.Item("m_round_tien_nt"))
         End If
         Dim num7 As New Decimal(Me.txtThue_suat.Value)
-        Dim t_tien_nt2 As Double = Me.GetSumValue(tblDetail, "tien_nt2")
-        Dim t_tien2 As Double = Me.GetSumValue(tblDetail, "tien2")
+        Dim t_tien_nt2 As Double = Me.GetSumValue("tien_nt2", 0)
+        Dim t_tien2 As Double = Me.GetSumValue("tien2", 0)
         Me.txtT_thue_nt.Value = DoubleType.FromObject(Fox.Round(Decimal.Divide(Decimal.Multiply(t_tien_nt2, num7), 100), num2))
         Me.txtT_thue.Value = DoubleType.FromObject(Fox.Round(Decimal.Divide(Decimal.Multiply(t_tien2, num7), 100), decimals))
 
@@ -5058,17 +5058,17 @@ Public Class frmVoucher
                     Else
                         Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
                     End If
-                    'Dim _rowfilter As String = tblDetail.RowFilter
-                    'tblDetail.RowFilter = "(" + _rowfilter + ") and km_yn=0"
+                    Dim _rowfilter As String = tblDetail.RowFilter
+                    tblDetail.RowFilter = "(" + _rowfilter + ") and km_yn=0"
                     Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue.Value), False, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
-                    'tblDetail.RowFilter = "(" + _rowfilter + ") and km_yn=1"
-                    'If (ObjectType.ObjTst(Me.cmdMa_nt.Text, modVoucher.oOption.Item("m_ma_nt0"), False) <> 0) Then
-                    '    Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien_nt")), False)
-                    'Else
-                    '    Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
-                    'End If
-                    'Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km.Value), False, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
-                    'tblDetail.RowFilter = _rowfilter
+                    tblDetail.RowFilter = "(" + _rowfilter + ") and km_yn=1"
+                    If (ObjectType.ObjTst(Me.cmdMa_nt.Text, modVoucher.oOption.Item("m_ma_nt0"), False) <> 0) Then
+                        Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien_nt")), False)
+                    Else
+                        Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km_nt.Value), True, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
+                    End If
+                    Me.DistributeTaxAmounts(New Decimal(Me.txtT_thue_km.Value), False, modVoucher.tblDetail, ByteType.FromObject(modVoucher.oVar.Item("m_round_tien")), False)
+                    tblDetail.RowFilter = _rowfilter
                     'Me.AuditAmountsEx(New Decimal(Me.txtT_thue_nt.Value), "thue_nt", modVoucher.tblDetail, True)
                     'Me.AuditAmountsEx(New Decimal(Me.txtT_thue.Value), "thue", modVoucher.tblDetail, True)
                     'If (ObjectType.ObjTst(Me.cmdMa_nt.Text, modVoucher.oOption.Item("m_ma_nt0"), False) <> 0) Then
