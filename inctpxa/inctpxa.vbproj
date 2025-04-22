@@ -91,11 +91,10 @@
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="libscommon">
-      <HintPath>..\..\..\..\LocalCustomer\DEMO4.0\libscommon.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\DEMO4.0\libscommon.dll</HintPath>
     </Reference>
-    <Reference Include="libscontrol, Version=4.6.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\LocalCustomer\DEMO4.0\libscontrol.dll</HintPath>
+    <Reference Include="libscontrol">
+      <HintPath>..\..\..\..\Libs\DEMO4.0\libscontrol.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic">
       <Name>Microsoft.VisualBasic</Name>
