@@ -541,9 +541,11 @@ Namespace inctpxa
                 Dim item2 As New MenuItem(StringType.FromObject(modVoucher.oLan.Item("Z10")), New EventHandler(AddressOf Me.RetrieveItemsFromSI), Shortcut.F6)
                 menu2.MenuItems.Add(New MenuItem("-"))
                 menu2.MenuItems.Add(item2)
-                Dim item4 As New MenuItem("In nhãn cấp phát", New EventHandler(AddressOf PrintLabel), Shortcut.F7)
                 menu2.MenuItems.Add(New MenuItem("-"))
+                Dim item4 As New MenuItem("In nhãn cấp phát", New EventHandler(AddressOf PrintLabel), Nothing)
+                Dim itemprint2 As New MenuItem("In nhãn trừ lùi", New EventHandler(AddressOf PrintLabel2), Nothing)
                 menu2.MenuItems.Add(item4)
+                menu2.MenuItems.Add(itemprint2)
                 Dim item1 As New MenuItem(StringType.FromObject(modVoucher.oLan.Item("027")), New EventHandler(AddressOf Me.RetrieveItemsFromMR), Shortcut.F9)
                 menu2.MenuItems.Add(New MenuItem("-"))
                 menu2.MenuItems.Add(item1)
@@ -4391,6 +4393,7 @@ Namespace inctpxa
                 End If
             End If
         End Sub
+
         Private Sub PrintLabel()
             If Not Fox.InList(oVoucher.cAction, New Object() {"New", "Edit"}) Then
                 Dim strFile As String = Reg.GetRegistryKey("ReportDir") + "inctpxa_label.rpt"
@@ -4401,6 +4404,25 @@ Namespace inctpxa
                 Sql.SQLDecompressRetrieve((modVoucher.appConn), tcSQL, "cttmp", (ds))
                 'ds.WriteXmlSchema("D:\LocalCustomer\Uspharma4.0\Rpt\inctpxa_label.xsd")
                 Dim clsprint As New clsprint(Me, strFile, Nothing)
+                'clsprint.oRpt.SetParameterValue("form", Form)
+                clsprint.oRpt.SetDataSource(ds)
+
+                clsprint.ShowReports()
+                clsprint.oRpt.Close()
+                ds = Nothing
+            End If
+        End Sub
+        Private Sub PrintLabel2()
+            If Not Fox.InList(oVoucher.cAction, New Object() {"New", "Edit"}) Then
+                Dim strFile As String = Reg.GetRegistryKey("ReportDir") + "inctpxa_label2.rpt"
+                Dim view As New DataView
+                Dim ds As New DataSet
+                Dim tcSQL As String = "EXEC spPrintISTran_Label "
+                tcSQL += "'" + modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "'"
+                Sql.SQLDecompressRetrieve((modVoucher.appConn), tcSQL, "cttmp", (ds))
+                'ds.WriteXmlSchema("D:\LocalCustomer\Uspharma4.0\Rpt\inctpxa_label.xsd")
+                Dim clsprint As New clsprint(Me, strFile, Nothing)
+                'clsprint.oRpt.SetParameterValue("form", Form)
                 clsprint.oRpt.SetDataSource(ds)
 
                 clsprint.ShowReports()
