@@ -31,7 +31,7 @@ Namespace insdkc
             Dim num2 As Integer = CInt(Math.Round(Me.txtYearFrom.Value))
             Dim num As Integer = IntegerType.FromObject(Sql.GetValue((Me.appConn), "dmstt", "nam_bd", "1=1"))
             Dim time As DateTime = DateType.FromObject(Sql.GetValue((Me.appConn), "dmdvcs", "ngay_ks", "ma_dvcs='" + Reg.GetRegistryKey("DFUnit").ToString.Trim + "'"))
-            If ((num2 < num) Or (num2 <= (time.Year - 1))) Then
+            If ((num2 < num) Or (num2 <= (time.Year - 1))) Or num2 < 2023 Then
                 Msg.Alert(StringType.FromObject(Me.oLan.Item("005")), 2)
             Else
                 Dim nUserID As Integer = IntegerType.FromString(Strings.Trim(StringType.FromObject(Reg.GetRegistryKey("CurrUserID"))))
