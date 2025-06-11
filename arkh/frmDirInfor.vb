@@ -138,6 +138,9 @@ Public Class frmDirInfor
     Friend WithEvents lblTen_nh_kh4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents txtNh_kh4 As TextBox
+    Friend WithEvents chkCa_nhan_yn As CheckBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtNo_id As TextBox
     Friend WithEvents txtOng_ba As System.Windows.Forms.TextBox
 
     <DebuggerStepThrough()>
@@ -211,6 +214,9 @@ Public Class frmDirInfor
         Me.lblTen_nh_kh4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtNh_kh4 = New System.Windows.Forms.TextBox()
+        Me.chkCa_nhan_yn = New System.Windows.Forms.CheckBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtNo_id = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'txtMa_kh
@@ -228,7 +234,7 @@ Public Class frmDirInfor
         Me.txtTen_kh.Location = New System.Drawing.Point(186, 45)
         Me.txtTen_kh.Name = "txtTen_kh"
         Me.txtTen_kh.Size = New System.Drawing.Size(437, 22)
-        Me.txtTen_kh.TabIndex = 1
+        Me.txtTen_kh.TabIndex = 2
         Me.txtTen_kh.Tag = "FCNB"
         Me.txtTen_kh.Text = "txtTen_kh"
         '
@@ -237,7 +243,7 @@ Public Class frmDirInfor
         Me.txtTen_kh2.Location = New System.Drawing.Point(186, 72)
         Me.txtTen_kh2.Name = "txtTen_kh2"
         Me.txtTen_kh2.Size = New System.Drawing.Size(437, 22)
-        Me.txtTen_kh2.TabIndex = 2
+        Me.txtTen_kh2.TabIndex = 3
         Me.txtTen_kh2.Tag = "FC"
         Me.txtTen_kh2.Text = "txtTen_kh2"
         '
@@ -247,7 +253,7 @@ Public Class frmDirInfor
         Me.txtTk.Location = New System.Drawing.Point(186, 178)
         Me.txtTk.Name = "txtTk"
         Me.txtTk.Size = New System.Drawing.Size(120, 22)
-        Me.txtTk.TabIndex = 8
+        Me.txtTk.TabIndex = 9
         Me.txtTk.Tag = "FC"
         Me.txtTk.Text = "TXTTKDF"
         '
@@ -325,17 +331,17 @@ Public Class frmDirInfor
         '
         'txtDoi_tac
         '
-        Me.txtDoi_tac.Location = New System.Drawing.Point(186, 151)
+        Me.txtDoi_tac.Location = New System.Drawing.Point(186, 125)
         Me.txtDoi_tac.Name = "txtDoi_tac"
         Me.txtDoi_tac.Size = New System.Drawing.Size(120, 22)
-        Me.txtDoi_tac.TabIndex = 6
+        Me.txtDoi_tac.TabIndex = 5
         Me.txtDoi_tac.Tag = "FC"
         Me.txtDoi_tac.Text = "txtDoi_tac"
         '
         'lblMa_so_thue
         '
         Me.lblMa_so_thue.AutoSize = True
-        Me.lblMa_so_thue.Location = New System.Drawing.Point(28, 127)
+        Me.lblMa_so_thue.Location = New System.Drawing.Point(342, 21)
         Me.lblMa_so_thue.Name = "lblMa_so_thue"
         Me.lblMa_so_thue.Size = New System.Drawing.Size(78, 17)
         Me.lblMa_so_thue.TabIndex = 27
@@ -399,14 +405,14 @@ Public Class frmDirInfor
         Me.txtDia_chi.Location = New System.Drawing.Point(186, 98)
         Me.txtDia_chi.Name = "txtDia_chi"
         Me.txtDia_chi.Size = New System.Drawing.Size(437, 22)
-        Me.txtDia_chi.TabIndex = 3
+        Me.txtDia_chi.TabIndex = 4
         Me.txtDia_chi.Tag = "FC"
         Me.txtDia_chi.Text = "txtDia_chi"
         '
         'lblDoi_tac
         '
         Me.lblDoi_tac.AutoSize = True
-        Me.lblDoi_tac.Location = New System.Drawing.Point(28, 153)
+        Me.lblDoi_tac.Location = New System.Drawing.Point(28, 128)
         Me.lblDoi_tac.Name = "lblDoi_tac"
         Me.lblDoi_tac.Size = New System.Drawing.Size(52, 17)
         Me.lblDoi_tac.TabIndex = 25
@@ -416,10 +422,10 @@ Public Class frmDirInfor
         'txtMa_so_thue
         '
         Me.txtMa_so_thue.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtMa_so_thue.Location = New System.Drawing.Point(186, 125)
+        Me.txtMa_so_thue.Location = New System.Drawing.Point(503, 18)
         Me.txtMa_so_thue.Name = "txtMa_so_thue"
         Me.txtMa_so_thue.Size = New System.Drawing.Size(120, 22)
-        Me.txtMa_so_thue.TabIndex = 4
+        Me.txtMa_so_thue.TabIndex = 1
         Me.txtMa_so_thue.Tag = "FC"
         Me.txtMa_so_thue.Text = "TXTMA_SO_THUE"
         '
@@ -438,7 +444,7 @@ Public Class frmDirInfor
         Me.txtMa_tt.Location = New System.Drawing.Point(503, 178)
         Me.txtMa_tt.Name = "txtMa_tt"
         Me.txtMa_tt.Size = New System.Drawing.Size(30, 22)
-        Me.txtMa_tt.TabIndex = 9
+        Me.txtMa_tt.TabIndex = 10
         Me.txtMa_tt.Tag = "FCDF"
         Me.txtMa_tt.Text = "txtMa_tt"
         '
@@ -458,7 +464,7 @@ Public Class frmDirInfor
         Me.txtNh_kh1.Location = New System.Drawing.Point(186, 284)
         Me.txtNh_kh1.Name = "txtNh_kh1"
         Me.txtNh_kh1.Size = New System.Drawing.Size(120, 22)
-        Me.txtNh_kh1.TabIndex = 16
+        Me.txtNh_kh1.TabIndex = 18
         Me.txtNh_kh1.Tag = "FCDF"
         Me.txtNh_kh1.Text = "TXTNH_KH1"
         '
@@ -468,7 +474,7 @@ Public Class frmDirInfor
         Me.txtNh_kh2.Location = New System.Drawing.Point(186, 310)
         Me.txtNh_kh2.Name = "txtNh_kh2"
         Me.txtNh_kh2.Size = New System.Drawing.Size(120, 22)
-        Me.txtNh_kh2.TabIndex = 17
+        Me.txtNh_kh2.TabIndex = 19
         Me.txtNh_kh2.Tag = "FCDF"
         Me.txtNh_kh2.Text = "TXTNH_KH2"
         '
@@ -478,7 +484,7 @@ Public Class frmDirInfor
         Me.txtNh_kh3.Location = New System.Drawing.Point(186, 337)
         Me.txtNh_kh3.Name = "txtNh_kh3"
         Me.txtNh_kh3.Size = New System.Drawing.Size(120, 22)
-        Me.txtNh_kh3.TabIndex = 18
+        Me.txtNh_kh3.TabIndex = 20
         Me.txtNh_kh3.Tag = "FCDF"
         Me.txtNh_kh3.Text = "TXTNH_KH3"
         '
@@ -616,30 +622,30 @@ Public Class frmDirInfor
         'chkKh_yn
         '
         Me.chkKh_yn.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkKh_yn.Location = New System.Drawing.Point(182, 231)
+        Me.chkKh_yn.Location = New System.Drawing.Point(52, 231)
         Me.chkKh_yn.Name = "chkKh_yn"
         Me.chkKh_yn.Size = New System.Drawing.Size(125, 23)
-        Me.chkKh_yn.TabIndex = 12
+        Me.chkKh_yn.TabIndex = 13
         Me.chkKh_yn.Tag = "L017FLDF"
         Me.chkKh_yn.Text = "Khach hang"
         '
         'chkCc_yn
         '
         Me.chkCc_yn.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkCc_yn.Location = New System.Drawing.Point(342, 231)
+        Me.chkCc_yn.Location = New System.Drawing.Point(212, 231)
         Me.chkCc_yn.Name = "chkCc_yn"
         Me.chkCc_yn.Size = New System.Drawing.Size(119, 23)
-        Me.chkCc_yn.TabIndex = 13
+        Me.chkCc_yn.TabIndex = 14
         Me.chkCc_yn.Tag = "L018FLDF"
         Me.chkCc_yn.Text = "Nha cung cap"
         '
         'chkNv_yn
         '
         Me.chkNv_yn.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkNv_yn.Location = New System.Drawing.Point(499, 231)
+        Me.chkNv_yn.Location = New System.Drawing.Point(369, 231)
         Me.chkNv_yn.Name = "chkNv_yn"
         Me.chkNv_yn.Size = New System.Drawing.Size(125, 23)
-        Me.chkNv_yn.TabIndex = 14
+        Me.chkNv_yn.TabIndex = 15
         Me.chkNv_yn.Tag = "L019FLDF"
         Me.chkNv_yn.Text = "Nhan vien"
         '
@@ -707,7 +713,7 @@ Public Class frmDirInfor
         Me.txtMa_nvbh.Location = New System.Drawing.Point(503, 151)
         Me.txtMa_nvbh.Name = "txtMa_nvbh"
         Me.txtMa_nvbh.Size = New System.Drawing.Size(120, 22)
-        Me.txtMa_nvbh.TabIndex = 7
+        Me.txtMa_nvbh.TabIndex = 8
         Me.txtMa_nvbh.Tag = "FC"
         Me.txtMa_nvbh.Text = "TXTMA_NVBH"
         '
@@ -757,7 +763,7 @@ Public Class frmDirInfor
         Me.txtNh_kh9.Location = New System.Drawing.Point(186, 257)
         Me.txtNh_kh9.Name = "txtNh_kh9"
         Me.txtNh_kh9.Size = New System.Drawing.Size(120, 22)
-        Me.txtNh_kh9.TabIndex = 15
+        Me.txtNh_kh9.TabIndex = 17
         Me.txtNh_kh9.Tag = "FCDF"
         Me.txtNh_kh9.Text = "TXTNH_KH9"
         '
@@ -800,7 +806,7 @@ Public Class frmDirInfor
         Me.txtT_tien_cn.MaxLength = 10
         Me.txtT_tien_cn.Name = "txtT_tien_cn"
         Me.txtT_tien_cn.Size = New System.Drawing.Size(120, 22)
-        Me.txtT_tien_cn.TabIndex = 10
+        Me.txtT_tien_cn.TabIndex = 11
         Me.txtT_tien_cn.Tag = "FN"
         Me.txtT_tien_cn.Text = "m_ip_tien"
         Me.txtT_tien_cn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -822,7 +828,7 @@ Public Class frmDirInfor
         Me.txtNgay_gh.MaxLength = 10
         Me.txtNgay_gh.Name = "txtNgay_gh"
         Me.txtNgay_gh.Size = New System.Drawing.Size(120, 22)
-        Me.txtNgay_gh.TabIndex = 11
+        Me.txtNgay_gh.TabIndex = 12
         Me.txtNgay_gh.Tag = "FD"
         Me.txtNgay_gh.Text = "  /  /    "
         Me.txtNgay_gh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -856,7 +862,7 @@ Public Class frmDirInfor
         Me.txtOng_ba.Location = New System.Drawing.Point(365, 125)
         Me.txtOng_ba.Name = "txtOng_ba"
         Me.txtOng_ba.Size = New System.Drawing.Size(259, 22)
-        Me.txtOng_ba.TabIndex = 5
+        Me.txtOng_ba.TabIndex = 6
         Me.txtOng_ba.Tag = "FC"
         Me.txtOng_ba.Text = "txtOng_ba"
         '
@@ -921,14 +927,48 @@ Public Class frmDirInfor
         Me.txtNh_kh4.Location = New System.Drawing.Point(187, 364)
         Me.txtNh_kh4.Name = "txtNh_kh4"
         Me.txtNh_kh4.Size = New System.Drawing.Size(120, 22)
-        Me.txtNh_kh4.TabIndex = 19
+        Me.txtNh_kh4.TabIndex = 21
         Me.txtNh_kh4.Tag = "FCDF"
         Me.txtNh_kh4.Text = "TXTNH_KH4"
+        '
+        'chkCa_nhan_yn
+        '
+        Me.chkCa_nhan_yn.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.chkCa_nhan_yn.Location = New System.Drawing.Point(503, 231)
+        Me.chkCa_nhan_yn.Name = "chkCa_nhan_yn"
+        Me.chkCa_nhan_yn.Size = New System.Drawing.Size(125, 23)
+        Me.chkCa_nhan_yn.TabIndex = 16
+        Me.chkCa_nhan_yn.Tag = ""
+        Me.chkCa_nhan_yn.Text = "Cá nhân"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(28, 154)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(84, 17)
+        Me.Label3.TabIndex = 77
+        Me.Label3.Tag = ""
+        Me.Label3.Text = "CCCD/No ID"
+        '
+        'txtNo_id
+        '
+        Me.txtNo_id.Location = New System.Drawing.Point(186, 151)
+        Me.txtNo_id.Name = "txtNo_id"
+        Me.txtNo_id.Size = New System.Drawing.Size(120, 22)
+        Me.txtNo_id.TabIndex = 7
+        Me.txtNo_id.Tag = "FC"
+        Me.txtNo_id.Text = "txtNo_id"
         '
         'frmDirInfor
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 15)
         Me.ClientSize = New System.Drawing.Size(652, 652)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.txtNo_id)
+        Me.Controls.Add(Me.chkCa_nhan_yn)
+        Me.Controls.Add(Me.txtMa_so_thue)
+        Me.Controls.Add(Me.lblMa_so_thue)
         Me.Controls.Add(Me.lblTen_nh_kh4)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtNh_kh4)
@@ -982,7 +1022,6 @@ Public Class frmDirInfor
         Me.Controls.Add(Me.txtNh_kh2)
         Me.Controls.Add(Me.txtNh_kh1)
         Me.Controls.Add(Me.txtMa_tt)
-        Me.Controls.Add(Me.txtMa_so_thue)
         Me.Controls.Add(Me.txtDia_chi)
         Me.Controls.Add(Me.txtStatus)
         Me.Controls.Add(Me.txtTk)
@@ -990,7 +1029,6 @@ Public Class frmDirInfor
         Me.Controls.Add(Me.txtTen_kh)
         Me.Controls.Add(Me.txtMa_kh)
         Me.Controls.Add(Me.lbTen_tt)
-        Me.Controls.Add(Me.lblMa_so_thue)
         Me.Controls.Add(Me.txtDoi_tac)
         Me.Controls.Add(Me.chkNv_yn)
         Me.Controls.Add(Me.chkCc_yn)
