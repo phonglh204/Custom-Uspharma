@@ -7,7 +7,7 @@
     <ProjectGuid>{15CAA535-6B80-4857-9E8E-59436752231F}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon />
+    <ApplicationIcon>libs.ico</ApplicationIcon>
     <AssemblyKeyContainerName />
     <AssemblyName>inctpnd</AssemblyName>
     <AssemblyOriginatorKeyFile />
@@ -178,6 +178,9 @@
       <Project>{72d39cbb-1827-4806-8352-e3a6f5cb1500}</Project>
       <Name>libssys</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libs.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>

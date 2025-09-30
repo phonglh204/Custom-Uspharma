@@ -160,6 +160,7 @@ Namespace incd1lex
             DirMain.strQuery = StringType.FromObject(ObjectType.AddObj(DirMain.strQuery, Sql.ConvertVS2SQLType(DirMain.fPrint.txtDFrom.Value, "")))
             DirMain.strQuery = StringType.FromObject(ObjectType.AddObj(DirMain.strQuery, ObjectType.AddObj(", ", Sql.ConvertVS2SQLType(DirMain.fPrint.txtDTo.Value, ""))))
             DirMain.strQuery = StringType.FromObject(ObjectType.AddObj(DirMain.strQuery, ObjectType.AddObj(", ", Sql.ConvertVS2SQLType(DirMain.fPrint.txtMa_kho.Text, ""))))
+            DirMain.strQuery = StringType.FromObject(ObjectType.AddObj(DirMain.strQuery, ObjectType.AddObj(", ", Sql.ConvertVS2SQLType(DirMain.fPrint.txtMa_vt.Text, ""))))
             DirMain.strQuery = StringType.FromObject(ObjectType.AddObj(DirMain.strQuery, ObjectType.AddObj(", ", Sql.ConvertVS2SQLType(DirMain.fPrint.txtMa_lo.Text, ""))))
             DirMain.strQuery = StringType.FromObject(ObjectType.AddObj(DirMain.strQuery, ObjectType.AddObj(", ", Sql.ConvertVS2SQLType(DirMain.fPrint.txtMa_dvcs.Text, ""))))
             DirMain.strQuery = StringType.FromObject(ObjectType.AddObj(DirMain.strQuery, ObjectType.AddObj(", ", Sql.ConvertVS2SQLType(RuntimeHelpers.GetObjectValue(DirMain.fPrint.CbbTinh_dc.SelectedValue), ""))))
@@ -170,12 +171,12 @@ Namespace incd1lex
             DirMain.strQuery = StringType.FromObject(ObjectType.AddObj(DirMain.strQuery, ObjectType.AddObj(", ", Sql.ConvertVS2SQLType(RuntimeHelpers.GetObjectValue(DirMain.ReportRow.Item("cadvjoin1")), ""))))
             DirMain.strQuery = StringType.FromObject(ObjectType.AddObj(DirMain.strQuery, ObjectType.AddObj(", ", Sql.ConvertVS2SQLType(RuntimeHelpers.GetObjectValue(DirMain.ReportRow.Item("cadvjoin2")), ""))))
             DirMain.subQuery = ""
-            If (StringType.StrCmp(Strings.Trim(DirMain.fPrint.txtMa_lo.Text), "", False) <> 0) Then
-                DirMain.subQuery = (DirMain.subQuery & " AND dmlo.ma_lo LIKE '" & Strings.Trim(DirMain.fPrint.txtMa_lo.Text) & "%'")
-            End If
-            If (StringType.StrCmp(Strings.Trim(DirMain.fPrint.txtMa_vt.Text), "", False) <> 0) Then
-                DirMain.subQuery = (DirMain.subQuery & " AND dmvt.ma_vt = '" & Strings.Trim(DirMain.fPrint.txtMa_vt.Text).Replace("'", "''") + "'")
-            End If
+            'If (StringType.StrCmp(Strings.Trim(DirMain.fPrint.txtMa_lo.Text), "", False) <> 0) Then
+            '    DirMain.subQuery = (DirMain.subQuery & " AND dmlo.ma_lo LIKE '" & Strings.Trim(DirMain.fPrint.txtMa_lo.Text) & "%'")
+            'End If
+            'If (StringType.StrCmp(Strings.Trim(DirMain.fPrint.txtMa_vt.Text), "", False) <> 0) Then
+            '    DirMain.subQuery = (DirMain.subQuery & " AND dmvt.ma_vt = '" & Strings.Trim(DirMain.fPrint.txtMa_vt.Text).Replace("'", "''") + "'")
+            'End If
             If (StringType.StrCmp(Strings.Trim(DirMain.fPrint.txtLoai_vt.Text), "", False) <> 0) Then
                 DirMain.subQuery = (DirMain.subQuery & " AND dmvt.loai_vt LIKE '" & Strings.Trim(DirMain.fPrint.txtLoai_vt.Text) & "%'")
             End If

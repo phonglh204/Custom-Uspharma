@@ -530,7 +530,7 @@ Namespace inctpxa
                     AddHandler modVoucher.tbcDetail(index).TextBox.Enter, New EventHandler(AddressOf Me.txt_Enter)
                 End If
                 index += 1
-            Loop While (index <= &H1D)
+            Loop While (index < MaxColumns)
 
 
             Dim menu2 As New ContextMenu

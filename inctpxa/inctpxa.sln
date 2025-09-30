@@ -1,8 +1,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.852
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.35931.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "inctpxa", "inctpxa.vbproj", "{645FE09B-4C4E-49BF-8692-13CFF3F4A820}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "libscontrol", "..\..\..\Source_Standard\libscontrol\libscontrol.vbproj", "{33FCC781-238D-47CD-9294-6C873F308253}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,19 +16,15 @@ Global
 		{645FE09B-4C4E-49BF-8692-13CFF3F4A820}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{645FE09B-4C4E-49BF-8692-13CFF3F4A820}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{645FE09B-4C4E-49BF-8692-13CFF3F4A820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33FCC781-238D-47CD-9294-6C873F308253}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{33FCC781-238D-47CD-9294-6C873F308253}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{33FCC781-238D-47CD-9294-6C873F308253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33FCC781-238D-47CD-9294-6C873F308253}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88EF5838-92EA-4D8E-99C1-2D75204FD597}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://phonglh.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = inctpxa.vbproj
-		SccLocalPath1 = .
 	EndGlobalSection
 EndGlobal
