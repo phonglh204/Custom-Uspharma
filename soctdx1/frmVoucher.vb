@@ -1984,6 +1984,7 @@ Public Class frmVoucher
         If (StringType.StrCmp(Strings.Trim(Me.txtStatus.Text), "0", False) = 0) Then
             Return True
         End If
+        Return True
         Dim num2 As Integer = (modVoucher.tblDetail.Count - 1)
         Dim i As Integer = 0
         Do While (i <= num2)

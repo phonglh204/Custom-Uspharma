@@ -6,6 +6,8 @@ Imports System.Diagnostics
 Imports System.Drawing
 Imports System.Windows.Forms
 Imports libscontrol
+Imports libscommon
+Imports System.Data
 
 Namespace inctpxa
     Public Class frmPrint
@@ -27,6 +29,11 @@ Namespace inctpxa
         Private Sub cmdView_Click(ByVal sender As Object, ByVal e As EventArgs) Handles cmdView.Click
             Me.Close()
         End Sub
+        'Private Sub cboReports_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboReports.SelectedIndexChanged
+        '    If Not IsNothing(tbl) Then
+        '        txtTitle.Text = Trim(tbl.Rows(cboReports.SelectedIndex).Item("rep_title" + IIf(Reg.GetRegistryKey("Language") = "V", "", "2")))
+        '    End If
+        'End Sub
 
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
             If (disposing AndAlso (Not Me.components Is Nothing)) Then
@@ -170,6 +177,7 @@ Namespace inctpxa
         Friend WithEvents txtTitle As TextBox
 
         Private components As IContainer
+        Private tbl As DataTable
     End Class
 End Namespace
 

@@ -542,10 +542,10 @@ Namespace inctpxa
                 menu2.MenuItems.Add(New MenuItem("-"))
                 menu2.MenuItems.Add(item2)
                 menu2.MenuItems.Add(New MenuItem("-"))
-                Dim item4 As New MenuItem("In nhãn cấp phát", New EventHandler(AddressOf PrintLabel), Nothing)
-                Dim itemprint2 As New MenuItem("In nhãn trừ lùi", New EventHandler(AddressOf PrintLabel2), Nothing)
+                Dim item4 As New MenuItem("In nhãn", New EventHandler(AddressOf PrintLabel), Nothing)
+                'Dim itemprint2 As New MenuItem("In nhãn trừ lùi", New EventHandler(AddressOf PrintLabel2), Nothing)
                 menu2.MenuItems.Add(item4)
-                menu2.MenuItems.Add(itemprint2)
+                'menu2.MenuItems.Add(itemprint2)
                 Dim item1 As New MenuItem(StringType.FromObject(modVoucher.oLan.Item("027")), New EventHandler(AddressOf Me.RetrieveItemsFromMR), Shortcut.F9)
                 menu2.MenuItems.Add(New MenuItem("-"))
                 menu2.MenuItems.Add(item1)
@@ -1970,32 +1970,6 @@ Namespace inctpxa
         Private Sub RefreshControlField()
         End Sub
 
-        Private Sub RetrieveItems(ByVal sender As Object, ByVal e As EventArgs)
-            Dim cancel As Boolean = Me.oInvItemDetail.Cancel
-            Me.oInvItemDetail.Cancel = True
-            Select Case IntegerType.FromObject(LateBinding.LateGet(sender, Nothing, "Index", New Object(0 - 1) {}, Nothing, Nothing))
-                Case 0
-                    Me.RetrieveItemsFromSI()
-                    Exit Select
-                Case 2
-                    'Me.RetrieveItemsFromMR()
-                    Me.PrintLabel()
-                    Exit Select
-                Case 4
-                    Me.RetrieveItemsFromIS_NB()
-                    Exit Select
-                Case 6
-                    Me.RetrieveItemsFromLSX()
-                    Exit Select
-                    'Case 8
-                    '    Me.RetrieveItemsFromLSX(1)
-                    '    Exit Select
-                    'Case 10
-                    '    Me.RetrieveItemsFromLSX(2)
-                    '    Exit Select
-            End Select
-            Me.oInvItemDetail.Cancel = cancel
-        End Sub
 
         Private Sub RetrieveItemsFromMR()
             If Fox.InList(oVoucher.cAction, New Object() {"New", "Edit"}) Then
@@ -4396,40 +4370,47 @@ Namespace inctpxa
 
         Private Sub PrintLabel()
             If Not Fox.InList(oVoucher.cAction, New Object() {"New", "Edit"}) Then
-                Dim strFile As String = Reg.GetRegistryKey("ReportDir") + "inctpxa_label.rpt"
-                Dim view As New DataView
-                Dim ds As New DataSet
-                Dim tcSQL As String = "EXEC spPrintISTran_Label "
-                tcSQL += "'" + modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "'"
-                Sql.SQLDecompressRetrieve((modVoucher.appConn), tcSQL, "cttmp", (ds))
-                'ds.WriteXmlSchema("D:\LocalCustomer\Uspharma4.0\Rpt\inctpxa_label.xsd")
-                Dim clsprint As New clsprint(Me, strFile, Nothing)
-                'clsprint.oRpt.SetParameterValue("form", Form)
-                clsprint.oRpt.SetDataSource(ds)
+                Dim print As New frmPrint
+                print.txtTitle.Text = StringType.FromObject(Interaction.IIf((StringType.StrCmp(modVoucher.cLan, "V", False) = 0), Strings.Trim(StringType.FromObject(modVoucher.oVoucherRow.Item("tieu_de_ct"))), Strings.Trim(StringType.FromObject(modVoucher.oVoucherRow.Item("tieu_de_ct2")))))
+                print.txtSo_lien.Value = DoubleType.FromObject(modVoucher.oVoucherRow.Item("so_lien"))
+                Dim table As DataTable = clsprint.InitComboReport(modVoucher.sysConn, print.cboReports, "ISTran_Label")
+                Dim result As DialogResult = print.ShowDialog
+                If (result <> DialogResult.Cancel) Then
+                    Dim selectedIndex As Integer = print.cboReports.SelectedIndex
+                    Dim strFile As String = StringType.FromObject(ObjectType.AddObj(ObjectType.AddObj(Reg.GetRegistryKey("ReportDir"), Strings.Trim(StringType.FromObject(table.Rows.Item(selectedIndex).Item("rep_file")))), ".rpt"))
+                    Dim ds As New DataSet
+                    Dim tcSQL As String = "EXEC spPrintISTran_Label "
+                    tcSQL += "'" + modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "'"
+                    Sql.SQLDecompressRetrieve((modVoucher.appConn), tcSQL, "cttmp", (ds))
+                    'ds.WriteXmlSchema("D:\LocalCustomer\Uspharma4.0\Rpt\inctpxa_label.xsd")
+                    Dim _clsprint As New clsprint(Me, strFile, Nothing)
+                    'clsprint.oRpt.SetParameterValue("form", Form)
+                    _clsprint.oRpt.SetDataSource(ds)
 
-                clsprint.ShowReports()
-                clsprint.oRpt.Close()
-                ds = Nothing
+                    _clsprint.ShowReports()
+                    _clsprint.oRpt.Close()
+                    ds = Nothing
+                End If
             End If
         End Sub
-        Private Sub PrintLabel2()
-            If Not Fox.InList(oVoucher.cAction, New Object() {"New", "Edit"}) Then
-                Dim strFile As String = Reg.GetRegistryKey("ReportDir") + "inctpxa_label2.rpt"
-                Dim view As New DataView
-                Dim ds As New DataSet
-                Dim tcSQL As String = "EXEC spPrintISTran_Label "
-                tcSQL += "'" + modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "'"
-                Sql.SQLDecompressRetrieve((modVoucher.appConn), tcSQL, "cttmp", (ds))
-                'ds.WriteXmlSchema("D:\LocalCustomer\Uspharma4.0\Rpt\inctpxa_label.xsd")
-                Dim clsprint As New clsprint(Me, strFile, Nothing)
-                'clsprint.oRpt.SetParameterValue("form", Form)
-                clsprint.oRpt.SetDataSource(ds)
+        'Private Sub PrintLabel2()
+        '    If Not Fox.InList(oVoucher.cAction, New Object() {"New", "Edit"}) Then
+        '        Dim strFile As String = Reg.GetRegistryKey("ReportDir") + "inctpxa_label2.rpt"
+        '        Dim view As New DataView
+        '        Dim ds As New DataSet
+        '        Dim tcSQL As String = "EXEC spPrintISTran_Label "
+        '        tcSQL += "'" + modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "'"
+        '        Sql.SQLDecompressRetrieve((modVoucher.appConn), tcSQL, "cttmp", (ds))
+        '        'ds.WriteXmlSchema("D:\LocalCustomer\Uspharma4.0\Rpt\inctpxa_label.xsd")
+        '        Dim clsprint As New clsprint(Me, strFile, Nothing)
+        '        'clsprint.oRpt.SetParameterValue("form", Form)
+        '        clsprint.oRpt.SetDataSource(ds)
 
-                clsprint.ShowReports()
-                clsprint.oRpt.Close()
-                ds = Nothing
-            End If
-        End Sub
+        '        clsprint.ShowReports()
+        '        clsprint.oRpt.Close()
+        '        ds = Nothing
+        '    End If
+        'End Sub
 
         ' Properties
         Friend WithEvents cboAction As ComboBox
