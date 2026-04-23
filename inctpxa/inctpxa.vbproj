@@ -90,9 +90,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="libscommon">
-      <HintPath>..\..\..\..\Libs\DEMO4.0\libscommon.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic">
       <Name>Microsoft.VisualBasic</Name>
     </Reference>
@@ -193,6 +190,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Source_Standard\libscommon\libscommon.vbproj">
+      <Project>{d6d80bc1-c4ee-4681-b9e4-58697f03079c}</Project>
+      <Name>libscommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Source_Standard\libscontrol\libscontrol.vbproj">
       <Project>{33fcc781-238d-47cd-9294-6c873f308253}</Project>
       <Name>libscontrol</Name>

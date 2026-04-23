@@ -154,70 +154,68 @@ Public Class frmVoucher
                 str4 = ("stt_rec = '" & Strings.Replace(StringType.FromObject(modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec")), modVoucher.VoucherCode, "PNF", 1, -1, CompareMethod.Binary) & "'")
             End If
             Dim cIssue As String = Strings.Trim(StringType.FromObject(modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec")))
-                Dim num2 As Integer = (modVoucher.tblDetail.Count - 1)
-                num = num2
-                Do While (num >= 0)
-                    If Not Information.IsDBNull(RuntimeHelpers.GetObjectValue(modVoucher.tblDetail.Item(num).Item("stt_rec"))) Then
-                        If (ObjectType.ObjTst(Strings.Trim(StringType.FromObject(modVoucher.tblDetail.Item(num).Item("stt_rec"))), modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec"), False) = 0) Then
-                            modVoucher.tblDetail.Item(num).Delete()
-                        End If
-                    Else
+            Dim num2 As Integer = (modVoucher.tblDetail.Count - 1)
+            num = num2
+            Do While (num >= 0)
+                If Not Information.IsDBNull(RuntimeHelpers.GetObjectValue(modVoucher.tblDetail.Item(num).Item("stt_rec"))) Then
+                    If (ObjectType.ObjTst(Strings.Trim(StringType.FromObject(modVoucher.tblDetail.Item(num).Item("stt_rec"))), modVoucher.tblMaster.Item(Me.iMasterRow).Item("stt_rec"), False) = 0) Then
                         modVoucher.tblDetail.Item(num).Delete()
                     End If
-                    num = (num + -1)
-                Loop
-                If VoucherCode = "PXI" Then
-                    str6 = "ct70dk"
-                    str5 = ""
                 Else
-                    If (ObjectType.ObjTst(modVoucher.oVar.Item("m_pack_yn"), 0, False) = 0) Then
-                        str6 = ("ct00, ct70")
-                        str5 = ""
-                    Else
-                        str6 = String.Concat(New String() {Strings.Trim(StringType.FromObject(modVoucher.oVoucherRow.Item("m_phdbf"))), ", ct00, ct70, ", Strings.Trim(StringType.FromObject(modVoucher.oOption.Item("m_gl_detail"))), ", ", Strings.Trim(StringType.FromObject(modVoucher.oOption.Item("m_gl_master")))})
-                        str5 = GenSQLDelete(Strings.Trim(StringType.FromObject(modVoucher.oVoucherRow.Item("m_ctdbf"))), cKey)
-                    End If
+                    modVoucher.tblDetail.Item(num).Delete()
                 End If
-
-                Dim num4 As Integer = IntegerType.FromObject(Fox.GetWordCount(str6, ","c))
-                num = 1
-                Do While (num <= num4)
-                    str = Strings.Trim(Fox.GetWordNum(str6, num, ","c))
-                    str5 = (str5 & ChrW(13) & GenSQLDelete(str, cKey))
-                    num += 1
-                Loop
-                If VoucherCode <> "PXI" Then
-                    str6 = "ct70"
+                num = (num + -1)
+            Loop
+            str5 = ""
+            If VoucherCode = "PXI" Then
+                str6 = "ct70dk"
+            Else
+                str6 = "ct00, ct70"
+                If modVoucher.tblMaster.Item(Me.iMasterRow).Item("ma_dvcs").ToString.Trim = "KHO" Then
+                    str6 += ", ct70plan"
                 End If
-                Dim num3 As Integer = IntegerType.FromObject(Fox.GetWordCount(str6, ","c))
-                num = 1
-                Do While (num <= num3)
-                    str = Strings.Trim(Fox.GetWordNum(str6, num, ","c))
-                    str5 = (str5 & ChrW(13) & GenSQLDelete(str, str4))
-                    num += 1
-                Loop
-                modVoucher.tblMaster.Item(Me.iMasterRow).Delete()
-                If (Me.iMasterRow > 0) Then
-                    Me.iMasterRow -= 1
-                ElseIf (modVoucher.tblMaster.Count = 0) Then
-                    Me.iMasterRow = -1
+                If (ObjectType.ObjTst(modVoucher.oVar.Item("m_pack_yn"), 0, False) <> 0) Then
+                    str6 += "," + modVoucher.oVoucherRow.Item("m_phdbf").ToString.Trim
                 End If
-                If (Me.iMasterRow = -1) Then
-                    ScatterMemvarBlank(Me)
-                    oVoucher.cAction = "Start"
-                    Dim obj2 As Object = "stt_rec = ''"
-                    modVoucher.tblDetail.RowFilter = StringType.FromObject(obj2)
-                Else
-                    oVoucher.cAction = "View"
-                    Me.RefrehForm()
-                End If
-                If (ObjectType.ObjTst(modVoucher.oVar.Item("m_pack_yn"), 0, False) = 0) Then
-                    str5 = ((String.Concat(New String() {str5, ChrW(13), "UPDATE ", Strings.Trim(StringType.FromObject(modVoucher.oVoucherRow.Item("m_phdbf"))), " SET Status = '*'"}) & ", datetime2 = GETDATE(), user_id2 = " & StringType.FromObject(Reg.GetRegistryKey("CurrUserId"))) & "  WHERE " & cKey)
-                End If
-                Me.BeforUpdateTransfer(cIssue)
-                Sql.SQLExecute((modVoucher.appConn), str5)
-                Me.pnContent.Text = ""
             End If
+
+            Dim num4 As Integer = IntegerType.FromObject(Fox.GetWordCount(str6, ","c))
+            num = 1
+            Do While (num <= num4)
+                str = Strings.Trim(Fox.GetWordNum(str6, num, ","c))
+                str5 = (str5 & ChrW(13) & GenSQLDelete(str, cKey))
+                If str.Trim = "ct70" Or str.Trim = "ct70plan" Or str.Trim = "ct70dk" Then
+                    str5 += ChrW(13) & GenSQLDelete(str, str4)
+                End If
+                num += 1
+            Loop
+
+            If (ObjectType.ObjTst(modVoucher.oVar.Item("m_pack_yn"), 0, False) <> 0) Then
+                str5 += ChrW(13) + GenSQLDelete(modVoucher.oVoucherRow.Item("m_ctdbf").ToString.Trim, cKey)
+            End If
+
+            modVoucher.tblMaster.Item(Me.iMasterRow).Delete()
+            If (Me.iMasterRow > 0) Then
+                Me.iMasterRow -= 1
+            ElseIf (modVoucher.tblMaster.Count = 0) Then
+                Me.iMasterRow = -1
+            End If
+            If (Me.iMasterRow = -1) Then
+                ScatterMemvarBlank(Me)
+                oVoucher.cAction = "Start"
+                Dim obj2 As Object = "stt_rec = ''"
+                modVoucher.tblDetail.RowFilter = StringType.FromObject(obj2)
+            Else
+                oVoucher.cAction = "View"
+                Me.RefrehForm()
+            End If
+            If (ObjectType.ObjTst(modVoucher.oVar.Item("m_pack_yn"), 0, False) = 0) Then
+                str5 = ((String.Concat(New String() {str5, ChrW(13), "UPDATE ", Strings.Trim(StringType.FromObject(modVoucher.oVoucherRow.Item("m_phdbf"))), " SET Status = '*'"}) & ", datetime2 = GETDATE(), user_id2 = " & StringType.FromObject(Reg.GetRegistryKey("CurrUserId"))) & "  WHERE " & cKey)
+            End If
+            Me.BeforUpdateTransfer(cIssue)
+            Sql.SQLExecute((modVoucher.appConn), str5)
+            Me.pnContent.Text = ""
+        End If
     End Sub
 
     Private Sub DeleteItem(ByVal sender As Object, ByVal e As EventArgs)
