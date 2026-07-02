@@ -443,7 +443,7 @@ Namespace inctpnd
             Me.oUOM = New VoucherKeyCheckLibObj(Me.colDvt, "ten_dvt", modVoucher.sysConn, modVoucher.appConn, "vdmvtqddvt", "dvt", "ten_dvt", "UOMItem", "1=1", modVoucher.tblDetail, Me.pnContent, True, Me.cmdEdit)
             Me.oUOM.Cancel = True
             Me.colDvt.TextBox.CharacterCasing = CharacterCasing.Normal
-            Me.oMO = New VoucherKeyLibObj(Me.colSo_lsx, "ten_lo", modVoucher.sysConn, modVoucher.appConn, "phlsx", "so_lsx", "dien_giai", "MONumber", "1=1", modVoucher.tblDetail, Me.pnContent, True, Me.cmdEdit)
+            Me.oMO = New VoucherKeyLibObj(Me.colSo_lsx, "ten_lo", modVoucher.sysConn, modVoucher.appConn, "phlsx", "so_lsx", "ten_lsx", "MONumber", "1=1", modVoucher.tblDetail, Me.pnContent, True, Me.cmdEdit)
             AddHandler Me.colMa_kho.TextBox.Enter, New EventHandler(AddressOf Me.WhenSiteEnter)
             AddHandler Me.colMa_kho.TextBox.Validated, New EventHandler(AddressOf Me.WhenSiteLeave)
             AddHandler Me.colMa_vi_tri.TextBox.Move, New EventHandler(AddressOf Me.WhenLocationEnter)
