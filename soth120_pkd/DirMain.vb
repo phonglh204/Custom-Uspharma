@@ -89,6 +89,7 @@ Module DirMain
         Select Case nIndex
             Case 0
                 DirMain.oDirFormLib.GetClsreports.GetGrid.GetForm.Text = Strings.Trim(DirMain.oDirFormLib.GetClsreports.GetGrid.GetForm.Text)
+                DirMain.oDirFormLib.GetClsreports.GetGrid.GetGrid
                 Exit Select
             Case 1
                 If Not Information.IsNothing(DirMain.oDirFormLib.GetClsreports.GetGrid.CurDataRow) Then
