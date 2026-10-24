@@ -90,7 +90,7 @@ Module DirMain
 
     Public Sub ShowReport()
         Dim str As String = ""
-        str += "EXEC fs_SORecvTransList" + DirMain.oxInv.xStore
+        str += "EXEC fs_SORecvTransList_pkd" + DirMain.oxInv.xStore
         str += Sql.ConvertVS2SQLType(DirMain.fPrint.txtDFrom.Value, "")
         str += ", " + Sql.ConvertVS2SQLType(DirMain.fPrint.txtDTo.Value, "")
         str += ", " + Sql.ConvertVS2SQLType(DirMain.fPrint.txtMa_nvbh.Text, "")
