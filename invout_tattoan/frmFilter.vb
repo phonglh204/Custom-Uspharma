@@ -82,7 +82,7 @@ Namespace v20artthd
             Me.txtDTo.Value = DateType.FromObject(Reg.GetRegistryKey("DFDTo"))
             Me.txtDReport.Value = DateAndTime.Today
             Me.txtType.Text = "0"
-            Me.txtTao_bt_yn.Text = "1"
+            Me.txtTao_bt_yn.Text = "0"
             Me.txtNgay_tt.Value = DateTime.Now.Date
             Me.txtDReport.Value = Me.txtNgay_tt.Value
         End Sub
@@ -103,6 +103,7 @@ Private Sub InitializeComponent()
             Me.cmdCancel = New System.Windows.Forms.Button()
             Me.tabReports = New System.Windows.Forms.TabControl()
             Me.tbgFilter = New System.Windows.Forms.TabPage()
+            Me.txtNgay_tt = New libscontrol.txtDate()
             Me.Label7 = New System.Windows.Forms.Label()
             Me.txtTao_bt_yn = New System.Windows.Forms.TextBox()
             Me.Label10 = New System.Windows.Forms.Label()
@@ -152,7 +153,6 @@ Private Sub InitializeComponent()
             Me.tbgOther = New System.Windows.Forms.TabPage()
             Me.lblTitle = New System.Windows.Forms.Label()
             Me.txtTitle = New System.Windows.Forms.TextBox()
-            Me.txtNgay_tt = New libscontrol.txtDate()
             Me.tabReports.SuspendLayout()
             Me.tbgFilter.SuspendLayout()
             Me.tbgFree.SuspendLayout()
@@ -191,7 +191,7 @@ Private Sub InitializeComponent()
             'cmdOk
             '
             Me.cmdOk.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-            Me.cmdOk.Location = New System.Drawing.Point(5, 366)
+            Me.cmdOk.Location = New System.Drawing.Point(5, 549)
             Me.cmdOk.Name = "cmdOk"
             Me.cmdOk.Size = New System.Drawing.Size(120, 34)
             Me.cmdOk.TabIndex = 1
@@ -201,7 +201,7 @@ Private Sub InitializeComponent()
             'cmdCancel
             '
             Me.cmdCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-            Me.cmdCancel.Location = New System.Drawing.Point(126, 366)
+            Me.cmdCancel.Location = New System.Drawing.Point(126, 549)
             Me.cmdCancel.Name = "cmdCancel"
             Me.cmdCancel.Size = New System.Drawing.Size(120, 34)
             Me.cmdCancel.TabIndex = 2
@@ -220,7 +220,7 @@ Private Sub InitializeComponent()
             Me.tabReports.Location = New System.Drawing.Point(-3, 0)
             Me.tabReports.Name = "tabReports"
             Me.tabReports.SelectedIndex = 0
-            Me.tabReports.Size = New System.Drawing.Size(609, 348)
+            Me.tabReports.Size = New System.Drawing.Size(767, 531)
             Me.tabReports.TabIndex = 0
             Me.tabReports.Tag = ""
             '
@@ -267,10 +267,22 @@ Private Sub InitializeComponent()
             Me.tbgFilter.Controls.Add(Me.cboReports)
             Me.tbgFilter.Location = New System.Drawing.Point(4, 29)
             Me.tbgFilter.Name = "tbgFilter"
-            Me.tbgFilter.Size = New System.Drawing.Size(601, 315)
+            Me.tbgFilter.Size = New System.Drawing.Size(759, 498)
             Me.tbgFilter.TabIndex = 0
             Me.tbgFilter.Tag = "L100"
             Me.tbgFilter.Text = "Dieu kien loc"
+            '
+            'txtNgay_tt
+            '
+            Me.txtNgay_tt.Location = New System.Drawing.Point(256, 21)
+            Me.txtNgay_tt.MaxLength = 10
+            Me.txtNgay_tt.Name = "txtNgay_tt"
+            Me.txtNgay_tt.Size = New System.Drawing.Size(160, 26)
+            Me.txtNgay_tt.TabIndex = 0
+            Me.txtNgay_tt.Tag = "NB"
+            Me.txtNgay_tt.Text = "  /  /    "
+            Me.txtNgay_tt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+            Me.txtNgay_tt.Value = New Date(CType(0, Long))
             '
             'Label7
             '
@@ -641,7 +653,7 @@ Private Sub InitializeComponent()
             Me.tbgFree.Controls.Add(Me.lblTen_td1)
             Me.tbgFree.Location = New System.Drawing.Point(4, 29)
             Me.tbgFree.Name = "tbgFree"
-            Me.tbgFree.Size = New System.Drawing.Size(966, 522)
+            Me.tbgFree.Size = New System.Drawing.Size(601, 315)
             Me.tbgFree.TabIndex = 2
             Me.tbgFree.Tag = "FreeReportCaption"
             Me.tbgFree.Text = "Dieu kien ma tu do"
@@ -740,7 +752,7 @@ Private Sub InitializeComponent()
             '
             Me.tbgOptions.Location = New System.Drawing.Point(4, 29)
             Me.tbgOptions.Name = "tbgOptions"
-            Me.tbgOptions.Size = New System.Drawing.Size(966, 522)
+            Me.tbgOptions.Size = New System.Drawing.Size(601, 315)
             Me.tbgOptions.TabIndex = 1
             Me.tbgOptions.Tag = "L200"
             Me.tbgOptions.Text = "Lua chon"
@@ -749,15 +761,16 @@ Private Sub InitializeComponent()
             '
             Me.tbgOther.Location = New System.Drawing.Point(4, 29)
             Me.tbgOther.Name = "tbgOther"
-            Me.tbgOther.Size = New System.Drawing.Size(966, 522)
+            Me.tbgOther.Size = New System.Drawing.Size(601, 315)
             Me.tbgOther.TabIndex = 3
             Me.tbgOther.Tag = "FreeReportOther"
             Me.tbgOther.Text = "Dieu kien khac"
             '
             'lblTitle
             '
+            Me.lblTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
             Me.lblTitle.AutoSize = True
-            Me.lblTitle.Location = New System.Drawing.Point(256, 526)
+            Me.lblTitle.Location = New System.Drawing.Point(322, 563)
             Me.lblTitle.Name = "lblTitle"
             Me.lblTitle.Size = New System.Drawing.Size(61, 20)
             Me.lblTitle.TabIndex = 3
@@ -767,30 +780,19 @@ Private Sub InitializeComponent()
             '
             'txtTitle
             '
-            Me.txtTitle.Location = New System.Drawing.Point(486, 526)
+            Me.txtTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Me.txtTitle.Location = New System.Drawing.Point(399, 560)
             Me.txtTitle.Name = "txtTitle"
-            Me.txtTitle.Size = New System.Drawing.Size(480, 26)
+            Me.txtTitle.Size = New System.Drawing.Size(184, 26)
             Me.txtTitle.TabIndex = 4
             Me.txtTitle.Tag = "NB"
             Me.txtTitle.Text = "txtTieu_de"
             Me.txtTitle.Visible = False
             '
-            'txtNgay_tt
-            '
-            Me.txtNgay_tt.Location = New System.Drawing.Point(256, 21)
-            Me.txtNgay_tt.MaxLength = 10
-            Me.txtNgay_tt.Name = "txtNgay_tt"
-            Me.txtNgay_tt.Size = New System.Drawing.Size(160, 26)
-            Me.txtNgay_tt.TabIndex = 0
-            Me.txtNgay_tt.Tag = "NB"
-            Me.txtNgay_tt.Text = "  /  /    "
-            Me.txtNgay_tt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-            Me.txtNgay_tt.Value = New Date(CType(0, Long))
-            '
             'frmFilter
             '
             Me.AutoScaleBaseSize = New System.Drawing.Size(8, 19)
-            Me.ClientSize = New System.Drawing.Size(608, 449)
+            Me.ClientSize = New System.Drawing.Size(766, 632)
             Me.Controls.Add(Me.tabReports)
             Me.Controls.Add(Me.cmdCancel)
             Me.Controls.Add(Me.cmdOk)
