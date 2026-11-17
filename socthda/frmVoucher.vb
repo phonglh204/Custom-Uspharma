@@ -4842,10 +4842,10 @@ Public Class frmVoucher
             If Sql.GetValue(appConn, "taxvcno", "vcidchar", "(vcidchar='" + tblMaster.Item(Me.iMasterRow).Item("stt_rec") + "') and status <> 0 and status <> 1") IsNot Nothing Then
                 Dim isEqual As Boolean = True
                 Dim strAlert As String = ""
-                If modVoucher.tblMaster(Me.iOldMasterRow).Row.Item("t_tien_nt2") <> Me.txtT_tien_nt2.Value Then
+                If modVoucher.tblMaster(Me.iOldMasterRow).Row.Item("t_tien_nt2") <> Me.txtT_tc_tien_nt2.Value Then
                     isEqual = False
                     strAlert += "Bị lệch tiền hàng với hóa đơn đã phát hành"
-                ElseIf modVoucher.tblMaster(Me.iOldMasterRow).Row.Item("t_thue_nt") <> Me.txtT_thue_nt.Value Then
+                ElseIf modVoucher.tblMaster(Me.iOldMasterRow).Row.Item("t_thue_nt") <> Me.txtT_tc_thue_nt.Value Then
                     isEqual = False
                     strAlert += "Bị lệch tiền thuế với hóa đơn đã phát hành"
                 End If
